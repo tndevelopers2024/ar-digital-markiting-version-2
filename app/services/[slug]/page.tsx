@@ -1,18 +1,20 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { config, servicePages } from "@/lib/config";
+import { config, servicePages, siteFeatures } from "@/lib/config";
 import { Button, Arrow } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
 import { serviceExperiences } from "@/components/services/ServiceExperience";
 type Props = { params: Promise<{slug:string}> };
-export function generateStaticParams() { return servicePages.map(service=>({slug:service.slug})); }
+export function generateStaticParams() { return siteFeatures.servicePages ? servicePages.map(service=>({slug:service.slug})) : []; }
 export const dynamicParams = false;
 export async function generateMetadata({params}:Props):Promise<Metadata> {
+  if (!siteFeatures.servicePages) notFound();
   const {slug}=await params; const service=servicePages.find(item=>item.slug===slug); if(!service) notFound();
   return {title:`${service.name} | ${config.name}`,description:service.description,alternates:{canonical:`/services/${slug}`},openGraph:{title:`${service.name} | ${config.name}`,description:service.description,url:`/services/${slug}`},twitter:{card:"summary_large_image",title:`${service.name} | ${config.name}`,description:service.description}};
 }
 export default async function ServicePage({params}:Props) {
+  if (!siteFeatures.servicePages) notFound();
   const {slug}=await params; const service=servicePages.find(item=>item.slug===slug); if(!service) notFound();
   const experience=serviceExperiences[service.slug];
   const {Artwork,Content}=experience;

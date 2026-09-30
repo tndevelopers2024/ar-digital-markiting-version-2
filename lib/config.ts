@@ -1,3 +1,6 @@
+// Temporarily hidden; set true to restore the service directory and detail pages.
+export const siteFeatures = { servicePages: false };
+
 export const config = {
   "name": "AR Digital Marketing",
   "url": "https://ar-marketing.example",
