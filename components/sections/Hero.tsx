@@ -18,7 +18,6 @@ export function Hero() {
   const hero = config.hero;
   return <section id="hero" ref={ref} className="hero section-container" aria-labelledby="hero-heading">
     <div className="hero-copy">
-      <div className="eyebrow hero-enter"><span className="status-dot"/>{hero.eyebrow}</div>
       <h1 id="hero-heading">{hero.lines.map((line, i) => <span className={`hero-line ${i === 2 ? "accent-line" : ""}`} key={line}><span>{line}{i === 1 && <span className="headline-spark" aria-hidden="true">✳</span>}</span></span>)}</h1>
       <p className="hero-description hero-enter">{hero.description}</p>
       <div className="hero-actions hero-enter"><Button href={hero.primary.href}>{hero.primary.label}</Button><a href={hero.secondary.href} className="text-link">{hero.secondary.label}<Arrow/></a></div>
@@ -29,6 +28,6 @@ export function Hero() {
       <div className="stat-chip creative-chip"><span className="spark-icon">✳</span><div><strong>{hero.chipTwo.value}</strong><span className="chip-note">{hero.chipTwo.note}</span></div></div>
       <span className="orbit-caption">{hero.orbitLabel}<span>↗</span></span>
     </div>
-    <div className="hero-bottom hero-enter"><a href="#trusted" className="scroll-link"><span className="scroll-circle">↓</span>{hero.scroll}</a><span>{hero.bottomRight}</span></div>
+    <div className="hero-bottom hero-enter"><a href="#about" className="scroll-link"><span className="scroll-circle">↓</span>{hero.scroll}</a><span>{hero.bottomRight}</span></div>
   </section>;
 }

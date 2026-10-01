@@ -1,0 +1,4 @@
+import Image from "next/image";
+import Link from "next/link";
+import { blogSlugs, config, blogCardImages } from "@/lib/config";
+export function BlogCards({exclude}:{exclude?:string}) {return <div className="blog-list-grid">{config.insights.items.map((post,i)=>blogSlugs[i]===exclude?null:<article key={post.title}><Link data-cursor="Read" href={`/blogs/${blogSlugs[i]}`}>{!exclude && <div className="listing-photo blog-listing-photo"><Image src={blogCardImages[i].src} alt={blogCardImages[i].alt} fill sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"/></div>}<div className="blog-card-copy"><p className="insight-meta"><span>{post.category}</span><span>2 MIN READ</span></p><h2>{post.title}</h2><p>{post.summary}</p><span className="inner-text-link">Read blog ↗</span></div></Link></article>)}</div>}

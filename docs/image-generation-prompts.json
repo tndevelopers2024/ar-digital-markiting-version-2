@@ -1,0 +1,46 @@
+{
+  "generator": "Built-in image_gen",
+  "style": "Photorealistic, landscape, warm daylight, subtle red and blue accents, no text overlays or logos",
+  "entries": [
+    {
+      "key": "blog-conversion",
+      "subject": "A small business owner reviewing an elegant online appointment booking website on a large monitor, hand on mouse, over shoulder close shot, sunlit workspace with terracotta accents.",
+      "source": "/Users/mohan/.codex/generated_images/01a0f13b-189d-7b12-be32-a307e0c284b7/exec-bbfb8ccb-50d8-43c1-a53c-bd3b999d615e.png"
+    },
+    {
+      "key": "blog-brand",
+      "subject": "Overhead brand identity stationery flat lay: cobalt blue business cards, red geometric printed letterhead, cream envelope, typography swatches and textured paper, meticulously arranged.",
+      "source": "/Users/mohan/.codex/generated_images/01a0f13b-189d-7b12-be32-a307e0c284b7/exec-0c9e8348-c585-42d8-bb7c-42eea1b60f83.png"
+    },
+    {
+      "key": "blog-metrics",
+      "subject": "Close angled view of a marketing analyst's desk with tablet displaying simple blue and red line charts, printed performance sheets and a pencil, bright natural light.",
+      "source": "/Users/mohan/.codex/generated_images/01a0f13b-189d-7b12-be32-a307e0c284b7/exec-07c03914-8618-4a7c-89c3-bb18dfb28101.png"
+    },
+    {
+      "key": "gallery-seo",
+      "subject": "Search marketing specialist researching keywords on widescreen monitor in bright studio, side profile, open notebook with research notes, blue accents.",
+      "source": "/Users/mohan/.codex/generated_images/01a0f13b-189d-7b12-be32-a307e0c284b7/exec-d9cc8bc5-8d79-4320-8cdc-ae205a20a3d5.png"
+    },
+    {
+      "key": "gallery-paid",
+      "subject": "Photographic advertising production for a red sports shoe on pale blue studio blocks, camera on tripod and softbox visible, commercial campaign scene.",
+      "source": "/Users/mohan/.codex/generated_images/01a0f13b-189d-7b12-be32-a307e0c284b7/exec-7331bf6d-6edc-49cc-ae0d-ad83b762a32e.png"
+    },
+    {
+      "key": "gallery-social",
+      "subject": "Content creator filming a colorful cafe drink with a smartphone on compact tripod, daylight cafe table, hands arranging composition.",
+      "source": "/Users/mohan/.codex/generated_images/01a0f13b-189d-7b12-be32-a307e0c284b7/exec-701db68d-05a1-42d5-a377-5fd5a2e6397a.png"
+    },
+    {
+      "key": "gallery-local",
+      "subject": "Welcoming contemporary local flower shop storefront on an Indian city street, owner arranging bouquets near doorway, sunlit cream facade, no legible signs.",
+      "source": "/Users/mohan/.codex/generated_images/01a0f13b-189d-7b12-be32-a307e0c284b7/exec-9749bdc7-1d5b-4e3c-8ad0-4a69a4ee5ced.png"
+    },
+    {
+      "key": "gallery-retention",
+      "subject": "Small ecommerce business packing a repeat customer's order with handwritten thank-you card, kraft boxes, blue tissue paper, red ribbon, close-up hands.",
+      "source": "/Users/mohan/.codex/generated_images/01a0f13b-189d-7b12-be32-a307e0c284b7/exec-3341b33d-7e97-4f10-9cdd-2d24940df469.png"
+    }
+  ]
+}

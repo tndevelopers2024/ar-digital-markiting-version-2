@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "source": "https://static.xx.fbcdn.net/rsrc.php/yf/r/-7pQO6hUGK_.svg",
+    "file": "meta.svg"
+  },
+  "semrush": {
+    "source": "https://www.semrush.com/__static__/favicon.37cab19e6995.svg",
+    "file": "semrush.svg"
+  },
+  "ahrefs": {
+    "source": "https://static.ahrefs.com/favicon.svg?v=2",
+    "file": "ahrefs.svg"
+  },
+  "shopify": {
+    "source": "https://cdn.shopify.com/b/shopify-brochure2-assets/c97c60ca19c64a8b5378d9f9e971f7bd.png",
+    "file": "shopify-hd.png"
+  },
+  "webflow": {
+    "source": "https://cdn.prod.website-files.com/686294e263eb7e215bd232f7/686d53d0446d4237b2f38c5f_webclip.png",
+    "file": "webflow.png"
+  },
+  "wordpress": {
+    "source": "https://s.w.org/images/wmark.png",
+    "file": "wordpress.png"
+  },
+  "figma": {
+    "source": "https://static.figma.com/app/icon/2/favicon.svg",
+    "file": "figma.svg"
+  },
+  "hubspot": {
+    "source": "https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png",
+    "file": "hubspot.png"
+  },
+  "mailchimp": {
+    "source": "https://mailchimp.com/release/plums/a9c5b58dea3269f6.svg",
+    "file": "mailchimp.svg"
+  },
+  "looker-studio": {
+    "source": "https://www.gstatic.com/analytics-lego/svg/favicon_data_studio.png",
+    "file": "looker-studio.png"
+  },
+  "google-ads": {
+    "source": "https://www.gstatic.com/images/branding/productlogos/ads/v5/192px.svg",
+    "file": "google-ads.svg"
+  },
+  "google-analytics": {
+    "source": "https://www.gstatic.com/images/branding/productlogos/google_analytics/v6/192px.svg",
+    "file": "google-analytics.svg"
+  }
+}

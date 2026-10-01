@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-export function ServiceHeading({label,title,children}:{label:string;title:string;children?:ReactNode}) {
- return <div className="bespoke-heading"><p className="eyebrow"><span className="status-dot"/>{label}</p><h2>{title}</h2>{children && <p>{children}</p>}</div>;
+export function ServiceHeading({title,children}:{label?:string;title:string;children?:ReactNode}) {
+ return <div className="bespoke-heading"><h2>{title}</h2>{children && <p>{children}</p>}</div>;
 }
 export function WindowBar({title}:{title:string}) { return <div className="demo-window-bar"><span className="demo-dots"><i/><i/><i/></span><span>{title}</span><span aria-hidden="true">↗</span></div>; }
 export function MiniLabel({children}:{children:ReactNode}) { return <span className="demo-label">{children}</span>; }

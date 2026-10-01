@@ -7,11 +7,12 @@ export function Loader() {
   const ref = useRef<HTMLDivElement>(null);
   const number = useRef<HTMLSpanElement>(null);
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || sessionStorage.getItem("ar-intro")) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    try { if (sessionStorage.getItem("ar-intro")) return; } catch { return; }
     const ctx = gsap.context(() => {
       const progress = { value: 0 };
       gsap.set(ref.current, { display: "flex", yPercent: 0 });
-      gsap.timeline({ onComplete: () => { sessionStorage.setItem("ar-intro", "seen"); } })
+      gsap.timeline({ onComplete: () => { try { sessionStorage.setItem("ar-intro", "seen"); } catch {} } })
         .to(progress, { value: 100, duration: motion.slow, ease: motion.ease, onUpdate: () => { if (number.current) number.current.textContent = Math.round(progress.value).toString().padStart(2, "0"); } })
         .to(ref.current, { yPercent: -100, duration: motion.slow, ease: motion.ease }, "+=0.08")
         .set(ref.current, { display: "none" });

@@ -12,7 +12,7 @@ class CanvasBoundary extends Component<{ children: ReactNode }, { failed: boolea
   static getDerivedStateFromError() { return { failed: true }; }
   render() { return this.state.failed ? null : this.props.children; }
 }
-export default function Scene() {
+export default function Scene({ variant = "home" }: { variant?: "home" | "inner" }) {
   const mobile = useIsMobile();
   const state = useRef<SceneState>({ ...config.scene[0] });
   const [visible, setVisible] = useState(true);
@@ -22,6 +22,30 @@ export default function Scene() {
     return () => document.removeEventListener("visibilitychange", onVisibility);
   }, []);
   useEffect(() => {
+    if (variant === "inner") {
+      const hero = document.querySelector<HTMLElement>(".signature-intro, .inner-intro, .service-page-hero");
+      const cta = document.querySelector<HTMLElement>(".service-page-cta");
+      const signature = !!document.querySelector(".signature-intro");
+      const driver = {progress: 0};
+      function update() {
+        const heroBottom = hero?.getBoundingClientRect().bottom ?? 0;
+        const heroVisibility = Math.max(0, Math.min(1, heroBottom / window.innerHeight));
+        const ctaTop = cta?.getBoundingClientRect().top ?? window.innerHeight * 2;
+        const ending = Math.max(0, Math.min(1, 1 - ctaTop / window.innerHeight));
+        Object.assign(state.current, {
+          x: 2.65 * (1 - ending), y: -.05 + ending * .35,
+          scale: .82 - driver.progress * .12 + ending * .15,
+          rotation: driver.progress * 2.4, morph: .1 + driver.progress * .08,
+          color: driver.progress * .5,
+          opacity: Math.max(signature ? heroVisibility * .9 : heroVisibility * .12, ending * .12), cameraZ: 8.2,
+        });
+      }
+      const ctx = gsap.context(() => {
+        update();
+        gsap.to(driver, { progress: 1, ease: "none", onUpdate: update, scrollTrigger: { start: 0, end: "max", scrub: .64, onRefresh: update } });
+      });
+      return () => ctx.revert();
+    }
     if (mobile) {
       const art = document.querySelector<HTMLElement>(".hero-art");
       const update = () => {
@@ -77,10 +101,10 @@ export default function Scene() {
       gsap.to(driver, { progress: 1, ease: "none", onUpdate: render, scrollTrigger: { start: 0, end: "max", scrub: 1.12, onRefresh: measure } });
     });
     return () => ctx.revert();
-  }, [mobile]);
+  }, [mobile, variant]);
   return <div className="scene" aria-hidden="true"><CanvasBoundary><Canvas camera={{ position: [0, 0, 8.2], fov: 38 }} dpr={[1, mobile ? 1.25 : 1.75]} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }} frameloop={visible ? "always" : "never"} eventSource={typeof document !== "undefined" ? document.body : undefined} eventPrefix="client">
     <ambientLight intensity={1.5}/><directionalLight position={[-3, 5, 5]} intensity={3} color="#fff4f4"/>
     <HeroObject state={state} mobile={mobile}/><CameraRig state={state} mobile={mobile}/>
-    {!mobile && <ContactShadows position={[2.15, -2.1, 0]} opacity={0.14} scale={8} blur={3} far={5} resolution={128} frames={1} color="#91a6c2"/>}
+    {!mobile && variant === "home" && <ContactShadows position={[2.15, -2.1, 0]} opacity={0.14} scale={8} blur={3} far={5} resolution={128} frames={1} color="#91a6c2"/>}
   </Canvas></CanvasBoundary></div>;
 }

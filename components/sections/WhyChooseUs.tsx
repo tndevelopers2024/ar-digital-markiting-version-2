@@ -7,7 +7,7 @@ function Mark({ positive }: { positive: boolean }) {
 export function WhyChooseUs() {
   const data = config.comparison;
   return <Section id="why-us" className="comparison-section section-container batch-section">
-    <div className="centered-heading" data-reveal><p className="eyebrow"><span className="status-dot"/>{data.eyebrow}</p><h2 id="why-us-heading">{data.heading[0]}<br/><span>{data.heading[1]}</span></h2><p className="section-intro">{data.description}</p></div>
+    <div className="centered-heading" data-reveal><h2 id="why-us-heading">{data.heading[0]}<br/><span>{data.heading[1]}</span></h2><p className="section-intro">{data.description}</p></div>
     <div className="comparison-panel" data-reveal><table className="comparison-table"><caption className="sr-only">{data.agency} compared with {data.typical.toLowerCase()}</caption><thead><tr><th scope="col">{data.featureLabel}</th><th scope="col">{data.typical}</th><th scope="col"><Brand/><span className="sr-only">{data.agency}</span></th></tr></thead><tbody>{data.rows.map(row => <tr key={row.label}><th scope="row">{row.label}</th><td><span className="comparison-cell"><Mark positive={false}/><span>{row.typical}</span></span></td><td><span className="comparison-cell"><Mark positive/><span>{row.agency}</span></span></td></tr>)}</tbody></table><div className="comparison-footer"><span className="status-dot"/>{data.badge}<span aria-hidden="true">↗</span></div></div><p className="comparison-note">{data.note}</p>
   </Section>;
 }

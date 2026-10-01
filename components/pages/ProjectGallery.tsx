@@ -1,0 +1,7 @@
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { config, campaignCardImages } from "@/lib/config";
+const categories=[{label:"All campaigns",ids:[]},{label:"Search",ids:["seo","local"]},{label:"Paid ads",ids:["paid"]},{label:"Social & retention",ids:["social","retention"]}];
+export function ProjectGallery(){const [active,setActive]=useState(0);const items=config.work.projects.filter(project=>active===0||categories[active].ids.includes(project.id));return <section className="section-container project-gallery" aria-label="Campaign concepts"><div className="project-filters">{categories.map((category,i)=><button key={category.label} aria-pressed={active===i} onClick={()=>setActive(i)}>{category.label}</button>)}</div><p className="gallery-count" aria-live="polite">{items.length} campaign {items.length===1?'concept':'concepts'}</p><div className="project-gallery-grid">{items.map(project=><Link className="gallery-project" data-cursor="View" key={project.id} href={`/projects/${project.id}`}><div className="listing-photo campaign-listing-photo"><Image src={campaignCardImages[project.id].src} alt={campaignCardImages[project.id].alt} fill sizes="(max-width: 767px) 100vw, 50vw"/></div><div className="gallery-project-copy"><span>{project.category}</span><h2>{project.title}</h2><p>{project.challenge}</p><strong>Explore this campaign <span aria-hidden="true">↗</span></strong></div></Link>)}</div></section>}

@@ -1,35 +1,23 @@
-// Temporarily hidden; set true to restore the service directory and detail pages.
-export const siteFeatures = { servicePages: false };
+import { site } from "./site";
+// Controls visibility of the service directory and detail pages.
+export const siteFeatures = { servicePages: true };
 
 export const config = {
   "name": "AR Digital Marketing",
-  "url": "https://ar-marketing.example",
-  "email": "hello@ar-marketing.example",
+  "url": site.url,
+  "email": site.email,
   "title": "AR Digital Marketing — Ideas into digital impact.",
   "description": "AR Digital Marketing brings websites, commerce, brand design, apps, and digital campaigns together to help your business move forward.",
   "loader": "A little spark. A bigger future.",
   "navigation": [
-    {
-      "label": "Our approach",
-      "href": "#about"
-    },
-    {
-      "label": "Services",
-      "href": "#services"
-    },
-    {
-      "label": "Campaigns",
-      "href": "#work"
-    },
-    {
-      "label": "Let’s talk",
-      "href": "#audit"
-    }
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Campaigns", "href": "/projects" },
+    { "label": "Blogs", "href": "/blogs" },
+    { "label": "Contact", "href": "/contact" }
   ],
-  "booking": {
-    "label": "Book a call",
-    "href": "#audit"
-  },
+  "booking": { "label": "Let’s talk", "href": "/contact" },
   "hero": {
     "eyebrow": "DESIGN. DEVELOPMENT. DIGITAL GROWTH.",
     "lines": [
@@ -77,7 +65,7 @@ export const config = {
     "note": "Illustrative partner identities"
   },
   "about": {
-    "eyebrow": "01 / THE AR APPROACH",
+    "eyebrow": "THE AR APPROACH",
     "heading": [
       "Your idea.",
       "Our expertise.",
@@ -103,7 +91,7 @@ export const config = {
     "AI & Automation"
   ],
   "servicesSection": {
-    "eyebrow": "02 / BUILT AROUND YOUR NEXT",
+    "eyebrow": "BUILT AROUND YOUR NEXT",
     "heading": [
       "Everything connects.",
       "So should your team."
@@ -196,7 +184,7 @@ export const config = {
     ]
   },
   "comparison": {
-    "eyebrow": "03 / A DIFFERENT KIND OF PARTNER",
+    "eyebrow": "A DIFFERENT KIND OF PARTNER",
     "heading": [
       "More clarity.",
       "Fewer moving parts."
@@ -236,7 +224,7 @@ export const config = {
     ]
   },
   "industries": {
-    "eyebrow": "04 / AMBITION HAS NO INDUSTRY",
+    "eyebrow": "AMBITION HAS NO INDUSTRY",
     "heading": [
       "Different worlds.",
       "The same drive to grow."
@@ -248,42 +236,54 @@ export const config = {
         "name": "Retail & E-Commerce",
         "icon": "bag",
         "description": "Product discovery, checkout, and repeat visits.",
-        "number": "01"
+        "number": "01",
+        "image": "/images/home/industry-retail.webp",
+        "imageAlt": "Boutique owner packing an online order"
       },
       {
         "name": "Education & Training",
         "icon": "document",
         "description": "Useful learning journeys and clear information.",
-        "number": "02"
+        "number": "02",
+        "image": "/images/home/industry-education.webp",
+        "imageAlt": "Adult students learning together in a training classroom"
       },
       {
         "name": "Healthcare & Wellness",
         "icon": "heart",
         "description": "Accessible information and easier enquiries.",
-        "number": "03"
+        "number": "03",
+        "image": "/images/home/industry-healthcare.webp",
+        "imageAlt": "Clinician talking with a patient in a bright wellness clinic"
       },
       {
         "name": "Property & Construction",
         "icon": "building",
         "description": "Project showcases that turn interest into enquiries.",
-        "number": "04"
+        "number": "04",
+        "image": "/images/home/industry-property.webp",
+        "imageAlt": "Architects reviewing plans outside a modern residential building"
       },
       {
         "name": "Food & Hospitality",
         "icon": "cup",
         "description": "Bring your place, menu, and story online.",
-        "number": "05"
+        "number": "05",
+        "image": "/images/home/industry-hospitality.webp",
+        "imageAlt": "Chef preparing a meal in a sunlit restaurant"
       },
       {
         "name": "Professional Services",
         "icon": "chart",
         "description": "Clear expertise. A confident first impression.",
-        "number": "06"
+        "number": "06",
+        "image": "/images/home/industry-professional.webp",
+        "imageAlt": "Business consultants reviewing a proposal together"
       }
     ]
   },
   "work": {
-    "eyebrow": "05 / DIGITAL MARKETING IN ACTION",
+    "eyebrow": "DIGITAL MARKETING IN ACTION",
     "heading": [
       "Get seen. Get chosen.",
       "Keep growing."
@@ -494,7 +494,7 @@ export const config = {
     ]
   },
   "results": {
-    "eyebrow": "06 / PROGRESS YOU CAN PUT A NUMBER ON",
+    "eyebrow": "PROGRESS YOU CAN PUT A NUMBER ON",
     "heading": [
       "Made to move people.",
       "Measured by what moves."
@@ -541,7 +541,7 @@ export const config = {
     ]
   },
   "dashboard": {
-    "eyebrow": "07 / NO GUESSING WHERE YOU STAND",
+    "eyebrow": "NO GUESSING WHERE YOU STAND",
     "heading": [
       "The bigger picture.",
       "Beautifully clear."
@@ -673,7 +673,7 @@ export const config = {
     ]
   },
   "platforms": {
-    "eyebrow": "08 / THE RIGHT TOOLS. THE RIGHT MINDS.",
+    "eyebrow": "THE RIGHT TOOLS. THE RIGHT MINDS.",
     "heading": [
       "A connected toolkit.",
       "An unfair advantage."
@@ -686,79 +686,79 @@ export const config = {
       {
         "name": "Google Ads",
         "label": "Search advertising",
-        "mark": "A",
+        "logo": "/brand/platforms/google-ads.svg",
         "tone": "blue"
       },
       {
         "name": "Meta",
         "label": "Social advertising",
-        "mark": "∞",
+        "logo": "/brand/platforms/meta.svg",
         "tone": "blue"
       },
       {
         "name": "Google Analytics",
         "label": "Measurement",
-        "mark": "▥",
+        "logo": "/brand/platforms/google-analytics.svg",
         "tone": "peach"
       },
       {
         "name": "Semrush",
         "label": "Search intelligence",
-        "mark": "S",
+        "logo": "/brand/platforms/semrush.svg",
         "tone": "peach"
       },
       {
         "name": "Ahrefs",
         "label": "Organic discovery",
-        "mark": "ah",
+        "logo": "/brand/platforms/ahrefs.svg",
         "tone": "blue"
       },
       {
         "name": "Shopify",
         "label": "Commerce",
-        "mark": "S",
+        "logo": "/brand/platforms/shopify-hd.png",
         "tone": "sage"
       },
       {
         "name": "Webflow",
         "label": "Web experiences",
-        "mark": "W",
+        "logo": "/brand/platforms/webflow.png",
         "tone": "blue"
       },
       {
         "name": "WordPress",
         "label": "Publishing",
-        "mark": "W",
+        "logo": "/brand/platforms/wordpress.png",
         "tone": "slate"
       },
       {
         "name": "Figma",
         "label": "Collaborative design",
-        "mark": "F",
+        "logo": "/brand/platforms/figma.svg",
         "tone": "lavender"
       },
       {
         "name": "HubSpot",
         "label": "Customer journeys",
-        "mark": "H",
+        "logo": "/brand/platforms/hubspot.png",
         "tone": "peach"
       },
       {
         "name": "Mailchimp",
         "label": "Email marketing",
-        "mark": "m",
+        "logo": "/brand/platforms/mailchimp.svg",
         "tone": "sand"
       },
       {
         "name": "Looker Studio",
         "label": "Clearer reporting",
-        "mark": "L",
+        "logo": "/brand/platforms/looker-studio.png",
         "tone": "lavender"
       }
     ]
   },
   "process": {
-    "eyebrow": "09 / FROM WHAT IF TO WHAT’S NEXT",
+    "eyebrow": "FROM WHAT IF TO WHAT’S NEXT",
     "heading": [
       "From the first idea.",
       "Through every next step."
@@ -777,6 +777,8 @@ export const config = {
         "short": "Discover & design",
         "icon": "search",
         "number": "01",
+        "image": "/images/home/process-discover.webp",
+        "imageAlt": "Discovery workshop with customer journey cards and wireframe sketches",
         "eyebrow": "YOUR BUSINESS COMES FIRST.",
         "description": "Explore your goals, audience, and customer journey. Turn those insights into a practical scope and a design direction.",
         "details": [
@@ -797,6 +799,8 @@ export const config = {
         "short": "Develop",
         "icon": "target",
         "number": "02",
+        "image": "/images/home/process-develop.webp",
+        "imageAlt": "Developers building a website together",
         "eyebrow": "THOUGHTFUL DESIGN. RELIABLE TECHNOLOGY.",
         "description": "Develop the website, store, or application in reviewable stages, connecting the tools and content your business needs.",
         "details": [
@@ -817,6 +821,8 @@ export const config = {
         "short": "Test & refine",
         "icon": "spark",
         "number": "03",
+        "image": "/images/home/process-test.webp",
+        "imageAlt": "Reviewer testing a website on tablet and phone",
         "eyebrow": "CONFIDENCE BEFORE LAUNCH.",
         "description": "Check journeys across screen sizes and browsers. Review usability, functionality, and performance before the release.",
         "details": [
@@ -837,6 +843,8 @@ export const config = {
         "short": "Launch & support",
         "icon": "chart",
         "number": "04",
+        "image": "/images/home/process-launch.webp",
+        "imageAlt": "Designer presenting a finished website during a project handover",
         "eyebrow": "THE NEXT CHAPTER STARTS AT LAUNCH.",
         "description": "Release the experience, hand over the essentials, and agree how maintenance, measurement, and future improvements will work.",
         "details": [
@@ -855,7 +863,7 @@ export const config = {
     ]
   },
   "pricing": {
-    "eyebrow": "10 / INVEST IN YOUR NEXT",
+    "eyebrow": "INVEST IN YOUR NEXT",
     "heading": [
       "A little clarity.",
       "A lot of possibility."
@@ -919,7 +927,7 @@ export const config = {
     ]
   },
   "team": {
-    "eyebrow": "11 / GOOD PEOPLE. BIG IDEAS.",
+    "eyebrow": "GOOD PEOPLE. BIG IDEAS.",
     "heading": [
       "Meet your next",
       "favourite collaborators."
@@ -975,7 +983,7 @@ export const config = {
     ]
   },
   "testimonials": {
-    "eyebrow": "12 / CLIENT TESTIMONIALS",
+    "eyebrow": "CLIENT TESTIMONIALS",
     "heading": [
       "What our clients",
       "say about us."
@@ -1032,12 +1040,12 @@ export const config = {
     "serviceLabel": "Service"
   },
   "showreel": {
-    "eyebrow": "13 / A FEEL FOR WHAT’S POSSIBLE",
+    "eyebrow": "CONTENT & CREATIVE",
     "heading": [
-      "Thinking in motion.",
-      "Made to move you."
+      "From the first idea.",
+      "To your next campaign."
     ],
-    "description": "A little strategy. A little creative alchemy. A whole world of possibilities.",
+    "description": "Photography, videos, and campaign content designed to help people understand and remember your business.",
     "posterTitle": [
       "Ideas",
       "in good company."
@@ -1048,7 +1056,7 @@ export const config = {
     "label": "Abstract pastel sculpture with orbiting creative ideas"
   },
   "awards": {
-    "eyebrow": "14 / ALWAYS RAISING THE BAR",
+    "eyebrow": "ALWAYS RAISING THE BAR",
     "heading": "Good work belongs in good company.",
     "note": "Illustrative recognition for this concept. Replace with verified awards and press mentions before publishing.",
     "items": [
@@ -1075,7 +1083,7 @@ export const config = {
     ]
   },
   "faq": {
-    "eyebrow": "15 / A LITTLE MORE CLARITY",
+    "eyebrow": "A LITTLE MORE CLARITY",
     "heading": [
       "Good questions.",
       "Straight answers."
@@ -1097,8 +1105,8 @@ export const config = {
         "answer": "Timing depends on scope, integrations, content readiness, and the review process. We define stages and agree milestones once we understand your requirements, then keep you involved as the work progresses."
       },
       {
-        "question": "What’s included in the monthly price?",
-        "answer": "The plans show possible starting scopes. Your proposal will specify deliverables, channels, reporting, and meeting cadence. Advertising spend, third-party subscriptions, and applicable taxes are separate unless explicitly included in your agreement."
+        "question": "How is a project priced?",
+        "answer": "We prepare a proposal around your requirements, deliverables, and ongoing support needs. Advertising spend, third-party subscriptions, and applicable taxes are listed separately unless explicitly included."
       },
       {
         "question": "Do you work with our existing team?",
@@ -1110,12 +1118,12 @@ export const config = {
       },
       {
         "question": "What happens after I request a free audit?",
-        "answer": "On the finished service, we would review the information you share and confirm whether an audit is a good fit. This website is currently a concept: the form validates your details and demonstrates a success screen, but does not send or store your submission."
+        "answer": "We review the website and goals you share, then follow up to discuss whether an audit is a good fit and what it would cover."
       }
     ]
   },
   "audit": {
-    "eyebrow": "16 / YOUR NEXT CHAPTER STARTS HERE",
+    "eyebrow": "YOUR NEXT CHAPTER STARTS HERE",
     "heading": [
       "Your next idea.",
       "Starts with a hello."
@@ -1142,9 +1150,9 @@ export const config = {
       "Let’s work it out"
     ],
     "submit": "Find my next opportunity",
-    "demo": "Demo form. Your details stay in this page and are not sent or stored.",
+    "demo": "We use these details to respond to your audit request. Please avoid sharing sensitive information.",
     "successTitle": "That’s a great starting point.",
-    "successBody": "You’ve completed the demo audit request. Nothing has been sent or saved. When the service goes live, this is where your next chapter begins.",
+    "successBody": "Your request has been received. We’ll review the information and follow up about the next step.",
     "reset": "Try the form again",
     "errors": {
       "name": "Please enter your name (at least 2 characters).",
@@ -1155,7 +1163,7 @@ export const config = {
     }
   },
   "insights": {
-    "eyebrow": "17 / BLOGS",
+    "eyebrow": "BLOGS",
     "heading": [
       "Latest blogs.",
       "Simple tips for your business."
@@ -1217,7 +1225,22 @@ export const config = {
     "note": "GOOD PEOPLE. BIG POSSIBILITIES."
   },
   "footer": {
-    "message": "Design, technology, and marketing. Working together.",
+    "message": "We help businesses build a clear brand, create useful digital experiences, and reach the right customers through connected design, development, and marketing.",
+    "ctaLabel": "LET’S BUILD WHAT’S NEXT",
+    "ctaHeading": "Your next step starts with a conversation.",
+    "ctaDescription": "Tell us what you want to create or improve. We’ll help you find the right services for your business.",
+    "ctaAction": "Talk about your project",
+    "companyLabel": "Company",
+    "buildLabel": "Design & development",
+    "growLabel": "Marketing & technology",
+    "helpHeading": "Not sure where to start?",
+    "helpDescription": "Explore how we work, read practical advice, or start with a website audit.",
+    "helpLinks": [
+      { "label": "How we work", "href": "/#process" },
+      { "label": "Free website audit", "href": "/#audit" },
+      { "label": "Common questions", "href": "/#faq" },
+      { "label": "Marketing blogs", "href": "/blogs" }
+    ],
     "navigationLabel": "Explore",
     "connectLabel": "Connect",
     "newsletterTitle": "A fresh perspective, occasionally.",
@@ -1227,35 +1250,17 @@ export const config = {
     "newsletterNote": "Demo signup. No email is sent or stored.",
     "newsletterSuccess": "Demo complete. You haven’t been subscribed.",
     "newsletterReset": "Try another email",
-    "copyright": "AR Digital Marketing. Website concept.",
+    "copyright": "AR Digital Marketing.",
     "back": "Back to top",
     "location": "IDEAS INTO EXPERIENCES. EXPERIENCES INTO GROWTH.",
     "socialNote": "Social profiles will be connected at launch.",
     "links": [
-      {
-        "label": "Our approach",
-        "href": "#about"
-      },
-      {
-        "label": "Services",
-        "href": "#services"
-      },
-      {
-        "label": "Campaigns",
-        "href": "#work"
-      },
-      {
-        "label": "Our people",
-        "href": "#team"
-      },
-      {
-        "label": "Blogs",
-        "href": "#insights"
-      },
-      {
-        "label": "Get in touch",
-        "href": "#audit"
-      }
+      { "label": "About", "href": "/about" },
+      { "label": "Services", "href": "/services" },
+      { "label": "Campaigns", "href": "/projects" },
+      { "label": "Our team", "href": "/team" },
+      { "label": "Blogs", "href": "/blogs" },
+      { "label": "Contact", "href": "/contact" }
     ],
     "socials": [
       "Instagram",
@@ -1961,3 +1966,89 @@ export const servicePages = [
     ]
   }
 ] as const;
+
+export const blogSlugs = ["turn-visitors-into-customers", "keep-your-brand-consistent", "marketing-numbers-to-track"] as const;
+export const blogGuides = [
+ { headings: ["Choose one useful action", "Make the page easy to use", "Learn from one change at a time"], checklist:["Can a new visitor explain what you offer?", "Is the next step visible on a phone?", "Does the form work and reach the right person?"], takeaway:"Start with one important page and one clear action. Improve those before spending more to bring people to the site.", service:"web-development" },
+ { headings: ["Make your business recognisable", "Keep room for new ideas", "Give your team a simple guide"], checklist:["Are you using the correct logo files?", "Do your colours and fonts match across channels?", "Does your writing sound like the same business?"], takeaway:"Consistency comes from a few clear rules used well. You don’t need every post to look identical.", service:"graphic-design" },
+ { headings: ["Connect the numbers to a goal", "Compare with context", "Finish with a decision"], checklist:["Are enquiries or sales being tracked correctly?", "Do you know which leads are relevant?", "Have you agreed what to change next?"], takeaway:"Choose a small set of measures that help you make decisions. More numbers do not automatically mean more understanding.", service:"digital-marketing" },
+] as const;
+
+export const innerHeroCopy: Record<string, {lines:readonly string[];note:string;chip:string;detail:string}> = {
+ "About us": {lines:["Good people.","Clear thinking.","One team."],note:"DESIGN. DEVELOPMENT. DIGITAL GROWTH.",chip:"Connected from the start",detail:"Your business sets the direction"},
+ "Campaigns": {lines:["Get seen.","Get chosen.","Keep growing."],note:"SEARCH. SOCIAL. CAMPAIGNS.",chip:"A purpose behind every click",detail:"Clear goals. Useful next steps."},
+ "Our team": {lines:["Different minds.","Shared ambition.","Your team."],note:"STRATEGY. CREATIVITY. COLLABORATION.",chip:"Different skills, working together",detail:"From the first idea to delivery"},
+ "Contact us": {lines:["Your next idea.","A fresh start.","Let’s talk."],note:"A CONVERSATION IS A GOOD START.",chip:"Start with what you have",detail:"We’ll help you find the next step"},
+ "Blogs": {lines:["Fresh ideas.","Simple advice.","Better decisions."],note:"A LITTLE READING. A USEFUL NEXT STEP.",chip:"Made to be useful",detail:"Websites. Brands. Marketing."},
+};
+
+// Homepage-only illustrative imagery; one distinct asset per placement.
+// Do not reuse these assets in other sections or inner pages. These are not client or team photographs.
+export const homeImages = {
+  campaignSeo: { src: "/images/home/campaign-seo.webp", alt: "Search optimisation workspace with search results and a website content outline" },
+  campaignPaid: { src: "/images/home/campaign-paid.webp", alt: "Paid advertising creative concepts and campaign testing notes" },
+  campaignSocial: { src: "/images/home/campaign-social.webp", alt: "Social content creation with a smartphone and a visual moodboard" },
+  campaignLocal: { src: "/images/home/campaign-local.webp", alt: "Illustrative cafe owner reviewing local business visibility on a tablet" },
+  campaignRetention: { src: "/images/home/campaign-retention.webp", alt: "Email newsletter design and a customer follow-up journey" },
+  blogConversion: { src: "/images/home/blog-conversion.webp", alt: "Testing a website contact form on a phone and laptop" },
+  strategy: { src: "/images/home/strategy.webp", alt: "Illustrative creative team planning a website and marketing strategy" },
+  analytics: { src: "/images/home/analytics.webp", alt: "Illustrative marketing analytics dashboard and customer journey notes" },
+  branding: { src: "/images/home/branding.webp", alt: "Red and blue brand design materials arranged on a designer’s desk" },
+  content: { src: "/images/home/content.webp", alt: "Illustrative content production studio with a camera and campaign storyboard" },
+  caption: "AI-created imagery illustrating our services.",
+} as const;
+
+// Inner-page imagery: unique per route; never reused from the homepage.
+export const innerPageImages = {
+  "about": {"src": "/images/pages/about.webp", "alt": "Creative team arranging website sketches in a studio", "title": "A shared direction", "caption": "Understand the business. Bring the right skills together."},
+  "team": {"src": "/images/pages/team.webp", "alt": "Bright collaborative studio with design tools and books", "title": "Space for good work", "caption": "Different skills, working towards the same goal."},
+  "contact": {"src": "/images/pages/contact.webp", "alt": "Welcoming consultation space with chairs and a notebook", "title": "Let\u2019s start with a conversation", "caption": "Your idea, your priorities, and a useful next step."},
+  "services": {"src": "/images/pages/services.webp", "alt": "Creative workshop table with website layouts and design materials", "title": "From the first sketch to launch", "caption": "Design, technology, and marketing, connected."},
+  "projects": {"src": "/images/pages/projects.webp", "alt": "Creative director reviewing a wall of campaign storyboards", "title": "A goal behind every campaign", "caption": "Choose the audience. Shape the message. Measure what matters."},
+  "blogs": {"src": "/images/pages/blogs.webp", "alt": "Sunlit reading desk with marketing notes and design books", "title": "Ideas you can use", "caption": "A little reading. A clearer next step."},
+  "web-development": {"src": "/images/pages/web-development.webp", "alt": "Developer building a responsive website", "title": "Built around your customers", "caption": "Clear journeys. Responsive pages. A website you can grow."},
+  "ecommerce-development": {"src": "/images/pages/ecommerce-development.webp", "alt": "Artisan reviewing an online shop while packing ceramics", "title": "Make buying feel simple", "caption": "From finding a product to the next repeat order."},
+  "graphic-design": {"src": "/images/pages/graphic-design.webp", "alt": "Designer creating campaign artwork with a drawing tablet", "title": "Make the message visible", "caption": "Thoughtful layouts that turn a quick glance into interest."},
+  "branding-strategy": {"src": "/images/pages/branding-strategy.webp", "alt": "Designer arranging a brand identity moodboard", "title": "A brand with a clear direction", "caption": "Connect what you stand for with how your business shows up."},
+  "mobile-app-development": {"src": "/images/pages/mobile-app-development.webp", "alt": "Developer testing mobile app interfaces on phones", "title": "Useful in everyday life", "caption": "Build around the moments when your customers need you."},
+  "ui-ux-design": {"src": "/images/pages/ui-ux-design.webp", "alt": "Designers mapping a customer journey with paper wireframes", "title": "Start with the person using it", "caption": "Listen, sketch, test, and make the next step easier."},
+  "video-editing": {"src": "/images/pages/video-editing.webp", "alt": "Video editor reviewing a timeline and footage", "title": "Give your story a clear rhythm", "caption": "The right cut, sound, and pace for the audience."},
+  "digital-marketing": {"src": "/images/pages/digital-marketing.webp", "alt": "Marketing planner arranging a campaign calendar", "title": "Turn attention into action", "caption": "A clear audience, a useful message, and a plan to improve."},
+  "ai-development": {"src": "/images/pages/ai-development.webp", "alt": "Engineer reviewing a chatbot and automation workflow", "title": "Make room for meaningful work", "caption": "Practical automation built around a real business task."},
+  "software-testing": {"src": "/images/pages/software-testing.webp", "alt": "Tester comparing a product across several devices", "title": "Confidence in the details", "caption": "Check the journeys your customers rely on before launch."},
+  "article-visitors": {"src": "/images/pages/article-visitors.webp", "alt": "Hands arranging a website customer journey", "title": "A clearer customer journey", "caption": "Help people find the next step."},
+  "article-brand": {"src": "/images/pages/article-brand.webp", "alt": "Coordinated stationery and packaging design", "title": "Consistency builds recognition", "caption": "Small details, repeated with care."},
+  "article-metrics": {"src": "/images/pages/article-metrics.webp", "alt": "Analyst comparing reports with a tablet dashboard", "title": "Numbers with a purpose", "caption": "Connect the report to the decision."},
+  "project-seo": {"src": "/images/pages/project-seo.webp", "alt": "Strategist mapping search topics on a glass board", "title": "Build useful search visibility", "caption": "Content and structure around what people need."},
+  "project-paid": {"src": "/images/pages/project-paid.webp", "alt": "Alternate advertisement designs on a creative review board", "title": "Test the message", "caption": "Learn which creative makes the next step clearer."},
+  "project-social": {"src": "/images/pages/project-social.webp", "alt": "Creator filming an artisan with a phone camera rig", "title": "Make content worth watching", "caption": "A clear story, made for the way people browse."},
+  "project-local": {"src": "/images/pages/project-local.webp", "alt": "Florist checking local business discovery outside a storefront", "title": "Help nearby customers find you", "caption": "Make your location, offer, and next step easy to discover."},
+  "project-retention": {"src": "/images/pages/project-retention.webp", "alt": "Shop operator preparing thank-you cards and email follow-ups", "title": "Give customers a reason to return", "caption": "Thoughtful follow-up at the right point in their journey."},
+} as const;
+
+// Exclusive service-directory card images; separate from detail-page photos.
+export const serviceCardImages = {
+  "web-development": {"src": "/images/services/cards/web-development.webp", "alt": "Responsive website on laptop and phone"},
+  "ecommerce-development": {"src": "/images/services/cards/ecommerce-development.webp", "alt": "Product photography for an online store"},
+  "graphic-design": {"src": "/images/services/cards/graphic-design.webp", "alt": "Designer preparing geometric poster artwork"},
+  "branding-strategy": {"src": "/images/services/cards/branding-strategy.webp", "alt": "Consultants reviewing a brand positioning board"},
+  "mobile-app-development": {"src": "/images/services/cards/mobile-app-development.webp", "alt": "Scheduling app previews on smartphones"},
+  "ui-ux-design": {"src": "/images/services/cards/ui-ux-design.webp", "alt": "Researcher observing a tablet usability session"},
+  "video-editing": {"src": "/images/services/cards/video-editing.webp", "alt": "Hands working with video editing controls"},
+  "digital-marketing": {"src": "/images/services/cards/digital-marketing.webp", "alt": "Campaign plan with advertising and audience materials"},
+  "ai-development": {"src": "/images/services/cards/ai-development.webp", "alt": "Business assistant and automation workflow on a laptop"},
+  "software-testing": {"src": "/images/services/cards/software-testing.webp", "alt": "Quality testing bench and review checklist"},
+} as const;
+
+export const blogCardImages = [
+  { src: "/images/listings/blog-conversion.webp", alt: "Business owner reviewing an online booking website" },
+  { src: "/images/listings/blog-brand.webp", alt: "Coordinated blue and red brand stationery and paper samples" },
+  { src: "/images/listings/blog-metrics.webp", alt: "Marketing performance charts on a tablet and printed reports" },
+] as const;
+export const campaignCardImages = {
+  seo: { src: "/images/listings/gallery-seo.webp", alt: "Search specialist researching keywords in a bright studio" },
+  paid: { src: "/images/listings/gallery-paid.webp", alt: "Sports shoe photographed for an advertising campaign" },
+  social: { src: "/images/listings/gallery-social.webp", alt: "Creator filming cafe content with a smartphone" },
+  local: { src: "/images/listings/gallery-local.webp", alt: "Welcoming local flower shop with bouquets outside" },
+  retention: { src: "/images/listings/gallery-retention.webp", alt: "Customer order packaged with a thank-you card" },
+} as const;

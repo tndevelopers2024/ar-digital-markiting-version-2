@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Manrope } from "next/font/google";
 import { config } from "@/lib/config";
+import { site } from "@/lib/site";
 import "./globals.css";
 const geist = Geist({ variable: "--font-body", subsets: ["latin"], display: "swap" });
 const manrope = Manrope({ variable: "--font-heading", subsets: ["latin"], display: "swap" });
 export const metadata: Metadata = {
   metadataBase: new URL(config.url),
+  robots: { index: site.indexable, follow: site.indexable },
   title: config.title,
   description: config.description,
   alternates: { canonical: "/" },

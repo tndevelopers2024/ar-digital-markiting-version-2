@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <main id="main" className="status-page"><h1>Let’s get you back<br/>on the right path.</h1><p>This page may have moved, or the address may be incorrect.</p><div><Link className="button button-primary" href="/">Back to home ↗</Link><Link className="button button-secondary" href="/services">Explore services ↗</Link></div></main>}
