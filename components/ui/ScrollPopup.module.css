@@ -1,0 +1,25 @@
+.dialog { position:fixed; inset:0; margin:auto; padding:0; width:min(560px, calc(100% - 32px)); max-height:calc(100svh - 40px); overflow:auto; border:1px solid #fff; border-radius:28px; background:linear-gradient(140deg,#fff 70%,#f0f4fb); color:#111318; box-shadow:0 30px 100px #14264d35; overscroll-behavior:contain; }
+.dialog::backdrop { background:rgb(24 33 53 / 40%); backdrop-filter:blur(8px); }
+.content { position:relative; border-top:5px solid #355ba5; }
+.close { position:absolute; right:16px; top:16px; width:36px; height:36px; border:1px solid #dce1e9; background:#fff; border-radius:50%; font-size:25px; line-height:1; z-index:2; }
+.copy { padding:42px 36px 24px; }
+.eyebrow { display:block; padding-right:30px; font-size:9px; letter-spacing:1.5px; color:#52647e; }
+.copy h2 { margin:18px 0 12px; font-family:var(--font-heading),sans-serif; font-size:38px; line-height:1.08; font-weight:500; letter-spacing:-1.5px; }
+.copy h2 span { color:#355ba5; }
+.copy p { color:#636b78; font-size:13px; line-height:1.7; }
+.form { margin-top:24px; }
+.row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
+.form label { display:block; margin-bottom:7px; font-size:12px; font-weight:500; }
+.form input,.form textarea { width:100%; border:1px solid #d8dfe9; border-radius:10px; background:#fff; padding:11px 12px; color:#111318; font:inherit; font-size:14px; }
+.form textarea { resize:vertical; min-height:80px; }
+.action { display:flex; width:100%; justify-content:space-between; align-items:center; gap:16px; margin-top:18px; padding:15px 20px; border:0; background:#355ba5; color:white; border-radius:12px; font-size:14px; }
+.action:hover { background:#284a8d; }
+.action:disabled { opacity:.65; }
+.copy .error { color:#a52b37; font-size:12px; margin-top:6px; }
+.copy .note { font-size:11px; margin-top:10px; }
+.success { padding:24px 0; }
+.success h3 { color:#355ba5; font-size:22px; }
+.later { display:block; margin:12px auto 0; padding:6px; border:0; background:transparent; color:#626b79; font-size:12px; }
+.close:focus-visible,.action:focus-visible,.later:focus-visible,.form input:focus-visible,.form textarea:focus-visible { outline:2px solid #7298df; outline-offset:3px; }
+@media(prefers-reduced-motion:no-preference) { .dialog[open] { animation:arrive 320ms ease-out; } @keyframes arrive { from { opacity:0; transform:translateY(16px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } } }
+@media(max-width:480px) { .copy { padding:48px 22px 22px; } .copy h2 { font-size:32px; } .row { grid-template-columns:1fr; } }

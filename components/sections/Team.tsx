@@ -7,5 +7,5 @@ const roles = [
   ["Content", "Make the message clear", "Shape useful words, visuals, and video around what your audience needs to understand."],
 ];
 export function Team() {
- return <Section id="team" className="team section-container batch-section"><div className="section-heading" data-reveal><div><h2 id="team-heading">Different skills.<br/><span>One shared direction.</span></h2></div><p className="section-intro">A connected approach brings the right expertise to each stage of your project.</p></div><div className="production-roles">{roles.map(([role,title,description])=><article key={role}><span>{role}</span><h3>{title}</h3><p>{description}</p></article>)}</div></Section>;
+ return <Section id="team" className="team section-container batch-section"><div className="section-heading" data-reveal><div><h2 id="team-heading">Different skills.<br/><span>One shared direction.</span></h2></div></div><div className="production-roles">{roles.map(([role,title,description])=><article key={role}><span>{role}</span><h3>{title}</h3><p>{description}</p></article>)}</div></Section>;
 }

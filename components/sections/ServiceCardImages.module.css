@@ -1,0 +1,19 @@
+.card { display:flex; flex-direction:column; }
+.card.card.card { padding:8px; min-height:0; }
+.image { position:relative; height:180px; flex-shrink:0; overflow:hidden; border-radius:14px; background:#e9eef4; }
+.featured { height:240px; }
+.image img { object-fit:cover; }
+.card :global(.service-copy) { padding:0 8px; }
+.card.card :global(.service-copy h3) { margin-top:12px; }
+.card :global(.service-tags) { margin-top:16px; padding-right:0; max-width:100%; }
+.card :global(.card-action) { position:static; align-self:flex-end; margin:8px 8px 0; flex-shrink:0; }
+@media(max-width:1100px) { .image { height:210px; }.featured { height:240px; } }
+@media(max-width:767px) { .image,.featured { height:auto; aspect-ratio:1.6; } }
+
+.card.card.card { height:100%; }
+.image,.featured { height:auto; aspect-ratio:1.75; }
+.card :global(.service-copy) { padding:20px 16px 24px; flex:1; }
+.card.card :global(.service-copy h3) { margin-top:0; }
+.card :global(.service-copy) { padding:16px 16px 20px; }
+.card.card.card { padding:8px; border-radius:24px; }
+.image { border-radius:16px; }

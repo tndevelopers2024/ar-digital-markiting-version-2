@@ -17,6 +17,6 @@ export const serviceExperiences = {
  'ui-ux-design': {Artwork:UxArtwork,Content:UxContent,layout:'product',cta:'Make your product easier to use.',button:'Review my product experience',related:['mobile-app-development','web-development','software-testing']},
  'video-editing': {Artwork:VideoArtwork,Content:VideoContent,layout:'cinema',cta:'Let’s turn your footage into a story.',button:'Plan my next video',related:['graphic-design','digital-marketing','branding-strategy']},
  'digital-marketing': {Artwork:MarketingArtwork,Content:MarketingContent,layout:'growth',cta:'Make your next campaign count.',button:'Discuss my marketing goals',related:['web-development','video-editing','branding-strategy']},
- 'ai-development': {Artwork:AiArtwork,Content:AiContent,layout:'automation',cta:'What could your team stop doing manually?',button:'Explore an AI project',related:['web-development','software-testing','mobile-app-development']},
+ 'ai-development': {Artwork:AiArtwork,Content:AiContent,layout:'automation',cta:'How could AI help your business?',button:'Explore an AI project',related:['web-development','software-testing','mobile-app-development']},
  'software-testing': {Artwork:TestingArtwork,Content:TestingContent,layout:'quality',cta:'Know what needs fixing before launch.',button:'Plan a product review',related:['web-development','mobile-app-development','ui-ux-design']},
 } as const;

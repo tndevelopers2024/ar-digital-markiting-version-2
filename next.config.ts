@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
+ // Allow the LAN hostname used for local previews to load dev chunks and HMR.
+ allowedDevOrigins: ["192.168.1.6"],
  poweredByHeader: false,
  async headers() {
   return [{source:"/:path*",headers:[

@@ -1,4 +1,6 @@
-import nextEnv from '@next/env';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const nextEnv = createRequire(require.resolve('next/package.json'))('@next/env');
 const { loadEnvConfig } = nextEnv;
 loadEnvConfig(process.cwd());
 const errors=[];

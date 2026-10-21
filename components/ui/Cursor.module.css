@@ -1,0 +1,11 @@
+.layer { position:fixed; inset:0; z-index:99999; pointer-events:none; }
+.ring { position:fixed; top:0; left:0; display:flex; align-items:center; justify-content:center; border:1px solid #ffffff80; border-radius:50%; pointer-events:none; background:linear-gradient(135deg,#355ba580,#7296cf4d); backdrop-filter:blur(20px) saturate(200%); box-shadow:inset 0 1px 1.5px #ffffff73,inset 0 -1px 2px #00000026,0 8px 32px #355ba559; transition:background .25s ease,border-color .25s ease,box-shadow .25s ease; }
+.ring[data-kind="hover"] { background:linear-gradient(135deg,#355ba5cc,#7296cf99); border-color:#ffffffb3; }
+.ring[data-kind="link"] { background:linear-gradient(135deg,#355ba5f2,#7296cfcc); border-color:#ffffffd9; box-shadow:inset 0 1.5px 2px #ffffffbf,0 8px 32px #355ba599; }
+.ring[data-kind="like"] { background:linear-gradient(135deg,#355ba5e6,#24477fbf); border-color:#ffffffa6; box-shadow:0 8px 32px #355ba580; }
+.ring[data-kind="text"] { background:#355ba5; border:0; box-shadow:none; }
+.icon { display:flex; align-items:center; justify-content:center; color:white; }
+.pointer { position:fixed; top:0; left:0; pointer-events:none; }
+.arrow { filter:drop-shadow(0 2px 8px #355ba580); }
+@media(hover:hover) and (pointer:fine) { :global(.custom-cursor-on), :global(.custom-cursor-on *) { cursor:none !important; } }
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce) { .layer { display:none; } }

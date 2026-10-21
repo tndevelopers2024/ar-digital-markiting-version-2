@@ -1,14 +1,29 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "@/lib/gsap";
-import { useLenis, scrollToPosition } from "@/hooks/useLenis";
+import { scrollToPosition } from "@/lib/scroll";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { Loader } from "./Loader";
 import { Cursor } from "./Cursor";
+import { ScrollPopup } from "./ScrollPopup";
 const Scene = dynamic(() => import("@/components/three/Scene"), { ssr: false });
 export function Experience() {
-  useLenis();
+  const [sceneReady, setSceneReady] = useState(false);
+  useEffect(() => {
+    let idle: number | undefined;
+    let frame: number | undefined;
+    const schedule = () => {
+      if ("requestIdleCallback" in window) idle = window.requestIdleCallback(() => setSceneReady(true));
+      else frame = requestAnimationFrame(() => setSceneReady(true));
+    };
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
+    return () => {
+      window.removeEventListener("load", schedule);
+      if (idle !== undefined) window.cancelIdleCallback(idle);
+      if (frame !== undefined) cancelAnimationFrame(frame);
+    };
+  }, []);
   useEffect(() => {
     if (!window.location.hash) return;
     let cancelled = false;
@@ -33,5 +48,5 @@ export function Experience() {
     return () => { cancelled = true; cancelAnimationFrame(frame); events.forEach(event => window.removeEventListener(event, cancel)); };
   }, []);
   const reduced = useReducedMotion();
-  return <><div className="ambient-mesh" aria-hidden="true"/>{!reduced && <Scene/>}<Loader/><Cursor/></>;
+  return <><div className="ambient-mesh" aria-hidden="true"/>{!reduced && sceneReady && <Scene/>}<Cursor/><ScrollPopup/></>;
 }

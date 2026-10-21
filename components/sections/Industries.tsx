@@ -1,10 +1,24 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
-import { config, homeImages } from "@/lib/config";
+import { config } from "@/lib/config";
 import { Section } from "@/components/ui/Section";
-import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/Icon";
-import { Arrow } from "@/components/ui/Button";
+import styles from "./Industries.module.css";
+
 export function Industries() {
   const data = config.industries;
-  return <Section id="industries" className="industries section-container batch-section"><div className="section-heading" data-reveal><div><h2 id="industries-heading">{data.heading[0]}<br/><span>{data.heading[1]}</span></h2></div><p className="section-intro">{data.description}</p></div><div className="industry-grid">{data.items.map(item => <div key={item.name} data-reveal><Card className="industry-card industry-photo-card" tilt={false}><div className="industry-photo"><Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 600px) 100vw, (max-width: 767px) 50vw, 33vw"/></div><div className="industry-photo-copy"><div className="industry-top"><Icon name={item.icon}/><span className="card-number">{item.number}</span></div><h3>{item.name}</h3><p>{item.description}</p><a className="industry-link" href="/contact" aria-label={`${data.action} ${item.name}`}><Arrow diagonal/></a></div></Card></div>)}</div><p className="section-disclosure">{homeImages.caption}</p></Section>;
+  const [paused, setPaused] = useState(false);
+  return <Section id="industries" className="industries section-container batch-section">
+    <div className="section-heading"><div><h2 id="industries-heading">Industries <span>We Serve</span></h2><p className="section-description">Every industry has its own audience, challenges, and opportunities.<br className="description-break"/>{" "}We shape our approach around the way your business works.</p></div></div>
+    <div className={styles.viewport} data-paused={paused || undefined} role="region" tabIndex={0} aria-label="Industries we serve">
+      <div className={styles.track}>{[0, 1].map(copy => <div key={copy} className={styles.group} aria-hidden={copy === 1 ? true : undefined}>
+        {data.items.map(item => <article key={item.name} className={styles.card}>
+          <div className={styles.photo}><Image src={item.image} alt={copy === 0 ? item.imageAlt : ""} fill sizes="(max-width: 600px) 90vw, (max-width: 1000px) 45vw, 30vw"/></div>
+          <div className={styles.copy}><Icon name={item.icon}/><h3>{item.name}</h3><p>{item.description}</p></div>
+        </article>)}
+      </div>)}</div>
+    </div>
+    <button type="button" className={styles.toggle} onClick={() => setPaused(value => !value)} aria-pressed={paused}>{paused ? "Resume industries" : "Pause industries"}</button>
+  </Section>;
 }

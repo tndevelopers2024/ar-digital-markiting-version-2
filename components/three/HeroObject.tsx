@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useRef, type MutableRefObject } from "react";
+import { useEffect, useMemo, useRef, type MutableRefObject } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { MathUtils, Mesh, ShaderMaterial } from "three";
 import type { SceneState } from "./CameraRig";
@@ -46,6 +46,41 @@ const fragmentShader = `
 `;
 export function HeroObject({ state, mobile }: { state: MutableRefObject<SceneState>; mobile: boolean }) {
   const mesh = useRef<Mesh>(null);
+  const dragRotation = useRef({ x: 0, y: 0 });
+  useEffect(() => {
+    const surface = document.querySelector<HTMLElement>("#hero .hero-art");
+    if (!surface) return;
+    let drag: { id: number; x: number; y: number } | null = null;
+    const start = (event: PointerEvent) => {
+      if (event.button !== 0 || !event.isPrimary) return;
+      drag = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      surface.setPointerCapture(event.pointerId);
+      surface.dataset.dragging = "true";
+    };
+    const move = (event: PointerEvent) => {
+      if (!drag || drag.id !== event.pointerId) return;
+      dragRotation.current.y += (event.clientX - drag.x) * 0.008;
+      dragRotation.current.x = MathUtils.clamp(dragRotation.current.x + (event.clientY - drag.y) * 0.006, -1.4, 1.4);
+      drag.x = event.clientX;
+      drag.y = event.clientY;
+    };
+    const end = () => { drag = null; delete surface.dataset.dragging; };
+    surface.addEventListener("pointerdown", start);
+    surface.addEventListener("pointermove", move);
+    surface.addEventListener("pointerup", end);
+    surface.addEventListener("pointercancel", end);
+    surface.addEventListener("lostpointercapture", end);
+    window.addEventListener("blur", end);
+    return () => {
+      surface.removeEventListener("pointerdown", start);
+      surface.removeEventListener("pointermove", move);
+      surface.removeEventListener("pointerup", end);
+      surface.removeEventListener("pointercancel", end);
+      surface.removeEventListener("lostpointercapture", end);
+      window.removeEventListener("blur", end);
+      delete surface.dataset.dragging;
+    };
+  }, []);
   const material = useRef<ShaderMaterial>(null);
   const { viewport } = useThree();
   const uniforms = useMemo(() => ({ uTime: { value: 0 }, uMorph: { value: 0.08 }, uColor: { value: 0 }, uOpacity: { value: 1 } }), []);
@@ -56,8 +91,8 @@ export function HeroObject({ state, mobile }: { state: MutableRefObject<SceneSta
     const responsiveScale = Math.min(viewport.width / 12.2, 1.2);
     mesh.current.position.x = MathUtils.damp(mesh.current.position.x, mobile ? 0 : target.x * responsiveScale, 4, dt);
     mesh.current.position.y = mobile ? target.y : MathUtils.damp(mesh.current.position.y, target.y, 4, dt);
-    mesh.current.rotation.x = MathUtils.damp(mesh.current.rotation.x, 0.3 + target.rotation * 0.3, 4, dt);
-    mesh.current.rotation.y = MathUtils.damp(mesh.current.rotation.y, -0.25 + target.rotation, 4, dt);
+    mesh.current.rotation.x = MathUtils.damp(mesh.current.rotation.x, 0.3 + target.rotation * 0.3 + dragRotation.current.x, 4, dt);
+    mesh.current.rotation.y = MathUtils.damp(mesh.current.rotation.y, -0.25 + target.rotation + dragRotation.current.y, 4, dt);
     mesh.current.rotation.z = -0.35 + Math.sin(clock.elapsedTime * 0.18) * 0.06;
     const scale = MathUtils.damp(mesh.current.scale.x, mobile ? target.scale : target.scale * responsiveScale, 4, dt);
     mesh.current.scale.setScalar(scale);

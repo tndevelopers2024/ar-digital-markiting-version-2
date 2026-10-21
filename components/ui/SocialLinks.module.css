@@ -1,0 +1,7 @@
+.socials { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
+.socials .link { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:8px 12px; border:1px solid #dce3ef; border-radius:999px; background:#ffffffb8; color:var(--brand-blue); font-size:12px; line-height:1.4; text-decoration:none; transition:color .2s,background .2s,border-color .2s; }
+.icon { width:18px; height:18px; flex-shrink:0; }
+.icon svg { display:block; width:100%; height:100%; }
+.socials .link:hover { color:var(--brand-red); border-color:#e8b9be; background:#fff3f4; }
+.socials .link:focus-visible { outline:2px solid var(--brand-blue); outline-offset:4px; }
+@media(prefers-reduced-motion:reduce) { .socials .link { transition:none; } }

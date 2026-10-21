@@ -1,0 +1,15 @@
+.marquee { overflow:hidden; mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent); }
+.lane { overflow:hidden; padding-block:10px; }
+.track { display:flex; width:max-content; animation:travel 55s linear infinite; will-change:transform; }
+.reverse { animation-direction:reverse; animation-duration:62s; }
+.group { display:flex; flex-shrink:0; gap:18px; padding:0 18px 0 0; margin:0; list-style:none; }
+.card { display:flex; align-items:center; gap:18px; width:285px; min-height:112px; padding:24px; border:1px solid #e2e4e9; border-radius:20px; background:#ffffffc9; }
+.card img { flex-shrink:0; width:40px; height:40px; object-fit:contain; }
+.card h3 { font-size:15px; font-weight:550; line-height:1.5; }
+.card p { margin-top:5px; font-size:12px; line-height:1.6; color:var(--muted); }
+.marquee[data-paused] .track { animation-play-state:paused; }
+.toggle { display:block; margin:16px 0 0 auto; padding:8px 0; border:0; background:transparent; color:#59677c; font-size:12px; }
+.toggle:focus-visible { outline:2px solid #355ba5; outline-offset:4px; border-radius:3px; }
+@keyframes travel { to { transform:translateX(-50%); } }
+@media(max-width:767px) { .card { width:240px; min-height:100px; padding:20px; gap:14px; } .group { gap:12px; padding-right:12px; } .track { animation-duration:48s; } .reverse { animation-duration:54s; } }
+@media(prefers-reduced-motion:reduce) { .marquee { mask-image:none; } .lane { overflow:visible; } .track { display:block; width:auto; animation:none; will-change:auto; } .group { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); padding:0; } .group[aria-hidden],.card[aria-hidden] { display:none; } .card { width:auto; } .toggle { display:none; } }

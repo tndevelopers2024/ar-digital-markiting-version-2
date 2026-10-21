@@ -1,42 +1,83 @@
 # Production handover
 
-## Current status
-The code is prepared for a production build; public launch is blocked until real configuration and delivery verification are supplied. No deployment has been performed.
+## Verified on 21 October 2026
 
-## Configure and run
-Copy `.env.example` to `.env.local` for local work, or use your host's encrypted environment settings. Public values are embedded at build time; rebuild after changing them.
+Detailed scope, measurements, fixes, commands, and limitations: [local production audit](docs/production-audit.md).
 
-- `NEXT_PUBLIC_SITE_URL`: the real HTTPS canonical domain.
-- `NEXT_PUBLIC_CONTACT_EMAIL`: an approved business inbox.
-- `ENQUIRY_WEBHOOK_URL`: your approved HTTPS CRM/email relay endpoint.
-- `ENQUIRY_WEBHOOK_TOKEN`: a server-only bearer secret, never a NEXT_PUBLIC value.
-- `NEXT_PUBLIC_SITE_INDEXABLE`: false on staging; true only on the approved public domain.
+- ESLint passes.
+- The optimized Next.js production build and TypeScript checks pass.
+- Playwright/API audit: 158 passed, zero failed. Chromium and WebKit desktop/mobile cover every content route. Ten duplicate WebKit breakpoint cases are intentionally skipped; Firefox is blocked by a host browser-profile issue and remains unverified.
+- Automated axe WCAG A/AA scans pass on all 26 pages at desktop/mobile sizes, plus portfolio modal states.
+- Production dependency audit reports zero known advisories after updating Next.js to 16.3.8 and refreshing source-map-js. One unpatched development-only braces advisory remains in the ESLint dependency tree.
+- Lighthouse representative-page scores: performance 99–100 desktop and 81–89 mobile; accessibility and best practices 100. Mobile LCP remains about 3.8–4.5s and needs further optimization. Staging SEO scores are reduced by disabled indexing.
+- Production HTTP smoke checks pass for all 26 content pages and 43 local image/logo assets after the inner-page image update.
+- All 14 new inner-page images return valid image responses through Next.js image optimization at 640px width.
+- Checks cover common inner-page heroes, one H1 per page, titles, descriptions, canonicals, unique IDs, image alternatives, internal links and fragments, security headers, robots, sitemap, and branded 404s.
+- Enquiry checks cover invalid origin, unsupported content type, malformed JSON, invalid fields, oversized bodies, honeypot rejection, and the per-instance rate limit. These checks do not send valid enquiries or contact a receiver.
+- The portfolio form uses the same validated enquiry API as the contact page. It no longer simulates success.
+- Portfolio studies are described as concepts. Unverified client endorsements, performance claims, and unrelated company contact details were removed from the portfolio.
 
-Run `npm ci`, `npm run lint`, `npm run build -- --webpack`, then `npm start`. Run `npm run check:launch` separately to catch missing launch configuration. Use a supported Node.js LTS runtime compatible with the installed Next.js version.
+Representative desktop/mobile screenshots were reviewed. Automated keyboard, menus, portfolio filters/dialogs, form validation/recovery, FAQ, reviews, and popup checks pass. Accessibility fixes and loading improvements were applied to the homepage and inner pages. Physical-device touch, manual screen-reader use, Firefox, live hosting, and successful remote enquiry delivery remain unverified.
 
-## Enquiry receiver contract
-POST JSON with a bearer token: `{ id, receivedAt, kind: "contact" | "audit", data }`.
-The receiver must authenticate the token, durably queue/deliver the message, and only then return 2xx. Store no form payloads in request logs. Do not redirect. The server uses a 10-second timeout; the UI preserves entered values on failures and never displays a false success. Delivery timeouts may be ambiguous, so configure receiver-side deduplication by content/time window and monitoring. No automatic retries occur.
+## Run locally
 
-Both forms validate on client and server. The endpoint enforces origin, JSON content type, a 16 KB streaming body limit, a honeypot and a per-instance 5/minute IP limit. Configure a SHARED edge/WAF rate limit and trusted forwarding headers on the host; the in-process limit is not sufficient protection across multiple instances. Add a bot challenge if spam warrants it.
+Use a supported Node.js LTS release compatible with Next.js 16 (the installed package requires Node >=20.9.0). The repository uses `pnpm-lock.yaml`.
 
-## Before public launch (owner decisions)
-- Supply/verify domain, contact inbox, phone and social profiles. No fabricated contacts were added.
-- Connect and test real enquiry delivery with an authorized test message, including failure/recovery and duplicate handling.
-- Approve a privacy notice matching your actual hosting, processor, retention, analytics and contact practices; add its footer/form link when available. No invented legal terms or retention promises have been published.
-- Configure HTTPS, domain redirects, deployment secrets, shared rate limiting, uptime/error monitoring and rollback in the hosting account.
-- Confirm each advertised service and approve all public copy. Campaign examples and AI-created imagery remain clearly identified. Fictional reviews, awards, client logos, prices and numerical results are no longer rendered on the homepage. Sample staff identities were replaced with skills/roles.
-- Branded favicon and Apple touch icon are generated from the existing AR artwork.
-- Run Lighthouse against the deployed production build on representative desktop/mobile devices. No 90+ score is claimed without a measured run.
-- After approval, set indexing true, rebuild, verify sitemap/robots/canonicals and submit the sitemap to search tools.
+```sh
+pnpm install --frozen-lockfile
+npm run dev
+```
 
-## Verification
-`npm run test:smoke` targets a running production server using `TEST_BASE_URL` (default http://localhost:3002). It checks all static routes, response metadata, security headers, broken local assets, branded 404, robots and sitemap, plus non-delivery API rejection paths. It never submits a valid enquiry or contacts a configured receiver.
+For a production preview:
 
-## Completed checks — 30 September 2026
-- ESLint and the optimized webpack production build pass.
-- Production smoke checks pass for 25 pages and 75 local image/logo assets; internal fragment targets, security headers, sitemap/robots and branded 404 are checked.
-- Invalid origin, unsupported type, malformed JSON, invalid fields, oversized payload and per-instance rate-limit paths pass without delivering an enquiry.
-- Production contact validation focuses the first invalid field and exposes field errors. Mobile homepage has one H1 and no horizontal overflow at 360 px; no runtime errors were observed in the checked contact flow.
-- npm production dependency audit reports zero known advisories at the time of this check.
-- The launch gate correctly fails because real domain, contact inbox, receiver credentials and indexing approval have not been supplied. Successful remote delivery, deployed Lighthouse, shared edge rate limiting and approved privacy content remain unverified.
+```sh
+npm run lint
+npm run build
+npm run test:e2e:local
+npm run start -- --port 3002
+```
+
+In another terminal:
+
+```sh
+npm run test:smoke
+npm run test:performance
+npm run check:launch
+```
+
+`TEST_BASE_URL` changes the smoke test target; it defaults to `http://localhost:3002`. Use a local or isolated staging server for API rejection checks. They consume rate-limit entries but never send enquiries.
+
+## Launch configuration still required
+
+`npm run check:launch` currently reports a missing real HTTPS domain, incomplete enquiry receiver configuration, and disabled search indexing. A contact email is configured; confirm it is the approved business inbox before publishing.
+
+Set these in the host's encrypted environment settings:
+
+- `NEXT_PUBLIC_SITE_URL`: the canonical HTTPS domain.
+- `NEXT_PUBLIC_CONTACT_EMAIL`: the approved business email.
+- `ENQUIRY_WEBHOOK_URL`: the approved HTTPS email/CRM receiver.
+- `ENQUIRY_WEBHOOK_TOKEN`: its server-only bearer token.
+- `NEXT_PUBLIC_SITE_INDEXABLE`: keep `false` for staging; enable only for the approved public launch.
+
+Public variables are embedded at build time. Rebuild after changing them. Never place credentials in a `NEXT_PUBLIC_` variable. Do not commit `.env` files.
+
+## Enquiry delivery
+
+The receiver accepts a bearer-authenticated JSON POST:
+
+```json
+{ "id": "unique-request-id", "receivedAt": "ISO timestamp", "kind": "contact or audit", "data": {} }
+```
+
+It must durably accept the enquiry before returning a successful status. Redirects are rejected. The server times out after 10 seconds; the client after 15 seconds. Forms preserve entered values and show an error if delivery fails or cannot be confirmed. Configure receiver-side deduplication and avoid logging submitted personal details.
+
+Before launch, test a real approved enquiry through the receiver and inbox/CRM, plus failure and recovery. Configure shared edge rate limiting and trusted forwarded IP headers; the in-memory limit only protects one server instance.
+
+## Content and final review
+
+- The homepage still contains explicitly labelled preview reviews. Replace them with approved client reviews before public launch.
+- Confirm the homepage business statistics and the services offered. Portfolio and campaign concept studies must remain labelled unless replaced with approved real work.
+- Confirm rights to the supplied photos and brand assets.
+- Add an approved privacy notice reflecting the actual host, enquiry processor, and data practices.
+- Complete Firefox and manual real-device/screen-reader review; automated desktop/mobile navigation, portfolio filters/dialog focus/Escape, FAQ keyboard controls, form recovery, reduced-motion rendering, and narrow-screen checks now pass.
+- After deployment, verify HTTPS and redirects, canonical URLs, sitemap and robots, real delivery, performance, monitoring, and rollback.

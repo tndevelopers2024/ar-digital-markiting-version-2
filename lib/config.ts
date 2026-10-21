@@ -13,6 +13,7 @@ export const config = {
     { "label": "Home", "href": "/" },
     { "label": "About", "href": "/about" },
     { "label": "Services", "href": "/services" },
+    { "label": "Portfolio", "href": "/portfolio" },
     { "label": "Campaigns", "href": "/projects" },
     { "label": "Blogs", "href": "/blogs" },
     { "label": "Contact", "href": "/contact" }
@@ -48,7 +49,7 @@ export const config = {
     "orbitLabel": "CREATIVITY, WITH A PURPOSE",
     "artCoordinate": "N° 01 — THE POSSIBILITY EFFECT",
     "bottomLeft": "YOUR AMBITION. OUR OBSESSION.",
-    "bottomRight": "WEBSITES ↗ BRANDS ↗ DIGITAL GROWTH",
+    "bottomRight": "WEBSITES  BRANDS  DIGITAL GROWTH",
     "scroll": "Scroll to see the bigger picture"
   },
   "trusted": {
@@ -88,7 +89,7 @@ export const config = {
     "Branding & UI/UX",
     "Mobile App Development",
     "Content & Motion",
-    "AI & Automation"
+    "AI Development"
   ],
   "servicesSection": {
     "eyebrow": "BUILT AROUND YOUR NEXT",
@@ -170,15 +171,15 @@ export const config = {
         ]
       },
       {
-        "name": "AI & Automation",
+        "name": "AI Development",
         "slug": "automation",
         "icon": "target",
-        "tagline": "Make the useful work easier.",
-        "description": "Practical chatbots, connected workflows, and intelligent tools shaped around real business needs.",
+        "tagline": "Bring intelligence to your business.",
+        "description": "Practical chatbots, AI assistants, and intelligent tools shaped around real business needs.",
         "tags": [
           "AI assistants",
-          "Workflow automation",
-          "Integrations"
+          "Chatbots",
+          "AI integrations"
         ]
       }
     ]
@@ -1094,7 +1095,7 @@ export const config = {
     "items": [
       {
         "question": "What can AR Digital Marketing help us build?",
-        "answer": "We bring digital marketing, websites and e-commerce, branding and UI/UX, mobile apps, content and motion, and practical automation together. We agree the services and deliverables that match your project before work starts."
+        "answer": "We bring digital marketing, websites and e-commerce, branding and UI/UX, mobile apps, content and motion, and AI development together. We agree the services and deliverables that match your project before work starts."
       },
       {
         "question": "Can we start with just one service?",
@@ -1175,42 +1176,42 @@ export const config = {
     "items": [
       {
         "category": "DIGITAL MARKETING",
-        "minutes": "3 MIN READ",
+        "minutes": "2 MIN READ",
         "title": "How to turn website visitors into customers",
         "summary": "Help the right people find your website and make it easy for them to contact you.",
         "tone": "lavender",
-        "symbol": "↗",
+        "symbol": "",
         "paragraphs": [
-          "Start by deciding what you want visitors to do: buy a product, fill in a form, or call your business. Make that next step easy to find on every important page.",
-          "Check your website on a phone. Explain what you offer in plain language, answer common questions, and show useful information before asking people to get in touch.",
-          "Improve one thing at a time. Track whether more visitors complete the action you want, then use what you learn to plan the next change."
-        ]
+          "Start with one important action: an enquiry, a booking, or a purchase. A service page should explain who the service is for, what it includes, and what happens after someone gets in touch. Keep the primary button close to that explanation. If visitors need more information before deciding, give them a useful route to it rather than repeating the same sales message. For a local business, service areas and availability can be just as useful as a polished headline.",
+          "Walk through the page on a phone, using the same connection and screen size a customer might use. Check whether the headline makes sense without extra context, the text is readable, and buttons are comfortable to tap. Complete the form yourself: do labels stay visible, do errors explain the fix, and does the message reach the correct inbox? Ask someone unfamiliar with the business to try the same task. Their questions often reveal details your team has stopped noticing.",
+          "Record a starting point before changing the page. For an enquiry page, useful measures include relevant visits, completed forms, and how many enquiries are suitable for your service. Change one meaningful part of the journey, such as the offer explanation or form length, and allow enough time to compare similar periods. A small sample can be misleading, so combine the numbers with actual customer feedback. Keep a simple log of the change, the dates, and what you learned before deciding what to improve next."
+]
       },
       {
         "category": "BRANDING",
-        "minutes": "3 MIN READ",
+        "minutes": "2 MIN READ",
         "title": "Why your brand should look consistent",
         "summary": "Use the same colours, style, and message so customers recognise your business.",
         "tone": "peach",
         "symbol": "✳",
         "paragraphs": [
-          "Your website, social posts, and ads should look like they belong to the same business. Familiar colours, fonts, and messages help people recognise you.",
-          "You can still try new ideas. Keep the key parts of your brand the same while changing the format, photo, or story to suit each channel.",
-          "Create a simple guide with your logo, colours, fonts, and a few examples of how to write about your business. Share it with everyone who creates content for you."
-        ]
+          "Consistency helps people connect a social post, website, and proposal with the same business. Start with the details customers see most often: the logo, main colours, typefaces, image style, and the way you describe your offer. Review a few recent materials side by side. If they look like different companies, identify which choices should stay fixed. The aim is a familiar experience that helps people recognise you and understand your message without working through a new visual language each time.",
+          "A consistent brand still needs room for different contexts. A short social video, a product page, and a presentation do different jobs. Keep the identity recognisable while changing the format and level of detail. For example, a campaign can use a new photograph or story while retaining the same typography, tone, and core promise. Check that important text remains readable and that a design works at the size people will actually see, including small mobile screens and social thumbnails.",
+          "Put the practical rules in a short guide your team can find. Include approved logo files, colour values, type choices, a few example layouts, and examples of how to write about the business. Explain common mistakes, such as stretching a logo or using low-contrast text. Store reusable templates with the guide and name someone who can answer questions. Review the system when the business changes, so consistency supports the current offer rather than preserving decisions that no longer fit."
+]
       },
       {
         "category": "MARKETING RESULTS",
-        "minutes": "3 MIN READ",
+        "minutes": "2 MIN READ",
         "title": "Which marketing numbers should you track?",
         "summary": "Focus on the numbers that show whether your marketing is helping your business.",
         "tone": "sage",
         "symbol": "⌁",
         "paragraphs": [
-          "Start with your business goal. If you need enquiries, track relevant calls and form submissions. If you sell online, look at orders and the cost of bringing in customers.",
-          "Compare results over a useful period and note what changed. More website visits alone do not tell you whether those visitors became customers.",
-          "Finish each review with one clear next step. Decide what to improve, what to test, and how you will check whether it worked."
-        ]
+          "Choose measures around the business action you need. A service business may care about suitable enquiries and booked appointments; an online shop may focus on orders and repeat purchases. Decide what counts as a conversion before reviewing campaign reports. Check that forms, calls, and purchases are recorded reliably, and keep customer information limited to what you need. When sales happen offline, combine campaign reporting with your team’s record of enquiry quality so a high lead count does not hide a poor fit.",
+          "Read numbers together instead of picking a single impressive total. More visits can be useful, but the next questions are whether visitors reached the right pages and completed a meaningful action. Compare similar date ranges, note changes in spend and offers, and consider seasonal demand. Tracking can miss activity across devices or after consent choices, so treat attribution as a useful estimate rather than a complete account of every sale. Explain these limits alongside the results when sharing a report.",
+          "End each review with a decision. If visits are relevant but enquiries are low, examine the offer and page experience. If enquiries arrive but rarely progress, review the targeting, message, and follow-up process with the team handling them. Choose one change, assign an owner, and agree when to review it. Keep the report short enough to use regularly: the goal, the key measures, what changed, and the next action. This turns reporting into a practical routine for learning instead of a collection of charts."
+]
       }
     ]
   },
@@ -1257,6 +1258,7 @@ export const config = {
     "links": [
       { "label": "About", "href": "/about" },
       { "label": "Services", "href": "/services" },
+      { "label": "Portfolio", "href": "/portfolio" },
       { "label": "Campaigns", "href": "/projects" },
       { "label": "Our team", "href": "/team" },
       { "label": "Blogs", "href": "/blogs" },
@@ -1877,9 +1879,9 @@ export const servicePages = [
   },
   {
     "slug": "ai-development",
-    "name": "AI & Machine Learning",
-    "heading": "Less repetitive work. More time for your team.",
-    "description": "Use AI where it solves a real business problem. We help plan, build, and test useful assistants and automations with clear limits and human oversight.",
+    "name": "AI Development",
+    "heading": "Useful AI. Built around your business.",
+    "description": "Use AI where it solves a real business problem. We help plan, build, and test useful AI assistants and intelligent tools with clear limits and human oversight.",
     "visual": "ai",
     "features": [
       {
@@ -1887,8 +1889,8 @@ export const servicePages = [
         "description": "Help answer common questions using approved business information."
       },
       {
-        "title": "Workflow automation",
-        "description": "Reduce repetitive steps between the tools your team already uses."
+        "title": "AI chatbots",
+        "description": "Build conversational tools that answer questions using your business information."
       },
       {
         "title": "Document processing",
@@ -1991,64 +1993,220 @@ export const homeImages = {
   campaignLocal: { src: "/images/home/campaign-local.webp", alt: "Illustrative cafe owner reviewing local business visibility on a tablet" },
   campaignRetention: { src: "/images/home/campaign-retention.webp", alt: "Email newsletter design and a customer follow-up journey" },
   blogConversion: { src: "/images/home/blog-conversion.webp", alt: "Testing a website contact form on a phone and laptop" },
-  strategy: { src: "/images/home/strategy.webp", alt: "Illustrative creative team planning a website and marketing strategy" },
+  strategy: { src: "/images/home/about-nanlogical.jpg", alt: "About our digital agency" },
   analytics: { src: "/images/home/analytics.webp", alt: "Illustrative marketing analytics dashboard and customer journey notes" },
   branding: { src: "/images/home/branding.webp", alt: "Red and blue brand design materials arranged on a designer’s desk" },
   content: { src: "/images/home/content.webp", alt: "Illustrative content production studio with a camera and campaign storyboard" },
-  caption: "AI-created imagery illustrating our services.",
+  caption: "Photography illustrating our services.",
 } as const;
 
 // Inner-page imagery: unique per route; never reused from the homepage.
 export const innerPageImages = {
-  "about": {"src": "/images/pages/about.webp", "alt": "Creative team arranging website sketches in a studio", "title": "A shared direction", "caption": "Understand the business. Bring the right skills together."},
-  "team": {"src": "/images/pages/team.webp", "alt": "Bright collaborative studio with design tools and books", "title": "Space for good work", "caption": "Different skills, working towards the same goal."},
-  "contact": {"src": "/images/pages/contact.webp", "alt": "Welcoming consultation space with chairs and a notebook", "title": "Let\u2019s start with a conversation", "caption": "Your idea, your priorities, and a useful next step."},
-  "services": {"src": "/images/pages/services.webp", "alt": "Creative workshop table with website layouts and design materials", "title": "From the first sketch to launch", "caption": "Design, technology, and marketing, connected."},
-  "projects": {"src": "/images/pages/projects.webp", "alt": "Creative director reviewing a wall of campaign storyboards", "title": "A goal behind every campaign", "caption": "Choose the audience. Shape the message. Measure what matters."},
-  "blogs": {"src": "/images/pages/blogs.webp", "alt": "Sunlit reading desk with marketing notes and design books", "title": "Ideas you can use", "caption": "A little reading. A clearer next step."},
-  "web-development": {"src": "/images/pages/web-development.webp", "alt": "Developer building a responsive website", "title": "Built around your customers", "caption": "Clear journeys. Responsive pages. A website you can grow."},
-  "ecommerce-development": {"src": "/images/pages/ecommerce-development.webp", "alt": "Artisan reviewing an online shop while packing ceramics", "title": "Make buying feel simple", "caption": "From finding a product to the next repeat order."},
-  "graphic-design": {"src": "/images/pages/graphic-design.webp", "alt": "Designer creating campaign artwork with a drawing tablet", "title": "Make the message visible", "caption": "Thoughtful layouts that turn a quick glance into interest."},
-  "branding-strategy": {"src": "/images/pages/branding-strategy.webp", "alt": "Designer arranging a brand identity moodboard", "title": "A brand with a clear direction", "caption": "Connect what you stand for with how your business shows up."},
-  "mobile-app-development": {"src": "/images/pages/mobile-app-development.webp", "alt": "Developer testing mobile app interfaces on phones", "title": "Useful in everyday life", "caption": "Build around the moments when your customers need you."},
-  "ui-ux-design": {"src": "/images/pages/ui-ux-design.webp", "alt": "Designers mapping a customer journey with paper wireframes", "title": "Start with the person using it", "caption": "Listen, sketch, test, and make the next step easier."},
-  "video-editing": {"src": "/images/pages/video-editing.webp", "alt": "Video editor reviewing a timeline and footage", "title": "Give your story a clear rhythm", "caption": "The right cut, sound, and pace for the audience."},
-  "digital-marketing": {"src": "/images/pages/digital-marketing.webp", "alt": "Marketing planner arranging a campaign calendar", "title": "Turn attention into action", "caption": "A clear audience, a useful message, and a plan to improve."},
-  "ai-development": {"src": "/images/pages/ai-development.webp", "alt": "Engineer reviewing a chatbot and automation workflow", "title": "Make room for meaningful work", "caption": "Practical automation built around a real business task."},
-  "software-testing": {"src": "/images/pages/software-testing.webp", "alt": "Tester comparing a product across several devices", "title": "Confidence in the details", "caption": "Check the journeys your customers rely on before launch."},
-  "article-visitors": {"src": "/images/pages/article-visitors.webp", "alt": "Hands arranging a website customer journey", "title": "A clearer customer journey", "caption": "Help people find the next step."},
-  "article-brand": {"src": "/images/pages/article-brand.webp", "alt": "Coordinated stationery and packaging design", "title": "Consistency builds recognition", "caption": "Small details, repeated with care."},
-  "article-metrics": {"src": "/images/pages/article-metrics.webp", "alt": "Analyst comparing reports with a tablet dashboard", "title": "Numbers with a purpose", "caption": "Connect the report to the decision."},
-  "project-seo": {"src": "/images/pages/project-seo.webp", "alt": "Strategist mapping search topics on a glass board", "title": "Build useful search visibility", "caption": "Content and structure around what people need."},
-  "project-paid": {"src": "/images/pages/project-paid.webp", "alt": "Alternate advertisement designs on a creative review board", "title": "Test the message", "caption": "Learn which creative makes the next step clearer."},
-  "project-social": {"src": "/images/pages/project-social.webp", "alt": "Creator filming an artisan with a phone camera rig", "title": "Make content worth watching", "caption": "A clear story, made for the way people browse."},
-  "project-local": {"src": "/images/pages/project-local.webp", "alt": "Florist checking local business discovery outside a storefront", "title": "Help nearby customers find you", "caption": "Make your location, offer, and next step easy to discover."},
-  "project-retention": {"src": "/images/pages/project-retention.webp", "alt": "Shop operator preparing thank-you cards and email follow-ups", "title": "Give customers a reason to return", "caption": "Thoughtful follow-up at the right point in their journey."},
+  "about": {
+    "src": "/images/inner-premium/team-studio.webp",
+    "alt": "Illustrative creative team reviewing design layouts in a bright studio",
+    "title": "A shared direction",
+    "caption": "Understand the business. Bring the right skills together."
+  },
+  "team": {
+    "src": "/images/inner-premium/team-studio.webp",
+    "alt": "Illustrative multidisciplinary team reviewing a creative project together",
+    "title": "Space for good work",
+    "caption": "Different skills, working towards the same goal."
+  },
+  "contact": {
+    "src": "/images/inner-premium/team-studio.webp",
+    "alt": "Illustrative creative consultation around a shared work table",
+    "title": "Let’s start with a conversation",
+    "caption": "Your idea, your priorities, and a useful next step."
+  },
+  "services": {
+    "src": "/images/inner-premium/team-studio.webp",
+    "alt": "Illustrative design workshop with layouts, laptops, and printed creative materials",
+    "title": "From the first sketch to launch",
+    "caption": "Design, technology, and marketing, connected."
+  },
+  "projects": {
+    "src": "/images/inner-premium/social-content.webp",
+    "alt": "Camera and smartphone set up for a carefully styled content shoot",
+    "title": "A goal behind every campaign",
+    "caption": "Choose the audience. Shape the message. Measure what matters."
+  },
+  "portfolio": {
+    "src": "/images/inner-premium/graphic-design.webp",
+    "alt": "Coordinated geometric print designs and tactile brand materials",
+    "title": "Crafting digital excellence",
+    "caption": "Creative services, web development, app engineering, and measurable growth."
+  },
+  "blogs": {
+    "src": "/images/inner-premium/search-strategy.webp",
+    "alt": "Research notes and a laptop arranged for a digital strategy review",
+    "title": "Ideas you can use",
+    "caption": "A little reading. A clearer next step."
+  },
+  "web-development": {
+    "src": "/images/inner-premium/web-development.webp",
+    "alt": "Laptop and phone displaying a coordinated responsive website in an ivory studio",
+    "title": "Built around your customers",
+    "caption": "Clear journeys. Responsive pages. A website you can grow."
+  },
+  "ecommerce-development": {
+    "src": "/images/inner-premium/ecommerce.webp",
+    "alt": "Online ceramic homeware store displayed beside products and carefully packed orders",
+    "title": "Make buying feel simple",
+    "caption": "From finding a product to the next repeat order."
+  },
+  "graphic-design": {
+    "src": "/images/inner-premium/graphic-design.webp",
+    "alt": "Navy and red geometric artwork with print samples and design materials",
+    "title": "Make the message visible",
+    "caption": "Thoughtful layouts that turn a quick glance into interest."
+  },
+  "branding-strategy": {
+    "src": "/images/inner-premium/branding.webp",
+    "alt": "Coordinated navy and ivory packaging, stationery, and fabric swatches",
+    "title": "A brand with a clear direction",
+    "caption": "Connect what you stand for with how your business shows up."
+  },
+  "mobile-app-development": {
+    "src": "/images/inner-premium/mobile-app.webp",
+    "alt": "Three smartphones displaying a coordinated service booking app concept",
+    "title": "Useful in everyday life",
+    "caption": "Build around the moments when your customers need you."
+  },
+  "ui-ux-design": {
+    "src": "/images/inner-premium/ui-ux.webp",
+    "alt": "Designer sketching a mobile customer journey beside a tablet interface",
+    "title": "Start with the person using it",
+    "caption": "Listen, sketch, test, and make the next step easier."
+  },
+  "video-editing": {
+    "src": "/images/inner-premium/video-production.webp",
+    "alt": "Video editing workstation with a cinematic preview and professional grading controls",
+    "title": "Give your story a clear rhythm",
+    "caption": "The right cut, sound, and pace for the audience."
+  },
+  "digital-marketing": {
+    "src": "/images/inner-premium/marketing-analytics.webp",
+    "alt": "Marketing dashboards on a laptop and tablet beside printed performance reports",
+    "title": "Turn attention into action",
+    "caption": "A clear audience, a useful message, and a plan to improve."
+  },
+  "ai-development": {
+    "src": "/images/inner-premium/ai-development.webp",
+    "alt": "Glass processor sculpture connected to document tiles, illustrating an AI workflow",
+    "title": "Make room for meaningful work",
+    "caption": "Practical AI built around a real business need."
+  },
+  "software-testing": {
+    "src": "/images/inner-premium/software-testing.webp",
+    "alt": "Website testing setup with laptop, tablet, phone, and a review checklist",
+    "title": "Confidence in the details",
+    "caption": "Check the journeys your customers rely on before launch."
+  },
+  "article-visitors": {
+    "src": "/images/inner-premium/web-development.webp",
+    "alt": "Responsive website concept shown consistently across a laptop and phone",
+    "title": "A clearer customer journey",
+    "caption": "Help people find the next step."
+  },
+  "article-brand": {
+    "src": "/images/inner-premium/branding.webp",
+    "alt": "A consistent visual identity across packaging, business cards, and printed materials",
+    "title": "Consistency builds recognition",
+    "caption": "Small details, repeated with care."
+  },
+  "article-metrics": {
+    "src": "/images/inner-premium/marketing-analytics.webp",
+    "alt": "A close view of digital dashboards and printed marketing reports",
+    "title": "Numbers with a purpose",
+    "caption": "Connect the report to the decision."
+  },
+  "project-seo": {
+    "src": "/images/inner-premium/search-strategy.webp",
+    "alt": "Search topic planning with a laptop and organised research cards",
+    "title": "Build useful search visibility",
+    "caption": "Content and structure around what people need."
+  },
+  "project-paid": {
+    "src": "/images/inner-premium/graphic-design.webp",
+    "alt": "Bold navy and red visual concepts prepared for a campaign",
+    "title": "Test the message",
+    "caption": "Learn which creative makes the next step clearer."
+  },
+  "project-social": {
+    "src": "/images/inner-premium/social-content.webp",
+    "alt": "A camera and phone capturing a styled product for social content",
+    "title": "Make content worth watching",
+    "caption": "A clear story, made for the way people browse."
+  },
+  "project-local": {
+    "src": "/images/inner-premium/local-business.webp",
+    "alt": "A welcoming independent storefront with carefully arranged flowers",
+    "title": "Help nearby customers find you",
+    "caption": "Make your location, offer, and next step easy to discover."
+  },
+  "project-retention": {
+    "src": "/images/inner-premium/ecommerce.webp",
+    "alt": "Online store products and a thoughtfully prepared customer order",
+    "title": "Give customers a reason to return",
+    "caption": "Thoughtful follow-up at the right point in their journey."
+  }
 } as const;
 
 // Exclusive service-directory card images; separate from detail-page photos.
 export const serviceCardImages = {
-  "web-development": {"src": "/images/services/cards/web-development.webp", "alt": "Responsive website on laptop and phone"},
-  "ecommerce-development": {"src": "/images/services/cards/ecommerce-development.webp", "alt": "Product photography for an online store"},
-  "graphic-design": {"src": "/images/services/cards/graphic-design.webp", "alt": "Designer preparing geometric poster artwork"},
-  "branding-strategy": {"src": "/images/services/cards/branding-strategy.webp", "alt": "Consultants reviewing a brand positioning board"},
-  "mobile-app-development": {"src": "/images/services/cards/mobile-app-development.webp", "alt": "Scheduling app previews on smartphones"},
-  "ui-ux-design": {"src": "/images/services/cards/ui-ux-design.webp", "alt": "Researcher observing a tablet usability session"},
-  "video-editing": {"src": "/images/services/cards/video-editing.webp", "alt": "Hands working with video editing controls"},
-  "digital-marketing": {"src": "/images/services/cards/digital-marketing.webp", "alt": "Campaign plan with advertising and audience materials"},
-  "ai-development": {"src": "/images/services/cards/ai-development.webp", "alt": "Business assistant and automation workflow on a laptop"},
-  "software-testing": {"src": "/images/services/cards/software-testing.webp", "alt": "Quality testing bench and review checklist"},
+  "web-development": {
+    "src": "/images/inner-premium/web-development.webp",
+    "alt": "Laptop and phone displaying a coordinated responsive website in an ivory studio"
+  },
+  "ecommerce-development": {
+    "src": "/images/inner-premium/ecommerce.webp",
+    "alt": "Online ceramic homeware store displayed beside products and carefully packed orders"
+  },
+  "graphic-design": {
+    "src": "/images/inner-premium/graphic-design.webp",
+    "alt": "Navy and red geometric artwork with print samples and design materials"
+  },
+  "branding-strategy": {
+    "src": "/images/inner-premium/branding.webp",
+    "alt": "Coordinated navy and ivory packaging, stationery, and fabric swatches"
+  },
+  "mobile-app-development": {
+    "src": "/images/inner-premium/mobile-app.webp",
+    "alt": "Three smartphones displaying a coordinated service booking app concept"
+  },
+  "ui-ux-design": {
+    "src": "/images/inner-premium/ui-ux.webp",
+    "alt": "Designer sketching a mobile customer journey beside a tablet interface"
+  },
+  "video-editing": {
+    "src": "/images/inner-premium/video-production.webp",
+    "alt": "Video editing workstation with a cinematic preview and professional grading controls"
+  },
+  "digital-marketing": {
+    "src": "/images/inner-premium/marketing-analytics.webp",
+    "alt": "Marketing dashboards on a laptop and tablet beside printed performance reports"
+  },
+  "ai-development": {
+    "src": "/images/inner-premium/ai-development.webp",
+    "alt": "Glass processor sculpture connected to document tiles, illustrating an AI workflow"
+  },
+  "software-testing": {
+    "src": "/images/inner-premium/software-testing.webp",
+    "alt": "Website testing setup with laptop, tablet, phone, and a review checklist"
+  }
 } as const;
 
 export const blogCardImages = [
-  { src: "/images/listings/blog-conversion.webp", alt: "Business owner reviewing an online booking website" },
-  { src: "/images/listings/blog-brand.webp", alt: "Coordinated blue and red brand stationery and paper samples" },
-  { src: "/images/listings/blog-metrics.webp", alt: "Marketing performance charts on a tablet and printed reports" },
+  { src: "/images/inner-premium/web-development.webp", alt: "Responsive website concept on a laptop and smartphone" },
+  { src: "/images/inner-premium/branding.webp", alt: "Consistent navy and ivory identity across packaging and stationery" },
+  { src: "/images/inner-premium/marketing-analytics.webp", alt: "Marketing reports and analytics dashboards ready for review" },
 ] as const;
 export const campaignCardImages = {
-  seo: { src: "/images/listings/gallery-seo.webp", alt: "Search specialist researching keywords in a bright studio" },
-  paid: { src: "/images/listings/gallery-paid.webp", alt: "Sports shoe photographed for an advertising campaign" },
-  social: { src: "/images/listings/gallery-social.webp", alt: "Creator filming cafe content with a smartphone" },
-  local: { src: "/images/listings/gallery-local.webp", alt: "Welcoming local flower shop with bouquets outside" },
-  retention: { src: "/images/listings/gallery-retention.webp", alt: "Customer order packaged with a thank-you card" },
+  seo: { src: "/images/inner-premium/search-strategy.webp", alt: "Search strategy research and organised topic planning" },
+  paid: { src: "/images/inner-premium/graphic-design.webp", alt: "Navy and red geometric campaign creative" },
+  social: { src: "/images/inner-premium/social-content.webp", alt: "Camera and smartphone filming a styled content scene" },
+  local: { src: "/images/inner-premium/local-business.webp", alt: "An inviting independent florist storefront" },
+  retention: { src: "/images/inner-premium/ecommerce.webp", alt: "Customer orders and product presentation for an online shop" },
 } as const;

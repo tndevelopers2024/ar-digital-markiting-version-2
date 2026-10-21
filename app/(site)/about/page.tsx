@@ -1,5 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PageIntro, PageCTA } from "@/components/pages/PageParts";
+import { BrandHeading } from "@/components/ui/BrandHeading";
+import { HowWeWork } from "@/components/sections/HowWeWork";
 import { pageMetadata } from "@/lib/page-metadata";
-export const metadata=pageMetadata("About us","Get to know the approach behind AR Digital Marketing: connected design, development, and marketing with clear communication.","/about");
-export default function AboutPage(){return <><PageIntro label="About us" title="Good ideas deserve a team that sees them through." description="AR Digital Marketing brings design, development, and marketing together around your business. We make the work easier to understand—and easier to move forward."/><section id="page-content" className="about-page-banner section-container"><div><span>AR / THE WAY WE WORK</span><h2>Understand.<br/>Create.<br/><em>Keep improving.</em></h2></div><div className="about-connected" aria-hidden="true"><span>Design</span><span>Build</span><span>Grow</span><b>One<br/>direction.</b></div></section><section className="inner-section section-container about-story"><div><h2>Before we make anything,<br/>we make sure it makes sense.</h2></div><div><p>A website, a brand, and a campaign all serve the same business. We look at how they work together, so the experience feels clear from the first impression to the next conversation.</p><p>That starts with listening: what you offer, who you want to reach, what is getting in the way, and what a useful result would look like.</p><p>From there, we agree on the priorities and build a plan you can follow.</p><Link href="/services" className="inner-text-link">Explore what we do ↗</Link></div></section><section className="inner-section section-container"><div className="bespoke-heading"><h2>Clear work. Clear communication.</h2></div><div className="about-values">{[["01","Plain language","You should understand what we recommend, what it costs, and what happens next."],["02","A shared direction","Design and technology decisions should support the same business goal."],["03","Thoughtful delivery","We make space for review, testing, and a useful handover."],["04","Room to improve","Launch is a starting point. We agree on what support and improvement look like afterwards."]].map(([n,title,copy])=><article key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section><section className="inner-section section-container about-next"><h2>Meet the people.<br/>Explore the thinking.</h2><Link href="/team">Our team <span>↗</span></Link><Link href="/blogs">Read our blogs <span>↗</span></Link></section><PageCTA title="Let’s find the right next step for your business."/></>}
+export const metadata = pageMetadata("About us", "Get to know AR Digital Marketing: connected design, development, and marketing with clear communication.", "/about");
+
+export default function AboutPage() {
+  return <>
+    <PageIntro label="About us" title="About AR Digital Marketing" description="One team connecting your brand, website, and marketing. We turn your goals into a clear plan and keep you involved from the first conversation to launch." />
+    <section id="page-content" className="inner-section section-container about-overview">
+      <div><h2><BrandHeading text="Your Business Comes First" /></h2><p>A website, a brand, and a campaign serve the same business. We look at how they work together, so your customers have a clear experience from their first impression to their next conversation.</p><p>We start by listening: what you offer, who you want to reach, and what you want to improve. Then we agree on priorities, explain the options, and build a plan you can follow.</p><Link href="/services" className="inner-text-link">Explore our services</Link></div>
+      <div className="about-overview-photo"><Image src="/images/inner-premium/team-studio.webp" alt="Illustrative creative team reviewing project layouts in a bright studio" fill sizes="(max-width: 767px) 100vw, 40vw" /></div>
+    </section>
+    <HowWeWork />
+    <section className="inner-section section-container">
+      <div className="bespoke-heading"><h2><BrandHeading text="What You Can Expect" /></h2><p>Clear communication and a shared understanding of the work.<br />Practical support from planning through delivery.</p></div>
+      <div className="about-values">{[["01", "Plain language", "Understand what we recommend, what it involves, and what happens next."], ["02", "A shared direction", "Design, technology, and marketing decisions support the same business goal."], ["03", "Thoughtful delivery", "Review the work at agreed milestones, with space for testing and feedback."], ["04", "Room to improve", "Agree on a useful handover and the support you need after launch."]].map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+    </section>
+    <section className="inner-section section-container about-next"><div><h2><BrandHeading text="Get to Know Us" /></h2><p className="section-description">Explore the skills behind the work and the ideas we share.</p></div><Link href="/team">Meet our team</Link><Link href="/blogs">Read our blogs</Link></section>
+    <PageCTA title="Let’s Plan Your Next Step" />
+  </>;
+}

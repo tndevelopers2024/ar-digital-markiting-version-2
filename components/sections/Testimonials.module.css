@@ -1,0 +1,27 @@
+.section { padding-block:48px; }
+.heading { margin-bottom:28px; }
+.viewport { --gap:20px; --card-width:calc((100% - 40px) / 3); overflow:hidden; }
+.track { display:flex; width:100%; animation:reviews 48s linear infinite; will-change:transform; }
+.group { display:flex; flex:0 0 auto; width:calc((100% + var(--gap)) * 4 / 3); gap:var(--gap); padding-right:var(--gap); }
+.card { display:flex; flex-direction:column; flex:1 0 0; min-width:0; padding:24px; border:1px solid #dfe5ee; border-radius:22px; background:linear-gradient(145deg,#fff,#f1f5fc); }
+.card:nth-child(even) { background:linear-gradient(145deg,#fff,#fcf1f2); }
+.top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.quoteMark { font:500 58px/.8 var(--font-heading),sans-serif; color:var(--brand-blue); }
+.preview { font-size:10px; color:#7b8391; }
+.card blockquote { margin:0 0 22px; }
+.card h3 { font-family:var(--font-heading),sans-serif; font-size:20px; line-height:1.3; font-weight:500; letter-spacing:-.5px; }
+.card blockquote p { margin-top:16px; color:#626b79; font-size:14px; line-height:1.7; }
+.person { display:flex; gap:12px; align-items:center; margin-top:auto; }
+.avatar { display:grid; place-items:center; flex-shrink:0; width:42px; height:42px; border-radius:50%; background:#e3ebf9; color:var(--brand-blue); font-size:12px; }
+.person h4 { font-size:13px; font-weight:600; }
+.person p { font-size:11px; color:#737c8a; margin-top:4px; }
+.service { margin-top:18px; border-top:1px solid #dfe5ee; padding-top:14px; font-size:11px; color:var(--brand-blue); }
+.viewport[data-paused] .track { animation-play-state:paused; }
+.bottom { display:flex; justify-content:flex-end; align-items:flex-start; gap:24px; margin-top:18px; }
+.bottom p { max-width:780px; font-size:11px; line-height:1.7; color:#7a8290; }
+.bottom button { flex-shrink:0; border:0; background:transparent; padding:4px; color:var(--brand-blue); font-size:12px; }
+.bottom button:focus-visible { outline:2px solid var(--brand-blue); outline-offset:4px; }
+@keyframes reviews { to { transform:translateX(calc(-1 * (100% + var(--gap)) * 4 / 3)); } }
+@media(max-width:1000px) { .group { width:calc((100% + var(--gap)) * 2); } @keyframes reviews { to { transform:translateX(calc(-2 * (100% + var(--gap)))); } } }
+@media(max-width:600px) { .group { width:calc((100% + var(--gap)) * 4); } .card { padding:24px; } .bottom { flex-direction:column; gap:10px; } @keyframes reviews { to { transform:translateX(calc(-4 * (100% + var(--gap)))); } } }
+@media(prefers-reduced-motion:reduce) { .track { animation:none; will-change:auto; } .viewport { overflow-x:auto; } .group[aria-hidden] { display:none; } .bottom button { display:none; } }
