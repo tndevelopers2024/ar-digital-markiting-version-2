@@ -1262,7 +1262,9 @@ export const config = {
       { "label": "Campaigns", "href": "/projects" },
       { "label": "Our team", "href": "/team" },
       { "label": "Blogs", "href": "/blogs" },
-      { "label": "Contact", "href": "/contact" }
+      { "label": "Contact", "href": "/contact" },
+      { "label": "Privacy policy", "href": "/privacy-policy" },
+      { "label": "Terms & conditions", "href": "/terms-and-conditions" }
     ],
     "socials": [
       "Instagram",

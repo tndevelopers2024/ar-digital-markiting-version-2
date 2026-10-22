@@ -25,6 +25,7 @@
 #main:is(.inner-pages,.service-pages) .service-page-cta { border:1px solid #dfe4ed; border-radius:24px; background:linear-gradient(120deg,#edf3fc,#fff,#fbeef0); margin-block:40px; min-height:300px; }
 #main:is(.inner-pages,.service-pages) .service-page-cta p { margin:0 0 24px; }
 #main:is(.inner-pages,.service-pages) .blog-article h2 { font-size:30px; }
+#main:is(.inner-pages,.service-pages) .blog-article p + p { margin-top:16px; }
 #main:is(.inner-pages,.service-pages) .blog-article .page-image-frame { height:auto; aspect-ratio:1.6; }
 #main:is(.inner-pages,.service-pages) .more-blogs .blog-list-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 .about-overview { display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:center; }
