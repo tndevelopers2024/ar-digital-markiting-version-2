@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google";
 import { config } from "@/lib/config";
 import { site } from "@/lib/site";
+import { Loader } from "@/components/ui/Loader";
+import { WhatsAppFab } from "@/components/ui/WhatsAppFab";
 import "./globals.css";
 import "./page-polish.css";
 
@@ -34,8 +36,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body>
+        <Loader />
         <a className="skip-link" href="#main">Skip to content</a>
         {children}
+        <WhatsAppFab />
       </body>
     </html>
   );

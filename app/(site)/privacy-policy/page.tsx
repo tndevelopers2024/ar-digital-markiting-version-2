@@ -44,7 +44,7 @@ const policySections = [
     number: "04",
     title: "Browser storage, cookies, and analytics",
     paragraphs: [
-      "This website uses temporary browser session storage in your active tab (specifically the ar-intro and project-popup-seen keys) so that visual introductions and the project enquiry prompt do not repeat while you browse.",
+      "This website uses temporary browser session storage in your active tab (specifically the project-popup-seen key) so that the project enquiry prompt does not repeat while you browse.",
       "These session storage items are cleared when you close your browser tab and do not track you across other websites. We do not set third-party advertising cookies by default.",
     ],
   },

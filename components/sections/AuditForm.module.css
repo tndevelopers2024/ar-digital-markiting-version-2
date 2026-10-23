@@ -1,0 +1,27 @@
+.section { padding-block:64px; }
+.layout { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:clamp(32px,6vw,96px); }
+.copy { padding:24px 0; }
+.eyebrow { color:#285eae; font-size:10px; letter-spacing:.13em; margin:0 0 24px; }
+.copy h2 { font-size:clamp(36px,4.3vw,62px); line-height:1.08; letter-spacing:-.045em; margin:0; }
+.copy h2 span { color:#df2335; }
+.description { max-width:490px; font-size:16px; line-height:1.8; color:#596474; margin:24px 0 30px; }
+.benefits { display:grid; gap:0; max-width:490px; }
+.benefits > div { display:flex; align-items:flex-start; gap:18px; padding:20px 0; border-top:1px solid #e0e7f1; }
+.benefits > div > span { display:grid; place-items:center; width:36px; height:36px; flex-shrink:0; border-radius:12px; color:#285eae; background:#edf4ff; font-size:11px; }
+.benefits > div:nth-child(2) > span { color:#c51f30; background:#fff0f2; }
+.benefits h3 { margin:0 0 6px; font-size:16px; letter-spacing:-.015em; }
+.benefits p { margin:0; font-size:13px; line-height:1.7; color:#596474; }
+.aside { margin:24px 0 0; color:#596474; font-size:12px; }
+.layout .panel { padding:clamp(24px,3.3vw,48px); border:1px solid #dce5f1; border-top:4px solid #285eae; border-radius:24px; box-shadow:0 20px 60px #285eae0d; background:#fff; }
+.formHeader { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px; }
+.badge { padding:8px 12px; background:#edf4ff; color:#285eae; border-radius:6px; font-size:10px; letter-spacing:.08em; }
+.panel h3 { font-size:clamp(24px,2.5vw,32px); margin:0 0 10px; line-height:1.15; }
+.formIntro { color:#596474; font-size:14px; line-height:1.7; margin:0 0 28px; }
+.panel :global(.form-field) { margin-bottom:20px; }
+.panel :global(.form-field label) { font-size:13px; margin-bottom:8px; }
+.panel :global(.form-field input),.panel :global(.form-field select) { min-height:52px; border-radius:10px; background-color:#f8faff; font-size:16px; }
+.panel :global(.form-field input:focus-visible),.panel :global(.form-field select:focus-visible) { outline:2px solid #285eae; outline-offset:2px; }
+.panel :global(.audit-submit) { min-height:56px; border-radius:12px; font-size:14px; margin-top:4px; }
+.panel :global(.form-note) { font-size:11px; line-height:1.7; margin-top:16px; }
+.panel :global(.audit-success) { min-height:460px; }
+@media(max-width:800px) { .section { padding-block:40px; } .layout { grid-template-columns:1fr; gap:28px; } .copy { padding:0; } .copy h2 { font-size:clamp(36px,7vw,54px); } .description,.benefits { max-width:100%; } }

@@ -4,7 +4,7 @@ import { Brand } from "@/components/ui/Brand";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 
-export function Footer({ innerPage = false }: { innerPage?: boolean }) {
+export function Footer({ innerPage = false, showInvitation = true }: { innerPage?: boolean; showInvitation?: boolean }) {
   const data = config.footer;
   const groups = [
     { label: data.buildLabel, services: servicePages.slice(0, 6) },
@@ -12,10 +12,10 @@ export function Footer({ innerPage = false }: { innerPage?: boolean }) {
   ];
   return <footer id="footer" className="footer footer-expanded">
     <div className="section-container">
-      <div className="footer-invitation">
+      {showInvitation && <div className="footer-invitation">
         <div><h2>{data.ctaHeading}</h2><p>{data.ctaDescription}</p></div>
         <Button href="/contact">{data.ctaAction}</Button>
-      </div>
+      </div>}
       <div className="footer-directory">
         <div className="footer-brand">
           <Link href="/" aria-label={`${config.name} home`}><Brand/></Link>

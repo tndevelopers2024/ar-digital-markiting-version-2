@@ -5,10 +5,31 @@ import { ContactForm } from "@/components/pages/ContactForm";
 import { BrandHeading } from "@/components/ui/BrandHeading";
 import { pageMetadata } from "@/lib/page-metadata";
 import { site } from "@/lib/site";
+import styles from "./ContactPage.module.css";
 export const metadata = pageMetadata("Contact us", "Tell AR Digital Marketing about your website, brand, app, or marketing project. Start with a clear brief and find your next step.", "/contact");
+const steps = [
+  ["First, we listen.", "We review your goals, your audience, and what is already in place. Your enquiry gives us a starting point for the conversation."],
+  ["Then, we find the focus.", "Together, we identify the priorities and services that fit. We’ll discuss scope, timing, and budget before proposing the work."],
+  ["Next, a clear plan.", "You receive a proposed approach with deliverables and next steps, so you can decide how you would like to move forward."],
+];
+const questions = [
+  ["Do I need a complete project brief?", "No. Share what your business does, what you want to improve, and anything you have already tried. We can work through the details together."],
+  ["Can I start with just one service?", "Yes. You can start with a website, design project, content, or a marketing service. We can also discuss how several services could work together when that suits your goal."],
+  ["What if I haven’t decided on a budget?", "Choose the service you are interested in and tell us your priorities. If you have a comfortable range, include it in your message; otherwise, we can discuss scope before you decide."],
+  ["Can you improve an existing website or campaign?", "Yes. Include your website address or a short description of the current work in your message. We’ll discuss what is working, where you need help, and what a useful next step could look like."],
+];
 export default function ContactPage() {
-  return <><PageIntro label="Contact us" title="Let’s Talk About Your Project" description="You don’t need a finished brief to get started. Tell us what you have, what you want to improve, and where you need help." />
-    <section id="page-content" className="section-container contact-page-layout"><aside><h2><BrandHeading text="Start With Your Goals" /></h2><p className="section-description">A little context helps us make the first conversation useful. Share what you know; we can work through the details together.</p><ol>{[["Your business", "What you offer and who you want to reach."], ["Your goal", "What you would like the project to change."], ["Your priorities", "Any timelines, budget range, or existing work to consider."]].map(([title, copy], index) => <li key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></li>)}</ol><Link href="/services" className="inner-text-link">Explore our services</Link>{site.email && <p className="contact-email">Prefer email? <a href={`mailto:${site.email}`}>{site.email}</a></p>}<div className="inner-contact-photo"><Image src="/images/inner-premium/team-studio.webp" alt="Illustrative creative consultation in a welcoming studio" width={1536} height={1024} sizes="(max-width: 767px) 100vw, 40vw"/></div></aside><ContactForm /></section>
-    <section className="section-container contact-next"><div><h2><BrandHeading text="What Happens Next" /></h2></div><p>We review your enquiry, discuss a suitable scope, and explain the proposed work. You’ll have a clear view of the priorities, timing, and next steps before a project begins.</p></section>
+  return <>
+    <PageIntro label="Contact us" title="Let’s Talk About Your Project" description="A new idea. A better website. Your next stage of growth. Tell us where you want to go, and let’s work out the next step together." />
+    <section id="page-content" className={`section-container ${styles.layout}`} aria-label="Start a project conversation">
+      <aside className={styles.intro}>
+        <div><p className={styles.eyebrow}>Good work starts with a conversation</p><h2><BrandHeading text="Your ambition. Our starting point." /></h2><p className={styles.copy}>You bring the business knowledge. We bring design, technology, and marketing together around your goals. A few details are all we need to get started.</p><div className={styles.tags}><span>Build something new</span><span>Improve what’s there</span><span>Reach more people</span></div></div>
+        <figure className={styles.photo}><Image src="/images/inner-updated/contact-workspace.jpg" alt="Person working on a laptop at a marble desk" width={1536} height={1024} sizes="(max-width: 600px) 100vw, 40vw" /><figcaption><strong>Small beginnings.<br />Big possibilities.</strong><span>DESIGN · BUILD · GROW</span></figcaption></figure>
+        {site.email && <p className={styles.email}>Prefer to put it in an email?<a href={`mailto:${site.email}`}>{site.email}</a></p>}
+      </aside>
+      <div className={styles.formShell}><ContactForm /></div>
+    </section>
+    <section className={`section-container ${styles.process}`} aria-labelledby="contact-next-title"><div className={styles.heading}><div><p className={styles.eyebrow}>From hello to a clear direction</p><h2 id="contact-next-title"><BrandHeading text="What happens next?" /></h2></div><p>A straightforward conversation about what your business needs and how we can help.</p></div><div className={styles.steps}>{steps.map(([title,copy],i)=><article className={styles.step} key={title}><span className={styles.number}>0{i+1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
+    <section className={`section-container ${styles.faq}`} aria-labelledby="contact-faq-title"><div className={styles.heading}><p className={styles.eyebrow}>Before you say hello</p><h2 id="contact-faq-title"><BrandHeading text="A few things you might be wondering." /></h2><p>No perfect brief required. Just a little context and a goal worth exploring.</p><Link href="/services">Find out how we can help</Link></div><div className={styles.questions}>{questions.map(([question,answer])=><details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
   </>;
 }

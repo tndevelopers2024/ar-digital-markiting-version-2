@@ -1989,11 +1989,11 @@ export const innerHeroCopy: Record<string, {lines:readonly string[];note:string;
 // Homepage-only illustrative imagery; one distinct asset per placement.
 // Do not reuse these assets in other sections or inner pages. These are not client or team photographs.
 export const homeImages = {
-  campaignSeo: { src: "/images/home/campaign-seo.webp", alt: "Search optimisation workspace with search results and a website content outline" },
-  campaignPaid: { src: "/images/home/campaign-paid.webp", alt: "Paid advertising creative concepts and campaign testing notes" },
-  campaignSocial: { src: "/images/home/campaign-social.webp", alt: "Social content creation with a smartphone and a visual moodboard" },
-  campaignLocal: { src: "/images/home/campaign-local.webp", alt: "Illustrative cafe owner reviewing local business visibility on a tablet" },
-  campaignRetention: { src: "/images/home/campaign-retention.webp", alt: "Email newsletter design and a customer follow-up journey" },
+  campaignSeo: { src: "/images/home/service-seo-search.webp", alt: "Google Search Console performance report being reviewed on a laptop" },
+  campaignPaid: { src: "/images/home/service-google-meta-ads.webp", alt: "Paid advertising campaigns in Ads Manager on a laptop" },
+  campaignSocial: { src: "/images/home/service-social-media.webp", alt: "Colourful social media platform icons including Instagram, Facebook, and LinkedIn" },
+  campaignLocal: { src: "/images/home/service-local-maps.webp", alt: "Local business search results and map displayed on a smartphone" },
+  campaignRetention: { src: "/images/home/service-email-retention.webp", alt: "Email inbox and new message notification on a laptop" },
   blogConversion: { src: "/images/home/blog-conversion.webp", alt: "Testing a website contact form on a phone and laptop" },
   strategy: { src: "/images/home/about-nanlogical.jpg", alt: "About our digital agency" },
   analytics: { src: "/images/home/analytics.webp", alt: "Illustrative marketing analytics dashboard and customer journey notes" },
@@ -2011,20 +2011,20 @@ export const innerPageImages = {
     "caption": "Understand the business. Bring the right skills together."
   },
   "team": {
-    "src": "/images/inner-premium/team-studio.webp",
-    "alt": "Illustrative multidisciplinary team reviewing a creative project together",
+    "src": "/images/pages/team.webp",
+    "alt": "Illustrative shared office space for collaborative work",
     "title": "Space for good work",
     "caption": "Different skills, working towards the same goal."
   },
   "contact": {
-    "src": "/images/inner-premium/team-studio.webp",
-    "alt": "Illustrative creative consultation around a shared work table",
+    "src": "/images/inner-updated/contact-workspace.jpg",
+    "alt": "Person working on a laptop at a marble desk",
     "title": "Let’s start with a conversation",
     "caption": "Your idea, your priorities, and a useful next step."
   },
   "services": {
-    "src": "/images/inner-premium/team-studio.webp",
-    "alt": "Illustrative design workshop with layouts, laptops, and printed creative materials",
+    "src": "/images/inner-updated/services-strategy.jpg",
+    "alt": "Laptop displaying a social media marketing strategy beside planning documents",
     "title": "From the first sketch to launch",
     "caption": "Design, technology, and marketing, connected."
   },
@@ -2047,8 +2047,8 @@ export const innerPageImages = {
     "caption": "A little reading. A clearer next step."
   },
   "web-development": {
-    "src": "/images/inner-premium/web-development.webp",
-    "alt": "Laptop and phone displaying a coordinated responsive website in an ivory studio",
+    "src": "/images/unique/body-web.jpg",
+    "alt": "Hands writing code on a laptop",
     "title": "Built around your customers",
     "caption": "Clear journeys. Responsive pages. A website you can grow."
   },
@@ -2107,20 +2107,20 @@ export const innerPageImages = {
     "caption": "Check the journeys your customers rely on before launch."
   },
   "article-visitors": {
-    "src": "/images/inner-premium/web-development.webp",
-    "alt": "Responsive website concept shown consistently across a laptop and phone",
+    "src": "/images/unique/body-article-visitors.jpg",
+    "alt": "Smartphone showing social applications",
     "title": "A clearer customer journey",
     "caption": "Help people find the next step."
   },
   "article-brand": {
-    "src": "/images/inner-premium/branding.webp",
-    "alt": "A consistent visual identity across packaging, business cards, and printed materials",
+    "src": "/images/unique/body-article-brand.jpg",
+    "alt": "Designer selecting printed colour samples",
     "title": "Consistency builds recognition",
     "caption": "Small details, repeated with care."
   },
   "article-metrics": {
-    "src": "/images/inner-premium/marketing-analytics.webp",
-    "alt": "A close view of digital dashboards and printed marketing reports",
+    "src": "/images/unique/body-article-metrics.jpg",
+    "alt": "Printed business charts on a desk",
     "title": "Numbers with a purpose",
     "caption": "Connect the report to the decision."
   },
@@ -2159,56 +2159,56 @@ export const innerPageImages = {
 // Exclusive service-directory card images; separate from detail-page photos.
 export const serviceCardImages = {
   "web-development": {
-    "src": "/images/inner-premium/web-development.webp",
-    "alt": "Laptop and phone displaying a coordinated responsive website in an ivory studio"
+    "src": "/images/services/cards/web-development.webp",
+    "alt": "Website source code on a computer screen"
   },
   "ecommerce-development": {
-    "src": "/images/inner-premium/ecommerce.webp",
-    "alt": "Online ceramic homeware store displayed beside products and carefully packed orders"
+    "src": "/images/services/cards/ecommerce-development.webp",
+    "alt": "Open shop sign welcoming customers"
   },
   "graphic-design": {
-    "src": "/images/inner-premium/graphic-design.webp",
-    "alt": "Navy and red geometric artwork with print samples and design materials"
+    "src": "/images/services/cards/graphic-design.webp",
+    "alt": "Creative software tools and a graphics workstation"
   },
   "branding-strategy": {
-    "src": "/images/inner-premium/branding.webp",
-    "alt": "Coordinated navy and ivory packaging, stationery, and fabric swatches"
+    "src": "/images/unique/card-branding.jpg",
+    "alt": "Designer choosing colours for a visual identity"
   },
   "mobile-app-development": {
-    "src": "/images/inner-premium/mobile-app.webp",
-    "alt": "Three smartphones displaying a coordinated service booking app concept"
+    "src": "/images/services/cards/mobile-app-development.webp",
+    "alt": "Mobile applications on a smartphone"
   },
   "ui-ux-design": {
-    "src": "/images/inner-premium/ui-ux.webp",
-    "alt": "Designer sketching a mobile customer journey beside a tablet interface"
+    "src": "/images/services/cards/ui-ux-design.webp",
+    "alt": "Hand drawing interface wireframes on paper"
   },
   "video-editing": {
-    "src": "/images/inner-premium/video-production.webp",
-    "alt": "Video editing workstation with a cinematic preview and professional grading controls"
+    "src": "/images/services/cards/video-editing.webp",
+    "alt": "Video editing timeline with multiple tracks"
   },
   "digital-marketing": {
-    "src": "/images/inner-premium/marketing-analytics.webp",
-    "alt": "Marketing dashboards on a laptop and tablet beside printed performance reports"
+    "src": "/images/services/cards/digital-marketing.webp",
+    "alt": "Marketing planning workspace with a laptop and notebook"
   },
   "ai-development": {
-    "src": "/images/inner-premium/ai-development.webp",
-    "alt": "Glass processor sculpture connected to document tiles, illustrating an AI workflow"
+    "src": "/images/unique/card-ai.jpg",
+    "alt": "Software developer working in an office"
   },
   "software-testing": {
-    "src": "/images/inner-premium/software-testing.webp",
-    "alt": "Website testing setup with laptop, tablet, phone, and a review checklist"
+    "src": "/images/services/cards/software-testing.webp",
+    "alt": "Code review across computer screens"
   }
 } as const;
 
 export const blogCardImages = [
-  { src: "/images/inner-premium/web-development.webp", alt: "Responsive website concept on a laptop and smartphone" },
-  { src: "/images/inner-premium/branding.webp", alt: "Consistent navy and ivory identity across packaging and stationery" },
-  { src: "/images/inner-premium/marketing-analytics.webp", alt: "Marketing reports and analytics dashboards ready for review" },
+  { src: "/images/unique/blog-visitors.jpg", alt: "Team discussing a presentation on a laptop" },
+  { src: "/images/unique/blog-brand.jpg", alt: "Brand strategy documents and artwork" },
+  { src: "/images/unique/blog-metrics.jpg", alt: "Marketing plans and performance charts on a desk" },
 ] as const;
 export const campaignCardImages = {
   seo: { src: "/images/inner-premium/search-strategy.webp", alt: "Search strategy research and organised topic planning" },
-  paid: { src: "/images/inner-premium/graphic-design.webp", alt: "Navy and red geometric campaign creative" },
+  paid: { src: "/images/unique/card-paid.jpg", alt: "Smartphone applications on a yellow background" },
   social: { src: "/images/inner-premium/social-content.webp", alt: "Camera and smartphone filming a styled content scene" },
   local: { src: "/images/inner-premium/local-business.webp", alt: "An inviting independent florist storefront" },
-  retention: { src: "/images/inner-premium/ecommerce.webp", alt: "Customer orders and product presentation for an online shop" },
+  retention: { src: "/images/unique/card-retention.jpg", alt: "Preparing an online customer order" },
 } as const;

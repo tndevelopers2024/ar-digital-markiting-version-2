@@ -102,10 +102,10 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         damping: 38,
       }}
       style={{
-        minWidth: visible ? "min(100%, 820px)" : "100%",
+        minWidth: visible ? "min(calc(100% - 32px), 1100px)" : "min(100%, 1800px)",
       }}
       className={cn(
-        "pointer-events-auto relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-8 lg:flex transition-colors duration-300",
+        "pointer-events-auto relative z-[60] mx-auto hidden w-full max-w-[1800px] flex-row items-center justify-between self-start rounded-full bg-transparent px-8 min-[1200px]:flex transition-colors duration-300",
         visible && "bg-white/95 border border-black/5",
         className,
       )}
@@ -185,7 +185,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 38,
       }}
       className={cn(
-        "pointer-events-auto relative z-50 mx-auto flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center justify-between bg-transparent px-4 py-3 lg:hidden transition-colors duration-300",
+        "pointer-events-auto relative z-50 mx-auto flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center justify-between bg-transparent px-4 py-3 min-[1200px]:hidden transition-colors duration-300",
         visible && "bg-white/95 border border-black/5",
         className,
       )}

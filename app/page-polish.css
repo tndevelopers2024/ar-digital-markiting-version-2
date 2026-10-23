@@ -88,16 +88,53 @@ body::after { opacity:0; }
 #main.homepage .final-glow { opacity:.15; }
 #main.homepage .final-note { color:#596474; }
 
-/* Stronger typography throughout the homepage, including shared navigation and footer. */
-body:has(#main.homepage) { font-weight:600; }
-body:has(#main.homepage) :is(p,li,dt,dd,label,input,textarea,select,small,blockquote,td,span) { font-weight:600; }
-body:has(#main.homepage) :is(a,button,summary,th,strong,b) { font-weight:700; }
-body:has(#main.homepage) :is(h1,h2,h3,h4,h5,h6) { font-weight:700!important; }
-body:has(#main.homepage) #hero-heading { font-weight:800!important; }
-body:has(#main.homepage) :is(h1,h2,h3,h4,h5,h6,a,button,summary,strong,b) span { font-weight:inherit; }
+/* Consistent typography across every page, including navigation and footer. */
+body:has(#main) { font-weight:600; }
+body:has(#main) :is(p,li,dt,dd,label,input,textarea,select,small,blockquote,td,span) { font-weight:600; }
+body:has(#main) :is(a,button,summary,th,strong,b) { font-weight:700; }
+body:has(#main) :is(h1,h2,h3,h4,h5,h6) { font-weight:700!important; }
+body:has(#main) #hero-heading { font-weight:800!important; }
+body:has(#main) :is(h1,h2,h3,h4,h5,h6,a,button,summary,strong,b) span { font-weight:inherit; }
 
 /* Shared image-card spacing: a small white frame and close, even gutters. */
 :root { --card-image-inset:8px; --card-grid-gap:16px; }
 #main:is(.homepage,.inner-pages,.service-pages) :is(.services-grid,.insights-grid,.service-directory-grid,.blog-list-grid,.project-gallery-grid) { gap:var(--card-grid-gap); }
 #main :is(.service-directory-photo-card,.gallery-project,.blog-list-grid > article) { padding:var(--card-image-inset); background:#fff; border:1px solid #dfe4ed; border-radius:24px; overflow:hidden; }
 #main :is(.directory-card-image,.listing-photo,.home-blog-photo) { border-radius:16px; overflow:hidden; }
+
+/* Complete the shared inner-page design system. */
+#main:is(.inner-pages,.service-pages) :is(.about-values,.service-scope-grid,.service-related-grid) { gap:16px; }
+#main:is(.inner-pages,.service-pages) :is(.about-values article,.service-scope-grid article,.service-related-grid > a,.team-working,.contact-next,.article-checklist,.article-takeaway) { border:1px solid #dce5f2; border-radius:24px; background:#f8faff; box-shadow:none; }
+#main:is(.inner-pages,.service-pages) :is(.about-values article:nth-child(even),.service-scope-grid article:nth-child(even)) { background:#fff5f6; }
+#main:is(.inner-pages,.service-pages) :is(.directory-card-copy,.blog-card-copy,.gallery-project-copy) { padding:24px 16px; }
+#main:is(.inner-pages,.service-pages) :is(.directory-card-link,.gallery-project-copy strong,.inner-text-link) { color:#285eae; }
+#main:is(.inner-pages,.service-pages) .service-page-cta { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; column-gap:48px; row-gap:20px; text-align:left; padding:clamp(28px,5vw,64px); min-height:0; background:linear-gradient(115deg,#edf4ff,#fff 65%,#fff1f3); }
+#main:is(.inner-pages,.service-pages) .service-page-cta h2 { grid-column:1; font-size:clamp(30px,3.5vw,48px); line-height:1.12; margin:0; max-width:720px; }
+#main:is(.inner-pages,.service-pages) .service-page-cta p { grid-column:1; margin:0; max-width:600px; font-size:16px; line-height:1.8; }
+#main:is(.inner-pages,.service-pages) .service-page-cta > .button { grid-column:2; grid-row:1 / 3; margin:0; white-space:normal; text-align:center; }
+#main.inner-pages .contact-form { background:#fff; border-top:4px solid #285eae; padding:clamp(24px,3.3vw,48px); box-shadow:0 20px 60px #285eae0d; }
+#main.inner-pages .contact-form .form-field label { font-size:13px; }
+#main.inner-pages .contact-form :is(input,select,textarea) { background-color:#f8faff; border-radius:10px; font-size:16px; }
+#main.inner-pages .contact-form :is(input,select) { min-height:52px; }
+#main.inner-pages .contact-form .button { min-height:56px; border-radius:12px; }
+#main.inner-pages .contact-form :is(input,select,textarea):focus-visible { outline:2px solid #285eae; outline-offset:2px; }
+#main.inner-pages .contact-form .form-note { font-size:12px; }
+#main.inner-pages .blog-article { max-width:850px; }
+#main.inner-pages .blog-article p { line-height:1.9; }
+#main.inner-pages .blog-article-layout > aside { padding:24px; border:1px solid #dce5f2; border-radius:20px; background:#f8faff; }
+#main.inner-pages .project-filters { gap:10px; }
+#main.inner-pages .project-filters button { border-radius:100px; }
+body:has(#main.inner-pages .service-page-cta) .footer-invitation,
+body:has(#main.service-pages .service-page-cta) .footer-invitation { display:none; }
+@media(max-width:900px) {
+ #main:is(.inner-pages,.service-pages) .service-page-cta { grid-template-columns:minmax(0,1fr); gap:20px; }
+ #main:is(.inner-pages,.service-pages) .service-page-cta > .button { grid-column:1; grid-row:auto; justify-self:start; }
+}
+@media(max-width:767px) {
+ #main:is(.inner-pages,.service-pages) .service-page-cta h2 { font-size:30px; }
+ #main.inner-pages .contact-form-row { grid-template-columns:minmax(0,1fr); }
+ #main.inner-pages .blog-article-layout > aside { padding:20px; }
+}
+
+/* Keep decorative markers out of labels and illustrative browser chrome. */
+.status-dot, .campaign-signal-label i, .demo-dots { display:none!important; }

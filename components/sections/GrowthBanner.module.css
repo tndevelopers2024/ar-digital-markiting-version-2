@@ -1,0 +1,28 @@
+.section { padding-block:24px 64px; }
+.banner { display:grid; grid-template-columns:1.2fr 1fr; align-items:center; gap:32px; padding:clamp(28px,5vw,72px); overflow:hidden; border:1px solid #dce5f2; border-radius:28px; background:linear-gradient(115deg,#f1f6ff 0%,#fff 58%,#fff0f2 100%); }
+.eyebrow { margin:0 0 22px; color:#285eae; font-size:12px; letter-spacing:.16em; }
+.copy h2 { margin:0; font-size:clamp(32px,4vw,58px); line-height:1.1; letter-spacing:-.04em; }
+.copy h2 span { color:#df2335; }
+.description { max-width:510px; margin:24px 0 28px; color:#596474; font-size:17px; line-height:1.75; }
+.visual { position:relative; min-height:340px; display:grid; place-items:center; }
+.ring { position:absolute; width:min(280px,calc(100% - 90px)); aspect-ratio:1; border:1px dashed #9bb5db; border-radius:50%; transform:rotate(-18deg); }
+.center { display:flex; align-items:center; gap:22px; padding:30px; border:1px solid #dce5f2; border-radius:24px; background:#fff; color:#285eae; font-size:30px; font-weight:700; line-height:1.15; box-shadow:0 18px 50px #285eae12; transform:rotate(-5deg); }
+.orbiter { position:absolute; z-index:1; width:min(280px,calc(100% - 90px)); aspect-ratio:1; border-radius:50%; pointer-events:none; animation:labelOrbit 24s linear infinite; animation-delay:var(--delay); transform:rotate(var(--phase)); }
+.orbiter > span { position:absolute; top:0; left:50%; width:max-content; padding:12px 18px; border:1px solid #dce5f2; border-radius:100px; background:#fff; color:#285eae; font-size:15px; animation:keepUpright 24s linear infinite; animation-delay:var(--delay); transform:translate(-50%,-50%) rotate(calc(-1 * var(--phase))); }
+.search { --delay:0s; --phase:0deg; }
+.social { --delay:-8s; --phase:120deg; }
+.social > span { color:#df2335; }
+.ads { --delay:-16s; --phase:240deg; }
+.visual p { position:absolute; bottom:-12px; font-size:10px; letter-spacing:.13em; color:#596474; text-align:center; }
+.artwork { min-width:0; }
+.ring { animation:orbit 36s linear infinite; }
+.center { animation:sway 7s ease-in-out infinite; }
+.visual[data-paused] :is(.ring,.center,.orbiter,.orbiter > span) { animation-play-state:paused; }
+.pause { display:block; margin:30px auto 0; padding:8px 12px; border:0; border-radius:6px; background:transparent; color:#596474; font-size:11px; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
+.pause:focus-visible { outline:2px solid #285eae; outline-offset:3px; }
+@keyframes orbit { from { transform:rotate(-18deg); } to { transform:rotate(342deg); } }
+@keyframes sway { 0%,100% { transform:translateY(0) rotate(-5deg); } 50% { transform:translateY(-8px) rotate(-2deg); } }
+@keyframes labelOrbit { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+@keyframes keepUpright { from { transform:translate(-50%,-50%) rotate(0deg); } to { transform:translate(-50%,-50%) rotate(-360deg); } }
+@media(prefers-reduced-motion:reduce) { .ring,.center,.orbiter,.orbiter > span { animation:none; } .pause { display:none; } }
+@media(max-width:767px) { .banner { grid-template-columns:1fr; gap:12px; } .visual { min-height:300px; max-width:360px; width:100%; margin:auto; } .ring,.orbiter { width:min(240px,calc(100% - 80px)); } .orbiter > span { padding:10px 14px; font-size:13px; } .center { font-size:25px; padding:24px; } .description { font-size:16px; } }

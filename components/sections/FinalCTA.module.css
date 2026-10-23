@@ -1,0 +1,22 @@
+.section { padding-block:48px 80px; }
+.panel { display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(32px,6vw,100px); align-items:center; padding:clamp(24px,5vw,72px); border:1px solid #dce5f2; border-radius:32px; background:radial-gradient(ellipse at 0 100%,#e2edff,transparent 60%),linear-gradient(120deg,#f8faff,#fff 65%,#fff1f2); }
+.eyebrow { display:flex; align-items:center; gap:10px; margin:0 0 30px; font-size:11px; letter-spacing:.12em; color:#285eae; }
+.eyebrow > span { width:8px; height:8px; flex-shrink:0; border-radius:50%; background:#df2335; }
+.intro h2 { font-size:clamp(36px,4.6vw,68px); line-height:1.06; letter-spacing:-.045em; margin:0; }
+.intro h2 span { color:#df2335; }
+.description { max-width:470px; margin:28px 0 30px; font-size:16px; line-height:1.8; color:#596474; }
+.secondary { display:inline-flex; align-items:center; gap:14px; padding-block:10px; color:#285eae; font-size:14px; text-decoration:underline; text-underline-offset:6px; }
+.secondary:focus-visible { outline:2px solid #285eae; outline-offset:5px; }
+.audit { padding:clamp(24px,3vw,40px); background:#fff; border:1px solid #dce5f2; border-radius:24px; box-shadow:0 20px 60px #285eae0d; }
+.auditTop { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:20px; color:#596474; font-size:10px; letter-spacing:.12em; }
+.audit h3 { font-size:clamp(26px,2.6vw,36px); line-height:1.12; letter-spacing:-.035em; margin:0 0 14px; }
+.audit > p { color:#596474; font-size:14px; line-height:1.7; }
+.audit ul { list-style:none; padding:0; margin:24px 0; }
+.audit li { display:flex; align-items:flex-start; gap:14px; padding:16px 0; border-top:1px solid #e8edf5; }
+.audit li > span { font-size:11px; color:#285eae; padding-top:4px; }
+.audit strong { font-size:14px; color:#27364b; }
+.audit li p { font-size:12px; line-height:1.6; color:#596474; margin:5px 0 0; }
+.audit .cta { display:flex; width:100%; min-height:58px; padding:16px; font-size:14px; text-align:center; }
+.cta > span { display:flex; justify-content:center; align-items:center; gap:14px; }
+.audit .note { margin:16px 0 0; font-size:10px; text-align:center; }
+@media(max-width:800px) { .panel { grid-template-columns:1fr; gap:32px; } .section { padding-block:24px 48px; } .description { max-width:100%; } .intro h2 { font-size:clamp(36px,7vw,54px); } }

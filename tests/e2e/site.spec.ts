@@ -99,14 +99,14 @@ test("navigation, services menu, Escape, and browser history", async ({ page, is
 test("portfolio filtering and modal keyboard focus", async ({ page, browserName }) => {
   await page.goto("/portfolio");
   const group = page.getByRole("group", { name: "Filter portfolio concepts" });
-  await expect(page.getByRole("button", { name: /^Explore / })).toHaveCount(5);
+  await expect(page.getByRole("button", { name: /^Explore / })).toHaveCount(15);
   for (const category of ["Websites", "Mobile apps", "Brand & design", "Search", "Marketing"]) {
     const button = group.getByRole("button", { name: new RegExp(`^${category}`) });
     await button.click();
     await expect(button).toHaveAttribute("aria-pressed", "true");
-    await expect(page.getByRole("button", { name: /^Explore / })).toHaveCount(1);
+    await expect(page.getByRole("button", { name: /^Explore / })).toHaveCount(3);
   }
-  const trigger = page.getByRole("button", { name: /^Explore / });
+  const trigger = page.getByRole("button", { name: /^Explore / }).first();
   await trigger.click();
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
@@ -120,7 +120,7 @@ test("portfolio filtering and modal keyboard focus", async ({ page, browserName 
   await expect(dialog).not.toBeVisible();
   await expect(trigger).toBeFocused();
   await group.getByRole("button", { name: /^All concepts/ }).click();
-  await expect(page.getByRole("button", { name: /^Explore / })).toHaveCount(5);
+  await expect(page.getByRole("button", { name: /^Explore / })).toHaveCount(15);
 });
 
 for (const route of ["/contact", "/portfolio"]) {
@@ -253,7 +253,7 @@ for (const width of [320, 375, 768, 1024, 1920]) {
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth), route).toBeLessThanOrEqual(width + 1);
       const toggle = page.getByRole("button", { name: "Open menu", exact: true });
-      if (width < 1024) {
+      if (width < 1200) {
         await toggle.click();
         await expect(page.locator("#mobile-navigation-menu")).toBeVisible();
         expect(await page.evaluate(() => document.documentElement.scrollWidth), `menu ${route}`).toBeLessThanOrEqual(width + 1);
@@ -279,4 +279,45 @@ test("hero slideshow advances, pauses, and supports manual selection", async ({ 
   await expect(heading).toContainText("Tell your story.");
   await page.getByRole("button", { name: "Next banner slide", exact: true }).click();
   await expect(heading).toContainText("More visibility.");
+});
+
+
+test("industry showcase selection updates the feature", async ({ page }, testInfo) => {
+  await page.goto("/");
+  const industries = page.locator("#industries");
+  await industries.scrollIntoViewIfNeeded();
+  const healthcare = industries.getByRole("button", { name: /Healthcare & Wellness/ });
+  await healthcare.click();
+  await expect(healthcare).toHaveAttribute("aria-pressed", "true");
+  await expect(industries.getByRole("heading", { name: "Make the first step feel easier." })).toBeVisible();
+  await expect(industries.getByRole("img", { name: "Bright reception area inside a healthcare facility" })).toBeVisible();
+  const education = industries.getByRole("button", { name: /Education & Training/ });
+  await education.focus();
+  await page.keyboard.press("Enter");
+  await expect(education).toHaveAttribute("aria-pressed", "true");
+  await expect(healthcare).toHaveAttribute("aria-pressed", "false");
+  await expect(industries.getByRole("heading", { name: "Turn curiosity into a new chapter." })).toBeVisible();
+  await industries.screenshot({ path: testInfo.outputPath("industries.png") });
+  await industries.getByRole("link", { name: "Let’s talk about your business" }).click();
+  await expect(page).toHaveURL(/\/contact$/);
+});
+
+test("brand intro exits, skips, and respects reduced motion", async ({ page }, testInfo) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/contact", { waitUntil: "domcontentloaded" });
+  const intro = page.getByTestId("brand-preloader");
+  await expect(intro).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath("preloader.png") });
+  await expect(intro).toBeHidden({ timeout: 5000 });
+  await page.getByRole("link", { name: "Explore services", exact: true }).click();
+  await expect(page).toHaveURL(/\/services$/);
+  await expect(intro).toBeVisible();
+  await expect(intro).toBeHidden({ timeout: 5000 });
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await expect(intro).toBeVisible();
+  await intro.getByRole("button", { name: "Skip intro" }).click();
+  await expect(intro).toBeHidden();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.reload();
+  await expect(intro).toBeHidden();
 });

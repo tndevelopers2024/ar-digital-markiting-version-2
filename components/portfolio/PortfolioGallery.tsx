@@ -30,7 +30,7 @@ export function PortfolioGallery() {
 
   const close = () => dialog.current?.close();
   return <section className={styles.portfolioSection} aria-labelledby="portfolio-gallery-title">
-    <div className="bespoke-heading"><h2 id="portfolio-gallery-title"><BrandHeading text="Explore the Possibilities" /></h2><p>Choose a category and open a concept to see the brief, approach, and deliverables. These are illustrative studies, not completed client projects or measured results.</p></div>
+    <div className="bespoke-heading"><h2 id="portfolio-gallery-title"><BrandHeading text="Explore the Possibilities" /></h2><p>Choose a category and open a concept to see the brief, approach, and deliverables. These are fictional sample projects, not completed client work or measured results. Real stock photographs illustrate each brief.</p></div>
     <div className={styles.filtersWrapper} role="group" aria-label="Filter portfolio concepts">
       {portfolioCategories.map(category => <button type="button" key={category.id} aria-pressed={activeTab === category.id} className={`${styles.filterButton} ${activeTab === category.id ? styles.filterButtonActive : ""}`} onClick={() => setActiveTab(category.id)}>{category.label}<span className={styles.countBadge}>{category.id === "all" ? portfolioProjects.length : portfolioProjects.filter(project => project.category === category.id).length}</span></button>)}
     </div>
