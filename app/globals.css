@@ -3,13 +3,13 @@ section[id], .section-container { scroll-margin-top: 110px; }
 
 :root {
   color-scheme: light;
-  --background: #faf6f6;
+  --background: #ffffff;
   --surface: #ffffff;
-  --foreground: #0e1012;
-  --muted: #6b6b76;
+  --foreground: #27364b;
+  --muted: #596474;
   --border: rgba(14, 14, 18, 0.08);
-  --brand-blue: #245ba7;
-  --brand-red: #d62832;
+  --brand-blue: #285eae;
+  --brand-red: #df2335;
   --indigo: var(--brand-blue);
   --coral: var(--brand-red);
   --peach: #f6d7db;
@@ -1669,3 +1669,6 @@ button:disabled { cursor:wait; opacity:.65; }
   #main:is(.inner-pages,.service-pages) :is(.bespoke-heading,.service-page-section-heading,.service-list-header) { margin-bottom:24px; }
   #main:is(.inner-pages,.service-pages) .service-page-cta { padding:32px 18px; margin-top:28px; }
 }
+
+/* The document-wide cursor rule belongs in global CSS. */
+@media (hover:hover) and (pointer:fine) { .custom-cursor-on, .custom-cursor-on * { cursor:none !important; } }

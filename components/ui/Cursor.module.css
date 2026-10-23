@@ -7,5 +7,4 @@
 .icon { display:flex; align-items:center; justify-content:center; color:white; }
 .pointer { position:fixed; top:0; left:0; pointer-events:none; }
 .arrow { filter:drop-shadow(0 2px 8px #355ba580); }
-@media(hover:hover) and (pointer:fine) { :global(.custom-cursor-on), :global(.custom-cursor-on *) { cursor:none !important; } }
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce) { .layer { display:none; } }

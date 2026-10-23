@@ -976,3 +976,4 @@
  .modalFooterActions { align-items:stretch; flex-direction:column-reverse; }
 }
 @media(prefers-reduced-motion:reduce) { .portfolioCard,.cardImage,.filterButton,.modalCloseBtn,.statCard { transition:none; } }
+.portfolioGrid { gap:var(--card-grid-gap,16px); }

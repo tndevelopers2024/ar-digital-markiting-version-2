@@ -7,7 +7,7 @@ function Mark({ positive }: { positive: boolean }) {
 export function WhyChooseUs() {
   const data = config.comparison;
   return <Section id="why-us" className="comparison-section section-container batch-section">
-    <div className="centered-heading" data-reveal><h2 id="why-us-heading">Why <span>Choose Us</span></h2><p className="section-intro section-description">One team connecting your brand, technology, and marketing.<br className="description-break"/>{" "}Clear communication and thoughtful work at every step.</p></div>
+    <div className="centered-heading" data-reveal><h2 id="why-us-heading">Why <span>Choose Us</span></h2><p className="section-intro section-description">One team connecting your search, ads, content, and customer journey.<br className="description-break"/>{" "}A shared strategy, clear reporting, and a focus on relevant enquiries.</p></div>
     <div className="comparison-panel" data-reveal role="region" aria-label="Service comparison" tabIndex={0}><table className="comparison-table"><caption className="sr-only">{data.agency} compared with {data.typical.toLowerCase()}</caption><thead><tr><th scope="col">{data.featureLabel}</th><th scope="col">{data.typical}</th><th scope="col"><Brand/><span className="sr-only">{data.agency}</span></th></tr></thead><tbody>{data.rows.map(row => <tr key={row.label}><th scope="row">{row.label}</th><td><span className="comparison-cell"><Mark positive={false}/><span>{row.typical}</span></span></td><td><span className="comparison-cell"><Mark positive/><span>{row.agency}</span></span></td></tr>)}</tbody></table></div>
   </Section>;
 }

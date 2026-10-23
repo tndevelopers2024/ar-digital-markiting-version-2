@@ -26,7 +26,7 @@ export function SelectedWork() {
       <p>From the first search to the next visit, explore how we connect your brand with the people who matter.</p>
     </header>
     <div className={styles.grid}>{data.projects.map((project, index) => <article key={project.id} className={`${styles.card} ${index === 0 ? styles.featured : ""}`}>
-      <button type="button" className={styles.open} onClick={() => setSelected(project)} aria-label={`${data.view}: ${project.brand}`}>
+      <button type="button" className={styles.open} onClick={() => setSelected(project)}>
         <div className={styles.photo}><Image {...photos[project.theme]} alt={photos[project.theme].alt} fill sizes={index === 0 ? "(max-width: 767px) 100vw, 50vw" : "(max-width: 767px) 100vw, 42vw"}/><span className={styles.platform}>{project.visual.platform}</span><span className={styles.photoNote}>Campaign concept</span></div>
         <div className={styles.copy}>
           <div className={styles.topline}><span>{String(index + 1).padStart(2, "0")} / {project.visual.platform}</span><span className={styles.arrow} aria-hidden="true"></span></div>

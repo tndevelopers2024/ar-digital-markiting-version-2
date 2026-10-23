@@ -262,3 +262,21 @@ for (const width of [320, 375, 768, 1024, 1920]) {
     }
   });
 }
+
+test("hero slideshow advances, pauses, and supports manual selection", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  await page.mouse.move(0, 0);
+  const heading = page.locator("#hero-heading");
+  await expect(heading).toContainText("More visibility.");
+  await expect(heading).toContainText("Get discovered.", { timeout: 10000 });
+  await page.getByRole("button", { name: "Pause banner slideshow", exact: true }).click();
+  await page.getByRole("button", { name: "Play banner slideshow", exact: true }).blur();
+  await page.mouse.move(0, 0);
+  await page.waitForTimeout(6500);
+  await expect(heading).toContainText("Get discovered.");
+  await page.getByRole("button", { name: "Show slide 3: Social & content", exact: true }).click();
+  await expect(heading).toContainText("Tell your story.");
+  await page.getByRole("button", { name: "Next banner slide", exact: true }).click();
+  await expect(heading).toContainText("More visibility.");
+});

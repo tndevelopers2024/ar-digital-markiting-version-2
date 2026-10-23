@@ -1,9 +1,9 @@
 import styles from "./HowWeWork.module.css";
 
 const steps = [
-  { number: "01", label: "START WITH A CONVERSATION", title: "Let’s talk.", description: "Tell us about your business, what you want to create, and where you need support. We’ll listen, ask questions, and explore the possibilities.", detail: "Your goals · Your questions", icon: "chat" },
-  { number: "02", label: "TURN IDEAS INTO A CLEAR PLAN", title: "Find your direction.", description: "We bring your audience, priorities, and budget into one practical plan, with a clear scope, design direction, and shared milestones.", detail: "Clear scope · Shared milestones", icon: "plan" },
-  { number: "03", label: "CREATE, LAUNCH, AND KEEP IMPROVING", title: "Bring it to life.", description: "We design, build, and test your project with you involved along the way. After launch, we agree on the support and improvements that come next.", detail: "Thoughtful delivery · Ongoing support", icon: "launch" },
+  { number: "01", label: "UNDERSTAND YOUR AUDIENCE", title: "Find the opportunity.", description: "We review your business goals, audience, website, and current channels to understand where customers find you and where opportunities are missed.", detail: "Audience research · Channel audit", icon: "chat" },
+  { number: "02", label: "BUILD THE CAMPAIGN", title: "Launch with purpose.", description: "We bring the right channels, creative, landing pages, and tracking into a focused campaign plan, with a budget and priorities agreed together.", detail: "Channel strategy · Campaign creative", icon: "plan" },
+  { number: "03", label: "MEASURE AND OPTIMISE", title: "Learn. Refine. Grow.", description: "We review traffic, enquiries, and lead quality, then test and refine your campaigns. Clear reporting helps you understand the next decision.", detail: "Conversion tracking · Clear reporting", icon: "launch" },
 ];
 
 function StepIcon({ kind }: { kind: string }) {
@@ -14,7 +14,7 @@ function StepIcon({ kind }: { kind: string }) {
 
 export function HowWeWork() {
   return <section id="process" className={`section-container ${styles.section}`} aria-labelledby="process-heading">
-    <header className="section-heading"><div><h2 id="process-heading">How We <span>Work</span></h2><p className="section-description">From your first conversation to a digital experience built around your goals.<br className="description-break"/>{" "}Three clear steps, with you involved along the way.</p></div></header>
+    <header className="section-heading"><div><h2 id="process-heading">How We <span>Work</span></h2><p className="section-description">From understanding your audience to improving your next campaign.<br className="description-break"/>{" "}A clear process that keeps your business goals in view.</p></div></header>
     <div className={styles.grid}>{steps.map(step => <article key={step.number} className={styles.card}>
       <div className={styles.top}><span className={styles.number}>{step.number}</span><span className={styles.icon}><StepIcon kind={step.icon}/></span></div>
       <span className={styles.label}>{step.label}</span><h3>{step.title}</h3><p className={styles.description}>{step.description}</p><p className={styles.detail}>{step.detail}</p>

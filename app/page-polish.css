@@ -75,3 +75,29 @@
 .service-scope-grid p { font-size:15px; color:var(--muted); line-height:1.8; }
 @media(max-width:1100px) { .service-scope-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:767px) { .service-scope-grid { grid-template-columns:minmax(0,1fr); gap:16px; } }
+
+/* Bright brand palette: blue headings, red emphasis, neutral reading text. */
+body { background:#fff; }
+body::after { opacity:0; }
+.ambient-mesh { background:radial-gradient(ellipse at 82% 28%,#eef5ff80,transparent 45%); }
+#main :is(h1,h2,h3,h4) { color:var(--brand-blue); }
+#main :is(h1,h2,h3) > span { color:var(--brand-red); }
+#main.homepage :is(.section-description,.section-intro,.service-description,.service-tagline,.audit-description,.final-description) { color:#596474; }
+#main.homepage :is(.service-card,.comparison-panel,.audit-panel) { background:#fff; border-color:#dce5f1; }
+#main.homepage .final-cta { background:#f4f8ff; }
+#main.homepage .final-glow { opacity:.15; }
+#main.homepage .final-note { color:#596474; }
+
+/* Stronger typography throughout the homepage, including shared navigation and footer. */
+body:has(#main.homepage) { font-weight:600; }
+body:has(#main.homepage) :is(p,li,dt,dd,label,input,textarea,select,small,blockquote,td,span) { font-weight:600; }
+body:has(#main.homepage) :is(a,button,summary,th,strong,b) { font-weight:700; }
+body:has(#main.homepage) :is(h1,h2,h3,h4,h5,h6) { font-weight:700!important; }
+body:has(#main.homepage) #hero-heading { font-weight:800!important; }
+body:has(#main.homepage) :is(h1,h2,h3,h4,h5,h6,a,button,summary,strong,b) span { font-weight:inherit; }
+
+/* Shared image-card spacing: a small white frame and close, even gutters. */
+:root { --card-image-inset:8px; --card-grid-gap:16px; }
+#main:is(.homepage,.inner-pages,.service-pages) :is(.services-grid,.insights-grid,.service-directory-grid,.blog-list-grid,.project-gallery-grid) { gap:var(--card-grid-gap); }
+#main :is(.service-directory-photo-card,.gallery-project,.blog-list-grid > article) { padding:var(--card-image-inset); background:#fff; border:1px solid #dfe4ed; border-radius:24px; overflow:hidden; }
+#main :is(.directory-card-image,.listing-photo,.home-blog-photo) { border-radius:16px; overflow:hidden; }

@@ -1,27 +1,34 @@
 import Image from "next/image";
 import styles from "./ServiceCardImages.module.css";
 import Link from "next/link";
-import { config, siteFeatures } from "@/lib/config";
+import { siteFeatures } from "@/lib/config";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 export function Services() {
-  const data = config.servicesSection;
-  const destinations: Record<string, string> = { seo: "digital-marketing", ads: "web-development", branding: "branding-strategy", apps: "mobile-app-development", content: "video-editing", automation: "ai-development" };
+  const items = [
+    { slug: "seo", name: "SEO & Local Search", tagline: "Be there when customers search.", description: "Technical SEO, useful content, and local visibility that help the right people discover your business." },
+    { slug: "ads", name: "Google & Meta Ads", tagline: "Put your budget behind intent.", description: "Focused paid campaigns, audience targeting, and creative testing built around qualified enquiries." },
+    { slug: "branding", name: "Social Media Marketing", tagline: "Give people a reason to follow.", description: "A clear content strategy, consistent publishing, and community conversations that build recognition." },
+    { slug: "apps", name: "Landing Pages & Conversion", tagline: "Make the next click count.", description: "Focused pages, clearer offers, and simpler enquiry journeys that help turn interest into action." },
+    { slug: "content", name: "Content & Creative", tagline: "Make your message matter.", description: "Campaign copy, social creative, reels, and video that speak to your audience at the right moment." },
+    { slug: "automation", name: "Analytics & Optimisation", tagline: "Know what to improve next.", description: "Conversion tracking and clear reporting that connect campaign decisions to your business goals." },
+  ];
+  const destinations: Record<string, string> = { seo: "digital-marketing", ads: "digital-marketing", branding: "digital-marketing", apps: "web-development", content: "video-editing", automation: "digital-marketing" };
   const images: Record<string, { src: string; alt: string }> = {
-    seo: { src: "/images/home/what-is-seo.webp", alt: "Search engine optimization overview" },
-    ads: { src: "/images/home/ecommerce-website-features.jpg", alt: "E-commerce website features overview" },
-    branding: { src: "/images/home/uiux-user-research.jpg", alt: "User research in UI and UX design" },
-    apps: { src: "/images/home/mobile-apps-development.png", alt: "Mobile apps development on a digital interface" },
-    content: { src: "/images/home/animation-motion-design.png", alt: "Animation and motion design" },
-    automation: { src: "/images/home/ai-scalability.jpg", alt: "AI technology and scalability" },
+    seo: { src: "/images/home/campaign-seo.webp", alt: "Search strategy and keyword planning" },
+    ads: { src: "/images/home/campaign-paid.webp", alt: "Paid campaign creative and advertising strategy" },
+    branding: { src: "/images/home/campaign-social.webp", alt: "Social media content planning" },
+    apps: { src: "/images/inner-premium/web-development.webp", alt: "Responsive website on a laptop and phone" },
+    content: { src: "/images/home/content.webp", alt: "Video and social content production setup" },
+    automation: { src: "/images/home/analytics.webp", alt: "Marketing analytics reports and dashboards" },
   };
   return <Section id="services" className="services section-container batch-section">
-    <div className="section-heading" data-reveal><div><h2 id="services-heading">Our <span>Services</span></h2><p className="section-description">Design, development, and marketing shaped around your goals.<br className="description-break"/>{" "}Find the right support for your next stage of growth.</p></div></div>
-    <div className="services-grid">{data.items.map((service, index) => <div key={service.slug} className={`service-slot service-slot-${index}`} data-reveal><Card className={`service-card service-${service.slug} ${styles.card}`} tilt={false}>
+    <div className="section-heading" data-reveal><div><h2 id="services-heading">Your growth. <span>Our focus.</span></h2><p className="section-description">Find your audience. Earn their attention. Make it easier to choose you.<br className="description-break"/>{" "}Connected marketing services, built around your next business goal.</p></div></div>
+    <div className="services-grid">{items.map((service, index) => <div key={service.slug} className={`service-slot service-slot-${index}`} data-reveal><Card className={`service-card service-${service.slug} ${styles.card}`} tilt={false}>
       <div className={`${styles.image} ${index < 2 ? styles.featured : ""}`}><Image src={images[service.slug].src} alt={images[service.slug].alt} fill sizes={index < 2 ? "(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 60vw" : "(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 25vw"}/></div>
       <div className="service-copy"><h3>{service.name}</h3><p className="service-tagline">{service.tagline}</p><p className="service-description">{service.description}</p></div>
       <Link className="card-action" href={siteFeatures.servicePages ? `/services/${destinations[service.slug] ?? "web-development"}` : "#audit"} aria-label={`${siteFeatures.servicePages ? "Explore" : "Ask about"} ${service.name}`}/>
     </Card></div>)}</div>
-    {siteFeatures.servicePages && <Link className="all-services-link" href="/services">Explore all 10 services</Link>}
+    {siteFeatures.servicePages && <Link className="all-services-link" href="/services">Explore our full range of services</Link>}
   </Section>;
 }

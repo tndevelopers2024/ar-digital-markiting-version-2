@@ -11,19 +11,19 @@ export function About() {
       <h2 id="about-heading">AR Digital<br/><span className={styles.red}>Marketing</span></h2>
     </header>
     <div className={styles.copy}>
-      <p>We bring design, development, and digital marketing together to help your business grow. From your brand identity and website to mobile apps and AI solutions, we create digital experiences built around your goals.</p>
-      <p>We start by understanding your business, your audience, and what you want to achieve. Then we turn that understanding into thoughtful design, reliable technology, and campaigns that help the right people find you.</p>
-      <p>With one connected team, clear communication, and support beyond launch, you always know what’s happening and what comes next.</p>
+      <p>We help businesses get discovered, build trust, and turn online interest into enquiries. Our work brings search, paid advertising, social media, and conversion-focused websites into one connected marketing plan.</p>
+      <p>We start by understanding your business, your audience, and what you want to achieve. Then we choose the channels, messages, and customer journeys that fit those goals—and agree on what success should look like.</p>
+      <p>From campaign planning to ongoing optimisation, you get clear communication, useful reporting, and a team that keeps asking what could work better.</p>
       <Link href="/about" className={styles.link}>More about us <span aria-hidden="true"></span></Link>
     </div>
     </div>
     <figure className={styles.photo}><Image {...homeImages.strategy} alt={homeImages.strategy.alt} fill sizes="(max-width: 767px) 100vw, 45vw"/></figure>
     <div className={styles.highlights}>
       <dl className={styles.overview}>
-        <div><dt>Years in business</dt><dd>8+</dd></div>
-        <div><dt>Projects delivered</dt><dd>500+</dd></div>
-        <div><dt>Happy clients</dt><dd>500+</dd></div>
-        <div><dt>Code &amp; IP ownership</dt><dd>100%</dd></div>
+        <div><dt>Get discovered</dt><dd>Search</dd></div>
+        <div><dt>Reach your audience</dt><dd>Paid ads</dd></div>
+        <div><dt>Build recognition</dt><dd>Social</dd></div>
+        <div><dt>Learn and improve</dt><dd>Insights</dd></div>
       </dl>
 
     </div>

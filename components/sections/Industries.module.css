@@ -18,3 +18,4 @@
 .card { padding:8px; background:#fff; border-radius:24px; }
 .photo { overflow:hidden; border-radius:16px; }
 .copy { padding:20px 16px; }
+.viewport { --gap:var(--card-grid-gap,16px); }

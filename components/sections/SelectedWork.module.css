@@ -31,3 +31,9 @@
 @media(hover:hover) and (prefers-reduced-motion:no-preference) { .open:hover .photo img { transform:scale(1.025); } }
 @media(max-width:767px) { .section { padding-block:64px; } .header { display:block; margin-bottom:28px; } .header > p { margin-top:20px; max-width:440px; } .grid { grid-template-columns:1fr; gap:20px; } .featured .open { display:flex; } .featured .photo { min-height:0; height:auto; aspect-ratio:1.7; } .photo { aspect-ratio:1.7; } .featured .copy,.copy { padding:22px; } .featured h3,.copy h3 { font-size:30px; margin-top:12px; } }
 @media(prefers-reduced-motion:reduce) { .photo img,.arrow { transition:none; } }
+
+.footer small, .note { color:#596779; }
+
+.grid { gap:var(--card-grid-gap,16px); }
+.open { padding:var(--card-image-inset,8px); }
+.photo { border-radius:16px; }
