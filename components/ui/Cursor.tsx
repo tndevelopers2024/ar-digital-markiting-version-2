@@ -10,13 +10,13 @@ type CursorKind = "default" | "hover" | "link" | "text" | "like";
 // Geometry only — colour per kind lives in globals.css under `.cursor-ring[data-kind=...]`.
 // Pressing is a separate flag (see `isPressed`) so a mouse-down never wipes out the
 // hover/like styling the way a combined state machine did.
-const RING: Record<CursorKind, { width: number; height: number; borderRadius: number }> = {
-  default: { width: 28, height: 28, borderRadius: 9999 },
+const RING: Record<CursorKind, { width: number; height: number; borderRadius: string }> = {
+  default: { width: 28, height: 28, borderRadius: "9999px" },
   // Only slightly larger than default: at 40px this swallowed small card buttons.
-  hover: { width: 34, height: 34, borderRadius: 9999 },
-  link: { width: 44, height: 44, borderRadius: 9999 },
-  like: { width: 44, height: 44, borderRadius: 9999 },
-  text: { width: 4, height: 26, borderRadius: 4 },
+  hover: { width: 34, height: 34, borderRadius: "9999px" },
+  link: { width: 44, height: 44, borderRadius: "9999px" },
+  like: { width: 44, height: 44, borderRadius: "9999px" },
+  text: { width: 4, height: 26, borderRadius: "4px" },
 };
 
 // <input> types that are buttons/pickers rather than text entry — those want the ring, not the beam.
