@@ -46,6 +46,7 @@ export function Cursor() {
   const [isPressed, setIsPressed] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   // Read inside listeners without making them a hook dependency — otherwise every visibility
@@ -170,15 +171,25 @@ export function Cursor() {
     };
   }, [isTouchDevice, mouseX, mouseY]);
 
-  // globals.css only hides the native cursor while this class is present, so the user is never
-  // left with no cursor at all — before the first mouse move, or once we bail out on touch.
   useEffect(() => {
-    const active = !isTouchDevice && isVisible;
+    const updateModalState = () => {
+      setIsModalOpen(!!document.querySelector("dialog[open]"));
+    };
+    updateModalState();
+    const observer = new MutationObserver(updateModalState);
+    observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ["open"] });
+    return () => observer.disconnect();
+  }, []);
+
+  // globals.css only hides the native cursor while this class is present, so the user is never
+  // left with no cursor at all — before the first mouse move, on touch, or while a modal dialog is open.
+  useEffect(() => {
+    const active = !isTouchDevice && isVisible && !isModalOpen;
     document.documentElement.classList.toggle("custom-cursor-on", active);
     return () => document.documentElement.classList.remove("custom-cursor-on");
-  }, [isTouchDevice, isVisible]);
+  }, [isTouchDevice, isVisible, isModalOpen]);
 
-  if (isTouchDevice || !isVisible) return null;
+  if (isTouchDevice || !isVisible || isModalOpen) return null;
 
   const ringTransition = prefersReducedMotion
     ? { duration: 0 }

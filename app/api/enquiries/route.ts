@@ -6,7 +6,10 @@ const windows = new Map<string, {count:number;until:number}>();
 function reply(message:string,status:number) {return Response.json({message},{status,headers:{"Cache-Control":"no-store"}});}
 export async function POST(request:Request) {
  const origin=request.headers.get("origin");
- if(origin!==new URL(site.url).origin) return reply("This request could not be verified. Reload the page and try again.",403);
+ const siteOrigin=new URL(site.url).origin;
+ const requestOrigin=new URL(request.url).origin;
+ const isAllowedOrigin=origin===siteOrigin||(process.env.NODE_ENV!=="production"&&origin===requestOrigin);
+ if(!isAllowedOrigin) return reply("This request could not be verified. Reload the page and try again.",403);
  if(!request.headers.get("content-type")?.startsWith("application/json")) return reply("Unsupported request format.",415);
  // A second, shared limit must be configured at the hosting edge before launch.
  const now=Date.now();

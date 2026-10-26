@@ -101,9 +101,6 @@ export function Navbar({ innerPage = false }: { innerPage?: boolean }) {
                   onBlur={event => {
                     if (isServices && !event.currentTarget.contains(event.relatedTarget as Node | null)) setServicesOpen(false);
                   }}
-                  onMouseEnter={() => {
-                    if (isServices) setServicesOpen(true);
-                  }}
                 >
                   <Link
                     href={item.link}
@@ -162,7 +159,6 @@ export function Navbar({ innerPage = false }: { innerPage?: boolean }) {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 12, scale: 0.96 }}
                           transition={{ duration: 0.18, ease: "easeOut" }}
-                          onMouseLeave={() => setServicesOpen(false)}
                           className="absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 w-[680px] rounded-3xl bg-white/95 p-6 shadow-2xl border border-neutral-200/80 backdrop-blur-2xl z-50 pointer-events-auto"
                         >
                           <div className="flex items-center justify-between pb-4 border-b border-neutral-100">
