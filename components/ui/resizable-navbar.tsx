@@ -93,8 +93,8 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
           : "none",
         width: visible ? "68%" : "100%",
         y: visible ? 18 : 0,
-        paddingTop: visible ? "10px" : "18px",
-        paddingBottom: visible ? "10px" : "18px",
+        paddingTop: visible ? "4px" : "8px",
+        paddingBottom: visible ? "4px" : "8px",
       }}
       transition={{
         type: "spring",
@@ -105,7 +105,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: visible ? "min(calc(100% - 32px), 1100px)" : "min(100%, 1800px)",
       }}
       className={cn(
-        "pointer-events-auto relative z-[60] mx-auto hidden w-full max-w-[1800px] flex-row items-center justify-between self-start rounded-full bg-transparent px-8 min-[1200px]:flex transition-colors duration-300",
+        "pointer-events-auto relative z-[60] mx-auto hidden w-full max-w-[1800px] flex-row items-center justify-between self-start rounded-full bg-transparent pl-5 pr-1 min-[1200px]:flex transition-colors duration-300",
         visible && "bg-white/95 border border-black/5",
         className,
       )}
@@ -172,12 +172,12 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
           ? "0 0 24px rgba(34, 42, 53, 0.08), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8)"
           : "none",
         width: visible ? "92%" : "100%",
-        paddingRight: visible ? "16px" : "20px",
-        paddingLeft: visible ? "16px" : "20px",
+        paddingRight: visible ? "10px" : "12px",
+        paddingLeft: visible ? "10px" : "12px",
         borderRadius: visible ? "999px" : "0px",
         y: visible ? 12 : 0,
-        paddingTop: visible ? "10px" : "14px",
-        paddingBottom: visible ? "10px" : "14px",
+        paddingTop: visible ? "4px" : "8px",
+        paddingBottom: visible ? "4px" : "8px",
       }}
       transition={{
         type: "spring",

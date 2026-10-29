@@ -9,6 +9,7 @@ export function Testimonials() {
   const [paused, setPaused] = useState(false);
   return <Section id="testimonials" className={`testimonials section-container ${styles.section}`}>
     <div className={`section-heading ${styles.heading}`}><div><h2 id="testimonials-heading">Client <span>Testimonials</span></h2><p className="section-description">Good work starts with listening and grows through collaboration.<br className="description-break"/>{" "}Explore perspectives on the experience of working with our team.</p></div></div>
+    <p className="page-disclosure">{data.note}</p>
     <div className={styles.viewport} data-paused={paused || undefined} role="region" tabIndex={0} aria-label={data.label}>
       <div className={styles.track}>{[0, 1].map(copy => <div key={copy} className={styles.group} aria-hidden={copy === 1 ? true : undefined}>
         {data.items.map(item => <article key={item.name} className={styles.card}>

@@ -39,8 +39,8 @@ export function Industries() {
         <div className={styles.menuFooter}><p>Don’t see your industry?<br /><Link href="/contact">Let’s find your direction.</Link></p>{!reduced && <button type="button" className={styles.playback} onClick={() => setPaused(value => !value)} aria-label={paused ? "Resume industries" : "Pause industries"}>{paused ? "Play" : "Pause"}</button>}</div>
       </div>
       <div id="industry-feature" className={styles.feature} role="region" aria-label="Featured industry" aria-live={playing ? "off" : "polite"}>
-        <div className={styles.photo} key={item.image}><Image src={item.image} alt={story.alt} fill sizes="(max-width: 800px) 100vw, 58vw" /><span className={styles.photoLabel}>{item.name}</span><span className={styles.photoNumber} aria-hidden="true">{item.number}</span></div>
-        <div className={styles.detail}><p className={styles.eyebrow}>Built around your audience</p><h3>{story.headline}</h3><p className={styles.description}>{story.copy}</p><div className={styles.tags}>{story.focus.map(focus => <span key={focus}>{focus}</span>)}</div><div className={styles.detailFooter}><Link href="/contact">Let’s talk about your business</Link><span>{item.number} / 06</span></div></div>
+        <div className={styles.photo} key={item.image}><Image src={item.image} alt={story.alt} fill sizes="(max-width: 800px) 100vw, 58vw" /><span className={styles.photoLabel}>{item.name}</span></div>
+        <div className={styles.detail}><p className={styles.eyebrow}>Built around your audience</p><h3>{story.headline}</h3><p className={styles.description}>{story.copy}</p><div className={styles.tags}>{story.focus.map(focus => <span key={focus}>{focus}</span>)}</div><div className={styles.detailFooter}><Link href="/contact">Let’s talk about your business</Link></div></div>
       </div>
     </div>
   </Section>;

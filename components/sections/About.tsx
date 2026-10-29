@@ -18,14 +18,5 @@ export function About() {
     </div>
     </div>
     <figure className={styles.photo}><Image {...homeImages.strategy} alt={homeImages.strategy.alt} fill sizes="(max-width: 767px) 100vw, 45vw"/></figure>
-    <div className={styles.highlights}>
-      <dl className={styles.overview}>
-        <div><dt>Get discovered</dt><dd>Search</dd></div>
-        <div><dt>Reach your audience</dt><dd>Paid ads</dd></div>
-        <div><dt>Build recognition</dt><dd>Social</dd></div>
-        <div><dt>Learn and improve</dt><dd>Insights</dd></div>
-      </dl>
-
-    </div>
   </section>;
 }

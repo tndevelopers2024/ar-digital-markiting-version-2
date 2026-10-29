@@ -14,11 +14,9 @@ export const config = {
     { "label": "About", "href": "/about" },
     { "label": "Services", "href": "/services" },
     { "label": "Portfolio", "href": "/portfolio" },
-    { "label": "Campaigns", "href": "/projects" },
     { "label": "Blogs", "href": "/blogs" },
-    { "label": "Contact", "href": "/contact" }
   ],
-  "booking": { "label": "Let’s talk", "href": "/contact" },
+  "booking": { "label": "Contact", "href": "/contact" },
   "hero": {
     "eyebrow": "DESIGN. DEVELOPMENT. DIGITAL GROWTH.",
     "lines": [
@@ -1259,7 +1257,6 @@ export const config = {
       { "label": "About", "href": "/about" },
       { "label": "Services", "href": "/services" },
       { "label": "Portfolio", "href": "/portfolio" },
-      { "label": "Campaigns", "href": "/projects" },
       { "label": "Our team", "href": "/team" },
       { "label": "Blogs", "href": "/blogs" },
       { "label": "Contact", "href": "/contact" },
@@ -1977,14 +1974,6 @@ export const blogGuides = [
  { headings: ["Make your business recognisable", "Keep room for new ideas", "Give your team a simple guide"], checklist:["Are you using the correct logo files?", "Do your colours and fonts match across channels?", "Does your writing sound like the same business?"], takeaway:"Consistency comes from a few clear rules used well. You don’t need every post to look identical.", service:"graphic-design" },
  { headings: ["Connect the numbers to a goal", "Compare with context", "Finish with a decision"], checklist:["Are enquiries or sales being tracked correctly?", "Do you know which leads are relevant?", "Have you agreed what to change next?"], takeaway:"Choose a small set of measures that help you make decisions. More numbers do not automatically mean more understanding.", service:"digital-marketing" },
 ] as const;
-
-export const innerHeroCopy: Record<string, {lines:readonly string[];note:string;chip:string;detail:string}> = {
- "About us": {lines:["Good people.","Clear thinking.","One team."],note:"DESIGN. DEVELOPMENT. DIGITAL GROWTH.",chip:"Connected from the start",detail:"Your business sets the direction"},
- "Campaigns": {lines:["Get seen.","Get chosen.","Keep growing."],note:"SEARCH. SOCIAL. CAMPAIGNS.",chip:"A purpose behind every click",detail:"Clear goals. Useful next steps."},
- "Our team": {lines:["Different minds.","Shared ambition.","Your team."],note:"STRATEGY. CREATIVITY. COLLABORATION.",chip:"Different skills, working together",detail:"From the first idea to delivery"},
- "Contact us": {lines:["Your next idea.","A fresh start.","Let’s talk."],note:"A CONVERSATION IS A GOOD START.",chip:"Start with what you have",detail:"We’ll help you find the next step"},
- "Blogs": {lines:["Fresh ideas.","Simple advice.","Better decisions."],note:"A LITTLE READING. A USEFUL NEXT STEP.",chip:"Made to be useful",detail:"Websites. Brands. Marketing."},
-};
 
 // Homepage-only illustrative imagery; one distinct asset per placement.
 // Do not reuse these assets in other sections or inner pages. These are not client or team photographs.

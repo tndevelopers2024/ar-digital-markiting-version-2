@@ -4,9 +4,7 @@
 .card { position:relative; display:flex; flex-direction:column; padding:30px; border:1px solid #dfe5ef; border-radius:24px; background:#fff; }
 .card:nth-child(2) { background:#faf3f4; border-color:#eedde0; }
 .card:nth-child(3) { background:#edf3fd; border-color:#d9e3f3; }
-.top { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:38px; }
-.number { font-family:var(--font-heading),sans-serif; font-size:58px; line-height:1; font-weight:400; letter-spacing:-3px; color:#6a83aa; }
-.card:nth-child(2) .number { color:#b96b77; }
+.top { display:flex; align-items:center; justify-content:flex-end; gap:16px; margin-bottom:38px; }
 .icon { width:50px; height:50px; border:1px solid #dbe4f2; border-radius:50%; display:grid; place-items:center; background:#fff; color:var(--brand-blue); }
 .card:nth-child(2) .icon { color:var(--brand-red); border-color:#eedde0; }
 .label { font-size:9px; line-height:1.7; letter-spacing:1px; color:#536888; }

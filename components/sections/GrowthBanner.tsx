@@ -12,7 +12,7 @@ export function GrowthBanner() {
         <p className={styles.eyebrow}>YOUR NEXT CHAPTER STARTS HERE</p>
         <h2 id="growth-banner-heading">Big ambitions.<br/><span>Connected marketing.</span></h2>
         <p className={styles.description}>Bring search, social, and paid campaigns together around one goal: growing your business.</p>
-        <Button href="#audit">Let’s plan your growth</Button>
+        <Button href="/contact">Talk to our team</Button>
       </div>
       <div className={styles.artwork}>
       <div className={styles.visual} aria-hidden="true" data-paused={paused || undefined}>

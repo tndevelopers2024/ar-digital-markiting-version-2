@@ -16,7 +16,7 @@ export function HowWeWork() {
   return <section id="process" className={`section-container ${styles.section}`} aria-labelledby="process-heading">
     <header className="section-heading"><div><h2 id="process-heading">How We <span>Work</span></h2><p className="section-description">From understanding your audience to improving your next campaign.<br className="description-break"/>{" "}A clear process that keeps your business goals in view.</p></div></header>
     <div className={styles.grid}>{steps.map(step => <article key={step.number} className={styles.card}>
-      <div className={styles.top}><span className={styles.number}>{step.number}</span><span className={styles.icon}><StepIcon kind={step.icon}/></span></div>
+      <div className={styles.top}><span className={styles.icon}><StepIcon kind={step.icon}/></span></div>
       <span className={styles.label}>{step.label}</span><h3>{step.title}</h3><p className={styles.description}>{step.description}</p><p className={styles.detail}>{step.detail}</p>
     </article>)}</div>
 

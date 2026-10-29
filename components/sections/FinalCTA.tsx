@@ -8,18 +8,17 @@ export function FinalCTA() {
         <p className={styles.eyebrow}>LET’S MAKE YOUR NEXT MOVE COUNT</p>
         <h2 id="contact-heading">Good marketing<br/>starts with<br/><span>a clear direction.</span></h2>
         <p className={styles.description}>You bring the ambition. We’ll help you find the opportunities to turn more visits into meaningful enquiries.</p>
-        <a className={styles.secondary} href="/contact">Have a project in mind? Let’s talk</a>
       </div>
       <div className={styles.audit}>
         <div className={styles.auditTop}><span>YOUR FIRST STEP</span></div>
-        <h3>A fresh look at<br/>your website.</h3>
-        <p>Discover what’s working—and where there’s room to grow.</p>
+        <h3>Let’s talk about<br/>your goals.</h3>
+        <p>Tell us what you want to achieve and we’ll help you find a clear next step.</p>
         <ul>
-          <li><span aria-hidden="true">01</span><div><strong>Get discovered</strong><p>Search visibility and useful content.</p></div></li>
-          <li><span aria-hidden="true">02</span><div><strong>Make every visit count</strong><p>Clearer pages and simpler enquiry journeys.</p></div></li>
-          <li><span aria-hidden="true">03</span><div><strong>Know your next move</strong><p>Practical opportunities to focus on.</p></div></li>
+          <li><div><strong>Get discovered</strong><p>Search visibility and useful content.</p></div></li>
+          <li><div><strong>Make every visit count</strong><p>Clearer pages and simpler enquiry journeys.</p></div></li>
+          <li><div><strong>Know your next move</strong><p>Practical opportunities to focus on.</p></div></li>
         </ul>
-        <Button href="#audit" className={styles.cta}>Get your free website audit</Button>
+        <Button href="/contact" className={styles.cta}>Talk to our team</Button>
         <p className={styles.note}>Your business. Your goals. A clearer starting point.</p>
       </div>
     </div>

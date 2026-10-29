@@ -5,4 +5,4 @@ export function ServiceHeading({title,children}:{label?:string;title:string;chil
 }
 export function WindowBar({title}:{title:string}) { return <div className="demo-window-bar"><span className="demo-dots"><i/><i/><i/></span><span>{title}</span></div>; }
 export function MiniLabel({children}:{children:ReactNode}) { return <span className="demo-label">{children}</span>; }
-export function Journey({items}:{items:readonly {title:string;copy:string}[]}) { return <ol className="bespoke-journey">{items.map((item,i)=><li key={item.title}><span>0{i+1}</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></li>)}</ol>; }
+export function Journey({items}:{items:readonly {title:string;copy:string}[]}) { return <ol className="bespoke-journey">{items.map((item)=><li key={item.title}><div><h3>{item.title}</h3><p>{item.copy}</p></div></li>)}</ol>; }

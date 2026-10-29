@@ -98,7 +98,7 @@ export default function TermsAndConditionsPage() {
           </p>
           {termsSections.map(section => (
             <section id={section.id} key={section.id}>
-              <span>{section.number}</span>
+
               <h2>
                 <BrandHeading text={section.title} />
               </h2>

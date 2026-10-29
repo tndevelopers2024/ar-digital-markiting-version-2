@@ -5,7 +5,7 @@ const require = createRequire(import.meta.url);
 createRequire(require.resolve('next/package.json'))('@next/env').loadEnvConfig(process.cwd());
 const base = process.env.TEST_BASE_URL || 'http://localhost:3002';
 const manifest = JSON.parse(await fs.readFile('.next/prerender-manifest.json', 'utf8'));
-const routes = Object.keys(manifest.routes).filter(path => !path.startsWith('/_') && !/\.(xml|txt|svg|ico|png)$/.test(path) && path !== '/opengraph-image');
+const routes = Object.keys(manifest.routes).filter(path => !path.startsWith('/_') && !/\.(xml|txt|svg|ico|png)$/.test(path) && path !== '/opengraph-image' && !/^\/projects(?:\/|$)/.test(path));
 const assets = new Set();
 const pages = new Map();
 for (const path of routes) {
@@ -44,7 +44,12 @@ for (const [path, html] of pages) {
 }
 for (const path of otherLinks) assert.equal((await fetch(base + path)).status, 200, `Internal link: ${path}`);
 for (const asset of assets) assert.equal((await fetch(base + asset, { method: 'HEAD' })).status, 200, asset);
-for (const path of ['/missing-launch-check-page', '/services/missing-service', '/blogs/missing-post', '/projects/missing-campaign']) {
+for (const path of ['/projects', '/projects/seo', '/projects/missing-campaign']) {
+  const response = await fetch(base + path, { redirect: 'manual' });
+  assert.equal(response.status, 308, path);
+  assert.equal(response.headers.get('location'), '/services/digital-marketing', path);
+}
+for (const path of ['/missing-launch-check-page', '/services/missing-service', '/blogs/missing-post']) {
   const response = await fetch(base + path);
   assert.equal(response.status, 404, path);
   assert.match(await response.text(), /Let’s get you back/);

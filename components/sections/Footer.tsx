@@ -3,8 +3,9 @@ import { config, servicePages } from "@/lib/config";
 import { Brand } from "@/components/ui/Brand";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
+import { BackToTop } from "@/components/ui/BackToTop";
 
-export function Footer({ innerPage = false, showInvitation = true }: { innerPage?: boolean; showInvitation?: boolean }) {
+export function Footer({ showInvitation = true }: { innerPage?: boolean; showInvitation?: boolean }) {
   const data = config.footer;
   const groups = [
     { label: data.buildLabel, services: servicePages.slice(0, 6) },
@@ -26,7 +27,7 @@ export function Footer({ innerPage = false, showInvitation = true }: { innerPage
         <nav aria-label="Footer company"><h3>{data.companyLabel}</h3><ul><li><Link href="/">Home</Link></li>{data.links.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul></nav>
         {groups.map(group => <nav key={group.label} aria-label={`Footer ${group.label}`}><h3>{group.label}</h3><ul>{group.services.map(service => <li key={service.slug}><Link href={`/services/${service.slug}`}>{service.name}</Link></li>)}</ul></nav>)}
       </div>
-      <div className="footer-bottom"><p>© {new Date().getFullYear()} {data.copyright} All rights reserved.</p><Link href={innerPage ? "#main" : "#hero"}>{data.back}</Link></div>
+      <div className="footer-bottom"><p>© {new Date().getFullYear()} {data.copyright} All rights reserved.</p><BackToTop/></div>
       <p className="footer-wordmark" aria-hidden="true">{config.wordmark}</p><p className="footer-location">{data.location}</p>
     </div>
   </footer>;

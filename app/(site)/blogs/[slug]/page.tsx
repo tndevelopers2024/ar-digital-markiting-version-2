@@ -33,7 +33,7 @@ export default async function BlogPage({ params }: Props) {
       <article className="blog-article">
         <p className="article-byline">By {config.name} · {post.minutes.toLowerCase()}</p>
         {post.imageKey && <PageImage imageKey={post.imageKey} compact />}
-        {post.paragraphs.map((paragraph, i) => <section id={`part-${i + 1}`} key={guide.headings[i]}><span>0{i + 1}</span><h2>{guide.headings[i]}</h2><p>{paragraph}</p></section>)}
+        {post.paragraphs.map((paragraph, i) => <section id={`part-${i + 1}`} key={guide.headings[i]}><h2>{guide.headings[i]}</h2><p>{paragraph}</p></section>)}
         <section className="article-checklist"><h2>A quick check for your business</h2><ul>{guide.checklist.map(item => <li key={item}>{item}</li>)}</ul></section>
         <section className="article-takeaway"><span>ONE THING TO TAKE AWAY</span><p>{guide.takeaway}</p><Link href={`/services/${guide.service}`}>Explore the related service</Link></section>
         <Link className="inner-text-link" href="/blogs">← Back to all blogs</Link>

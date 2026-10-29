@@ -29,7 +29,7 @@ export function SelectedWork() {
       <button type="button" className={styles.open} onClick={() => setSelected(project)}>
         <div className={styles.photo}><Image {...photos[project.theme]} alt={photos[project.theme].alt} fill sizes={index === 0 ? "(max-width: 767px) 100vw, 50vw" : "(max-width: 767px) 100vw, 42vw"}/><span className={styles.platform}>{project.visual.platform}</span><span className={styles.photoNote}>Campaign concept</span></div>
         <div className={styles.copy}>
-          <div className={styles.topline}><span>{String(index + 1).padStart(2, "0")} / {project.visual.platform}</span><span className={styles.arrow} aria-hidden="true"></span></div>
+          <div className={styles.topline}><span>{project.visual.platform}</span><span className={styles.arrow} aria-hidden="true"></span></div>
           <h3>{project.artCopy}</h3>
           <p>{project.title}</p>
           <div className={styles.tags}>{project.services.map(service => <span key={service}>{service}</span>)}</div>

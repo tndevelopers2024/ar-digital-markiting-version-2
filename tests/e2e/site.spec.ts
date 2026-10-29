@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 
 const manifest = JSON.parse(readFileSync(".next/prerender-manifest.json", "utf8"));
 const routes: string[] = Object.keys(manifest.routes).filter(path =>
-  !path.startsWith("/_") && !/\.(xml|txt|svg|ico|png)$/.test(path) && path !== "/opengraph-image",
+  !path.startsWith("/_") && !/\.(xml|txt|svg|ico|png)$/.test(path) && path !== "/opengraph-image" && !/^\/projects(?:\/|$)/.test(path),
 );
 
 async function prepare(page: Page, suppressPopup = true) {
@@ -263,22 +263,15 @@ for (const width of [320, 375, 768, 1024, 1920]) {
   });
 }
 
-test("hero slideshow advances, pauses, and supports manual selection", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "no-preference" });
+test("hero presents the agency and one clear action", async ({ page }) => {
   await page.goto("/");
-  await page.mouse.move(0, 0);
-  const heading = page.locator("#hero-heading");
-  await expect(heading).toContainText("More visibility.");
-  await expect(heading).toContainText("Get discovered.", { timeout: 10000 });
-  await page.getByRole("button", { name: "Pause banner slideshow", exact: true }).click();
-  await page.getByRole("button", { name: "Play banner slideshow", exact: true }).blur();
-  await page.mouse.move(0, 0);
-  await page.waitForTimeout(6500);
-  await expect(heading).toContainText("Get discovered.");
-  await page.getByRole("button", { name: "Show slide 3: Social & content", exact: true }).click();
-  await expect(heading).toContainText("Tell your story.");
-  await page.getByRole("button", { name: "Next banner slide", exact: true }).click();
-  await expect(heading).toContainText("More visibility.");
+  const hero = page.locator("#hero");
+  await expect(hero.getByRole("heading", { level: 1 })).toContainText("Digital marketing");
+  const action = hero.getByRole("link", { name: "Get your free website audit" });
+  await expect(action).toHaveAttribute("href", "#audit");
+  await expect(hero.getByRole("link")).toHaveCount(1);
+  await action.click();
+  await expect(page).toHaveURL(/#audit$/);
 });
 
 

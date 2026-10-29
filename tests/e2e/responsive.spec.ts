@@ -6,7 +6,7 @@ const sizes = [
   ["small-laptop",1280,720], ["laptop",1366,768], ["macbook",1440,900], ["large-macbook",1728,1117],
   ["full-hd",1920,1080], ["qhd",2560,1440], ["4k",3840,2160],
 ] as const;
-const routes = ["/", "/about", "/services", "/services/web-development", "/services/ecommerce-development", "/portfolio", "/projects", "/blogs", "/blogs/write-a-clear-campaign-brief", "/contact"];
+const routes = ["/", "/about", "/services", "/services/web-development", "/services/ecommerce-development", "/portfolio", "/services/digital-marketing", "/blogs", "/blogs/write-a-clear-campaign-brief", "/contact"];
 for (const [name,width,height] of sizes) {
   test(`viewport matrix ${name} ${width}x${height}`, async ({ page, browserName }, testInfo) => {
     test.skip(!["chromium-desktop", "webkit-desktop"].includes(testInfo.project.name));
@@ -40,17 +40,21 @@ for (const [name,width,height] of sizes) {
 }
 
 for (const width of [640, 1024, 1199, 1200, 1280, 1366]) {
-  test(`slides and sticky navigation at ${width}px`, async ({ page }, testInfo) => {
+  test(`hero and sticky navigation at ${width}px`, async ({ page }, testInfo) => {
     test.skip(!["chromium-desktop", "webkit-desktop"].includes(testInfo.project.name));
     await page.setViewportSize({ width, height: 720 });
     await page.addInitScript(() => sessionStorage.setItem("project-popup-seen", "1"));
     await page.goto("/");
-    for (let slide = 1; slide <= 3; slide++) {
-      await page.getByRole("button", { name: new RegExp(`^Show slide ${slide}:`) }).click();
-      const hero = await page.locator("#hero").boundingBox();
-      if (width >= 1200) expect(hero!.height).toBeLessThanOrEqual(721);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width + 1);
-    }
+    const hero = page.locator("#hero");
+    const heroBounds = await hero.boundingBox();
+    if (width >= 1200) expect(heroBounds!.height).toBeLessThanOrEqual(721);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width + 1);
+    const action = hero.getByRole("link", { name: "Get your free website audit" });
+    await expect(action).toBeVisible();
+    await expect(action).toHaveAttribute("href", "#audit");
+    const actionBounds = await action.boundingBox();
+    expect(actionBounds!.x).toBeGreaterThanOrEqual(0);
+    expect(actionBounds!.x + actionBounds!.width).toBeLessThanOrEqual(width);
     await page.locator("#services").scrollIntoViewIfNeeded();
     const mobileToggle = page.getByRole("button", { name: "Open menu", exact: true });
     if (width < 1200) {
