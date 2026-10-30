@@ -25,6 +25,25 @@ export default function ContactPage() {
       <aside className={styles.intro}>
         <div><p className={styles.eyebrow}>Good work starts with a conversation</p><h2><BrandHeading text="Your ambition. Our starting point." /></h2><p className={styles.copy}>You bring the business knowledge. We bring design, technology, and marketing together around your goals. A few details are all we need to get started.</p><div className={styles.tags}><span>Build something new</span><span>Improve what’s there</span><span>Reach more people</span></div></div>
         <figure className={styles.photo}><Image src="/images/inner-updated/contact-workspace.jpg" alt="Person working on a laptop at a marble desk" width={1536} height={1024} sizes="(max-width: 600px) 100vw, 40vw" /><figcaption><strong>Small beginnings.<br />Big possibilities.</strong><span>DESIGN · BUILD · GROW</span></figcaption></figure>
+        <div className={styles.contactDetails}>
+          <div className={styles.contactCard}>
+            <span>{site.address.label}</span>
+            <strong>{site.address.line1}</strong>
+            <p>{site.address.line2}, {site.address.city}</p>
+          </div>
+          <div className={styles.contactCard}>
+            <span>{site.phones.dubai.label}</span>
+            <a href={site.phones.dubai.href}>{site.phones.dubai.display}</a>
+          </div>
+          <div className={styles.contactCard}>
+            <span>{site.phones.india.label}</span>
+            <a href={site.phones.india.href}>{site.phones.india.display}</a>
+          </div>
+          <div className={styles.contactCard}>
+            <span>{site.whatsapp.label}</span>
+            <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">{site.whatsapp.display}</a>
+          </div>
+        </div>
         {site.email && <p className={styles.email}>Prefer to put it in an email?<a href={`mailto:${site.email}`}>{site.email}</a></p>}
       </aside>
       <div className={styles.formShell}><ContactForm /></div>

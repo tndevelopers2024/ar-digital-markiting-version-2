@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { config, servicePages } from "@/lib/config";
+import { site } from "@/lib/site";
 import { Brand } from "@/components/ui/Brand";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
@@ -21,6 +22,12 @@ export function Footer({ showInvitation = true }: { innerPage?: boolean; showInv
         <div className="footer-brand">
           <Link href="/" aria-label={`${config.name} home`}><Brand/></Link>
           <p>{data.message}</p>
+          <address className="footer-contact-details">
+            <p><strong>{site.address.label}:</strong> {site.address.line1}, {site.address.line2}, {site.address.city}</p>
+            <p><strong>{site.phones.dubai.label}:</strong> <a href={site.phones.dubai.href}>{site.phones.dubai.display}</a></p>
+            <p><strong>{site.phones.india.label}:</strong> <a href={site.phones.india.href}>{site.phones.india.display}</a></p>
+            <p><strong>{site.whatsapp.label}:</strong> <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">{site.whatsapp.display}</a></p>
+          </address>
           <Link href="/contact" className="footer-contact-link">Contact our team</Link>
           <SocialLinks/>
         </div>

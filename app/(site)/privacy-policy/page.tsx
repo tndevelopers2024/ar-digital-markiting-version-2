@@ -123,6 +123,13 @@ export default function PrivacyPolicyPage() {
               If you would like to review, update, or delete the details you have shared with{" "}
               {config.name}, or if you have a question about this policy, please get in touch with our team.
             </p>
+            <p>
+              <strong>{site.address.label}:</strong> {site.address.full}
+              <br />
+              <strong>{site.phones.dubai.label}:</strong> <a href={site.phones.dubai.href}>{site.phones.dubai.display}</a> ·{" "}
+              <strong>{site.phones.india.label}:</strong> <a href={site.phones.india.href}>{site.phones.india.display}</a> ·{" "}
+              <strong>{site.whatsapp.label}:</strong> <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">{site.whatsapp.display}</a>
+            </p>
             {site.email ? (
               <a href={`mailto:${site.email}`}>Email {site.email}</a>
             ) : (

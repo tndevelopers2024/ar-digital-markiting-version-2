@@ -1,7 +1,8 @@
+import { site } from "@/lib/site";
 import styles from "./WhatsAppFab.module.css";
 
 export function WhatsAppFab() {
-  const configured = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() ?? "";
+  const configured = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || site.whatsapp.display;
   const number = configured.replace(/[\s()+-]/g, "");
   const ready = /^[1-9]\d{7,14}$/.test(number);
   const content = <>

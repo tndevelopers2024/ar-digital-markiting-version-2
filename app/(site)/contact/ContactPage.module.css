@@ -13,6 +13,13 @@
 .photo span { color:#68768a; font-size:11px; letter-spacing:.08em; }
 .email { margin-top:24px; color:#596779; font-size:14px; line-height:1.8; }
 .email a { display:block; color:#285eae; text-decoration:underline; text-underline-offset:4px; overflow-wrap:anywhere; }
+.contactDetails { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:24px; }
+.contactCard { padding:16px 18px; border:1px solid #dce5f2; border-radius:20px; background:#f8faff; display:flex; flex-direction:column; gap:4px; }
+.contactCard:first-child { grid-column:1 / -1; background:#ffffff; }
+.contactCard span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#52647d; }
+.contactCard strong { font-size:16px; color:#27364b; line-height:1.4; }
+.contactCard p { margin:0; font-size:14px; color:#596779; line-height:1.6; }
+.contactCard a { font-size:15px; color:#285eae; text-decoration:underline; text-underline-offset:4px; }
 .formShell { position:relative; min-width:0; padding:8px; border:1px solid #dce5f2; border-radius:32px; background:linear-gradient(145deg,#edf4ff,#fff5f6); }
 .formShell :global(.contact-form) { border:0!important; border-radius:24px!important; box-shadow:none!important; }
 .formShell :global(.contact-form h2) { margin-bottom:12px; }
@@ -39,5 +46,5 @@
 .questions details[open] summary::after { content:"−"; }
 .questions summary:focus-visible { outline:2px solid #285eae; outline-offset:5px; border-radius:4px; }
 .questions details p { color:#596779; font-size:15px; line-height:1.85; margin:0 26px 24px 0; }
-@media(max-width:900px) { .layout { grid-template-columns:1fr; } .intro { display:grid; grid-template-columns:1fr 1fr; gap:28px; } .email { grid-column:1/-1; margin:0; } .photo { align-self:start; } .photo figcaption { display:block; } .photo span { display:block; margin-top:8px; } .faq { gap:32px; } .step { padding:24px; } }
-@media(max-width:600px) { .intro,.steps,.faq { grid-template-columns:1fr; } .intro { gap:8px; } .photo { margin-top:12px; } .photo img { aspect-ratio:1.9; } .heading { display:block; } .process { padding-block:48px 40px; } .step { padding:24px; } .number { margin-bottom:18px; } .faq { gap:12px; padding-top:32px; } .formShell { padding:6px; border-radius:28px; } .email { margin-top:16px; } }
+@media(max-width:900px) { .layout { grid-template-columns:1fr; } .intro { display:grid; grid-template-columns:1fr 1fr; gap:28px; } .contactDetails,.email { grid-column:1/-1; margin-top:0; } .photo { align-self:start; } .photo figcaption { display:block; } .photo span { display:block; margin-top:8px; } .faq { gap:32px; } .step { padding:24px; } }
+@media(max-width:600px) { .intro,.steps,.faq,.contactDetails { grid-template-columns:1fr; } .intro { gap:8px; } .photo { margin-top:12px; } .photo img { aspect-ratio:1.9; } .heading { display:block; } .process { padding-block:48px 40px; } .step { padding:24px; } .number { margin-bottom:18px; } .faq { gap:12px; padding-top:32px; } .formShell { padding:6px; border-radius:28px; } .contactDetails,.email { margin-top:16px; } }

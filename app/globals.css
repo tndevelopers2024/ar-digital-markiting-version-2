@@ -1191,6 +1191,10 @@ main { position: relative; z-index: 2; overflow: clip; }
 .footer-directory { display:grid; grid-template-columns:1.15fr .65fr 1fr 1fr; gap:32px; }
 .footer-directory > * { min-width:0; }
 .footer-directory .footer-brand > p { max-width:300px; font-size:15px; line-height:1.7; margin-top:16px; }
+.footer-contact-details { font-style:normal; margin-top:16px; display:grid; gap:6px; font-size:13px; line-height:1.6; color:var(--muted); max-width:320px; }
+.footer-contact-details p { margin:0; }
+.footer-contact-details strong { color:var(--foreground); font-weight:600; }
+.footer-contact-details a { color:var(--brand-blue); text-decoration:underline; text-underline-offset:3px; }
 .footer-directory h3 { font-size:16px; margin-bottom:12px; }
 .footer-directory nav ul { display:grid; grid-template-columns:1fr; gap:2px; }
 .footer-directory nav a { font-size:14px; line-height:1.6; padding-block:5px; }

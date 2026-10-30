@@ -1,5 +1,6 @@
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { site } from "@/lib/site";
 import styles from "./FinalCTA.module.css";
 export function FinalCTA() {
   return <Section id="contact" className={`section-container ${styles.section}`}>
@@ -8,6 +9,12 @@ export function FinalCTA() {
         <p className={styles.eyebrow}>LET’S MAKE YOUR NEXT MOVE COUNT</p>
         <h2 id="contact-heading">Good marketing<br/>starts with<br/><span>a clear direction.</span></h2>
         <p className={styles.description}>You bring the ambition. We’ll help you find the opportunities to turn more visits into meaningful enquiries.</p>
+        <div className={styles.contactMeta}>
+          <p><strong>{site.address.label}:</strong> {site.address.full}</p>
+          <p><strong>{site.phones.dubai.label}:</strong> <a href={site.phones.dubai.href}>{site.phones.dubai.display}</a></p>
+          <p><strong>{site.phones.india.label}:</strong> <a href={site.phones.india.href}>{site.phones.india.display}</a></p>
+          <p><strong>{site.whatsapp.label}:</strong> <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer">{site.whatsapp.display}</a></p>
+        </div>
       </div>
       <div className={styles.audit}>
         <div className={styles.auditTop}><span>YOUR FIRST STEP</span></div>
